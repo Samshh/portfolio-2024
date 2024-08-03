@@ -7,7 +7,6 @@ export function scrollToSection(ref: React.RefObject<HTMLDivElement>) {
   if (ref.current) {
     gsap.to(window, {
       duration: 2,
-      delay: 0.5,
       scrollTo: {
         y: ref.current,
         offsetY: 70,

@@ -7,15 +7,16 @@ import LoadingPage from "./LoadingPage";
 import { ReactLenis, useLenis } from "lenis/react";
 import { Icon } from "@iconify/react";
 import { scrollToSection } from "@/animations/scrollToSection";
-import {
-  Drawer,
-  DrawerContent,
-  DrawerTrigger,
-  DrawerClose,
-} from "@/components/ui/drawer";
 import { useGradientText } from "@/animations/useGradientText";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+
 
 export default function App() {
   const text2 = useGradientText();
@@ -62,47 +63,19 @@ export default function App() {
                 <span ref={text2}>samshh</span>.
               </h6>
             </button>
-            <Drawer>
-              <DrawerTrigger>
+            <DropdownMenu>
+              <DropdownMenuTrigger>
                 <Icon
                   icon="gg:menu-right-alt"
                   className="text-3xl cursor-pointer"
                 />
-              </DrawerTrigger>
-              <DrawerContent>
-                <div className="flex flex-col flex-grow py-[2rem] gap-8 justify-center items-start">
-                  <DrawerClose>
-                    <h5
-                      className="font-normal cursor-pointer transition-transform duration-300 ease-in-out hover:translate-x-4"
-                      onClick={() => scrollToSection(aboutMeRef)}
-                    >
-                      About me
-                    </h5>
-                  </DrawerClose>
-                  <DrawerClose>
-                    <h5
-                      className="font-normal cursor-pointer transition-transform duration-300 ease-in-out hover:translate-x-4"
-                      onClick={() => scrollToSection(projectsRef)}
-                    >
-                      Projects
-                    </h5>
-                  </DrawerClose>
-                  <DrawerClose>
-                    <h5
-                      className="font-normal cursor-pointer transition-transform duration-300 ease-in-out hover:translate-x-4"
-                      onClick={() => scrollToSection(contactRef)}
-                    >
-                      Contact
-                    </h5>
-                  </DrawerClose>
-                  <DrawerClose>
-                    <h5 className="font-normal cursor-pointer text-[#E50914] transition-transform duration-300 ease-in-out hover:translate-x-4">
-                      back
-                    </h5>
-                  </DrawerClose>
-                </div>
-              </DrawerContent>
-            </Drawer>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent>
+              <DropdownMenuItem><div onClick={() => scrollToSection(aboutMeRef)}>About me</div></DropdownMenuItem>
+              <DropdownMenuItem><div onClick={() => scrollToSection(projectsRef)}>Projects</div></DropdownMenuItem>
+              <DropdownMenuItem><div onClick={() => scrollToSection(contactRef)}>Contact</div></DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </div>
         </nav>
         <div ref={heroRef}>
