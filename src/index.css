@@ -4,23 +4,14 @@
 
 @layer base {
   body {
-    @apply bg-black;
-    @apply text-white;
-    @apply font-['JetBrains_Mono'];
-    @apply antialiased;
-    @apply flex flex-col items-center justify-center;
+    @apply bg-black text-white font-['JetBrains_Mono'] antialiased flex flex-col items-center justify-center;
   }
 
   body::-webkit-scrollbar {
     display: none;
   }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
+  h1, h2, h3, h4, h5, h6 {
     @apply font-extrabold font-['JetBrains_Mono'];
   }
 
@@ -29,12 +20,7 @@
     min-height: 100vh;
   }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
+  h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
   }
 
