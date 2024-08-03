@@ -145,7 +145,7 @@ export default function ProjectsFold() {
           <div>
             <img
               className="rounded-md"
-              src="src/assets/portfolioold.png"
+              src="/assets/portfolioold.png"
               alt=""
             />
           </div>
