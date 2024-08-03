@@ -70,7 +70,7 @@ export default function HeroFold({ projectsRef, contactRef }: HeroFoldProps) {
           </h3>
         </div>
         <div className="flex justify-start items-center gap-[1rem]">
-          <Button ref={buttonsRef1} variant={"special"} onClick={() => scrollToSection(projectsRef)}>
+          <Button ref={buttonsRef1} onClick={() => scrollToSection(projectsRef)}>
             <h6 className="font-light">projects</h6>
           </Button>
           <Button ref={buttonsRef2} onClick={() => scrollToSection(contactRef)}>

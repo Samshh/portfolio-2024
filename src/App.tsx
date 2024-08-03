@@ -15,6 +15,8 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu"
 
 
@@ -71,6 +73,8 @@ export default function App() {
                 />
               </DropdownMenuTrigger>
               <DropdownMenuContent>
+              <DropdownMenuLabel>Navigation</DropdownMenuLabel>
+              <DropdownMenuSeparator></DropdownMenuSeparator>
               <DropdownMenuItem><div onClick={() => scrollToSection(aboutMeRef)}>About me</div></DropdownMenuItem>
               <DropdownMenuItem><div onClick={() => scrollToSection(projectsRef)}>Projects</div></DropdownMenuItem>
               <DropdownMenuItem><div onClick={() => scrollToSection(contactRef)}>Contact</div></DropdownMenuItem>
