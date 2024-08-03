@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import AboutMeFold from "./folds/aboutme-fold";
 import HeroFold from "./folds/hero-fold";
 import ProjectsFold from "./folds/projects-fold";
@@ -17,9 +17,10 @@ import { useGradientText } from "@/animations/useGradientText";
 export default function App() {
   const text = useGradientText();
   const lenis = useLenis(({ scroll }) => {
-    // called every scroll
+    console.log(scroll);
   });
 
+  console.log(lenis);
   const heroRef = useRef<HTMLDivElement>(null);
   const aboutMeRef = useRef<HTMLDivElement>(null);
   const projectsRef = useRef<HTMLDivElement>(null);
