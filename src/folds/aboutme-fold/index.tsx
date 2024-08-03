@@ -22,7 +22,7 @@ export default function AboutMeFold() {
           end: "center center",
           scrub: false,
           markers: false,
-          toggleActions: "play none none none",
+          toggleActions: "play none none reverse",
         },
         strokeDashoffset: 0,
         duration: 4,
@@ -35,7 +35,7 @@ export default function AboutMeFold() {
   return (
     <main
       ref={trigger}
-      className="h-screen flex flex-col md:flex-row items-center px-4 py-4 max-w-[1280px] mx-auto gap-[1rem]"
+      className="h-screen flex flex-col md:flex-row items-center px-4 py-4 max-w-[1280px] mx-auto gap-[3rem]"
     >
       <div className="md:w-1/2 flex flex-col gap-[1rem]">
         <div>

@@ -15,4 +15,4 @@ export function scrollToSection(ref: React.RefObject<HTMLDivElement>) {
       ease: "expo.inOut",
     });
   }
-};
+}
