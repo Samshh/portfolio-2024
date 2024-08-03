@@ -8,9 +8,37 @@ gsap.registerPlugin(ScrollTrigger);
 export default function AboutMeFold() {
   const trigger = useRef(null);
   const text = useGradientText();
+  const textRef = useRef(null);
+  const textRef2 = useRef(null);
 
   useGSAP(() => {
     const paths = document.querySelectorAll<SVGPathElement>(".logo path");
+
+    const words = textRef.current.querySelectorAll("span");
+    gsap.fromTo(
+      words,
+      { y: 50, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        stagger: 0.04,
+        duration: 2,
+        ease: "expo.inOut",
+        scrollTrigger: {
+          trigger: trigger.current,
+          start: "top center",
+          end: "bottom center",
+          toggleActions: "play none none reverse",
+        },
+        onComplete: () => {
+          gsap.to(textRef2.current, {
+            opacity: 1,
+            duration: 1,
+            ease: "expo.inOut",
+          });
+        },
+      }
+    );
 
     paths.forEach((path) => {
       const length = path.getTotalLength();
@@ -33,6 +61,9 @@ export default function AboutMeFold() {
     });
   });
 
+  const text2 =
+    "An avid programming polyglot with a deep appreciation for various coding languages, an enthusiastic anime aficionado who enjoys exploring different genres, and a passionate musician.";
+
   return (
     <main
       ref={trigger}
@@ -45,16 +76,21 @@ export default function AboutMeFold() {
           </h3>
         </div>
         <div>
-          <h6 className="font-light">
-            An avid programming polyglot with a deep appreciation for various
-            coding languages, an enthusiastic anime aficionado who enjoys
-            exploring different genres, and a passionate musician.
+          <h6 className="font-light flex flex-wrap" ref={textRef}>
+            {text2.split(" ").map((word, index) => (
+              <span
+                key={index}
+                style={{ display: "inline-block", marginRight: "12px" }}
+              >
+                {word}
+              </span>
+            ))}
           </h6>
         </div>
-        <div>
-          <p className="text-[15px] text-[#333333]">
+        <div ref={textRef2} className="opacity-0">
+          <h6 className="text-[#333333]">
             "The simplest things are often the most profound."
-          </p>
+          </h6>
         </div>
       </div>
       <div className="md:w-1/2 flex flex-col items-center justify-center">

@@ -82,7 +82,7 @@ export default function ProjectsFold() {
 
     changeDescription(
       ".project6",
-      "My first website :)",
+      "My first website :) a stepping stone to where I am now.",
       "TicketLy is a Discord bot that helps server owners to manage their server by creating tickets for their members, this promotes a more organized and efficient way of handling server-related issues."
     );
 
@@ -199,6 +199,10 @@ export default function ProjectsFold() {
           </p>
           <h4>TicketLy</h4>
           <div className="flex flex-wrap gap-[1rem] justify-start items-start">
+            <div className="border-2 border-white px-[1rem] py-[0.25rem] rounded-full flex justify-center items-center gap-[0.5rem]">
+              <Icon className="text-[20px]" icon="logos:python" />
+              <p className="font-thin text-[15px]">Python</p>
+            </div>
             <div className="border-2 border-white px-[1rem] py-[0.25rem] rounded-full flex justify-center items-center gap-[0.5rem]">
               <Icon className="text-[18px]" icon="logos:discord-icon" />
               <p className="font-thin text-[15px]">Discord API</p>
