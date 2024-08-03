@@ -1,14 +1,15 @@
 import { useGradientText } from "@/animations/useGradientText";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function AboutMeFold() {
   const trigger = useRef(null);
   const text = useGradientText();
 
-  useEffect(() => {
+  useGSAP(() => {
     const paths = document.querySelectorAll<SVGPathElement>(".logo path");
 
     paths.forEach((path) => {
@@ -30,7 +31,7 @@ export default function AboutMeFold() {
         ease: "power1.inOut",
       });
     });
-  }, []);
+  });
 
   return (
     <main

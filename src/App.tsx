@@ -30,8 +30,16 @@ export default function App() {
   const contactRef = useRef<HTMLDivElement>(null);
   const navRef = useRef<HTMLDivElement>(null);
   const loading = useRef<HTMLDivElement>(null);
+  const icon = useRef(null);
 
   useGSAP(() => {
+    const tlIcon = gsap.timeline({ repeat: -1, defaults: { ease: "linear" }, repeatDelay: 0 });
+
+    tlIcon.to(icon.current, {
+      duration: 3,
+      rotate: 360,
+    });
+
     gsap.to(loading.current, {
       duration: 1,
       autoAlpha: 0,
@@ -43,7 +51,7 @@ export default function App() {
       duration: 1,
       y: -50,
       ease: "power2.out",
-      delay: 2
+      delay: 2.25
     });
 
   });
@@ -51,17 +59,17 @@ export default function App() {
   return (
     <main>
       <ReactLenis root>
-        <div ref={loading} className="fixed inset-0 flex flex-col justify-center items-center bg-black z-50 gap-[0.25rem]">
+        <div ref={loading} className="fixed inset-0 flex flex-col justify-center items-center bg-black z-50 gap-[0.25rem] select-none">
           <h3 className="text-white">
             <span ref={text}>folio</span>{" "}
             <span className="font-thin">2024</span>
           </h3>
           <div className="flex justify-center items-center gap-[0.5rem]">
             <p className="text-[15px] font-thin">powered by</p>
-            <Icon icon="logos:react" className="text-[20px]" />
+            <Icon ref={icon} icon="logos:react" className="text-[20px]" />
           </div>
         </div>
-        <nav ref={navRef} className="sticky top-0 bg-black z-40">
+        <nav ref={navRef} className="sticky top-0 bg-black z-40 select-none">
           <div className="flex justify-between items-center px-4 py-4 z-50 max-w-[1280px] min-w-[320px] mx-auto">
             <button>
               <h6 onClick={() => scrollToSection(heroRef)}>
