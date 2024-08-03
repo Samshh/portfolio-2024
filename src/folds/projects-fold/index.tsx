@@ -4,11 +4,14 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { animateOpacity } from "@/animations/animateOpacity";
+import { Icon } from "@iconify/react";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function ProjectsFold() {
   const text = useGradientText();
+  const maintained = useGradientText();
+  const maintained2 = useGradientText();
   const start = useRef(null);
   const end = useRef(null);
   const pin = useRef(null);
@@ -107,50 +110,123 @@ export default function ProjectsFold() {
           <div>
             <img className="rounded-md" src="/assets/chainmed.png" alt="" />
           </div>
-          <p className="text-[15px]">Blockchain & Website Development</p>
+          <p className="text-[15px]">
+            Blockchain & Website Development -{" "}
+            <span className="text-[#F4B400]">in development</span>
+          </p>
           <h4>ChainMed</h4>
+          <div className="flex flex-wrap gap-[1rem] justify-start items-start">
+            <div className="border-2 border-white px-[1rem] py-[0.25rem] rounded-full flex justify-center items-center gap-[0.5rem]">
+              <Icon className="text-[18px]" icon="logos:react" />
+              <p className="font-thin text-[15px]">React</p>
+            </div>
+            <div className="border-2 border-white px-[1rem] py-[0.25rem] rounded-full flex justify-center items-center gap-[0.5rem]">
+              <Icon className="text-[22px]" icon="devicon:tailwindcss" />
+              <p className="font-thin text-[15px]">Tailwind</p>
+            </div>
+          </div>
         </div>
         <div className="project2 flex flex-col items-start gap-[0.5rem] py-[2rem]">
           <div>
             <img className="rounded-md" src="/assets/gdscproj.webp" alt="" />
           </div>
-          <p className="text-[15px]">Website Development</p>
+          <p className="text-[15px]">
+            Website Development -{" "}
+            <span className="text-[#F4B400]">in development</span>
+          </p>
           <h4>GDSC Landing Page</h4>
+          <div className="flex flex-wrap gap-[1rem] justify-start items-start">
+            <div className="border-2 border-white px-[1rem] py-[0.25rem] rounded-full flex justify-center items-center gap-[0.5rem]">
+              <Icon className="text-[18px]" icon="logos:react" />
+              <p className="font-thin text-[15px]">React</p>
+            </div>
+            <div className="border-2 border-white px-[1rem] py-[0.25rem] rounded-full flex justify-center items-center gap-[0.5rem]">
+              <Icon className="text-[22px]" icon="devicon:tailwindcss" />
+              <p className="font-thin text-[15px]">Tailwind</p>
+            </div>
+            <div className="border-2 border-white px-[1rem] py-[0.25rem] rounded-full flex justify-center items-center gap-[0.5rem]">
+              <Icon className="text-[20px]" icon="logos:greensock-icon" />
+              <p className="font-thin text-[15px]">GSAP</p>
+            </div>
+          </div>
         </div>
         <div className="project3 flex flex-col items-start gap-[0.5rem] py-[2rem]">
           <div>
             <img className="rounded-md" src="/assets/ocpproj.webp" alt="" />
           </div>
-          <p className="text-[15px]">Website Development</p>
+          <p className="text-[15px]">
+            Website Development - <span ref={maintained}>maintained</span>
+          </p>
           <h4>OCP Mapúa MCM</h4>
+          <div className="flex flex-wrap gap-[1rem] justify-start items-start">
+            <div className="border-2 border-white px-[1rem] py-[0.25rem] rounded-full flex justify-center items-center gap-[0.5rem]">
+              <Icon className="text-[18px]" icon="logos:react" />
+              <p className="font-thin text-[15px]">React</p>
+            </div>
+            <div className="border-2 border-white px-[1rem] py-[0.25rem] rounded-full flex justify-center items-center gap-[0.5rem]">
+              <Icon className="text-[20px]" icon="logos:sass" />
+              <p className="font-thin text-[15px]">Sass</p>
+            </div>
+          </div>
         </div>
-        <div className="project4 flex flex-col items-start gap-[0.5rem] py-[2rem]">
+        <div className="project4 flex flex-col items-start gap-[0.25rem] py-[2rem]">
           <div>
             <img className="rounded-md" src="/assets/sAproj.webp" alt="" />
           </div>
-          <p className="text-[15px]">Library & Website Development</p>
+          <p className="text-[15px]">
+            Library & Website Development -{" "}
+            <span ref={maintained2}>maintained</span>
+          </p>
           <h4>sAminate</h4>
+          <div className="flex flex-wrap gap-[1rem] justify-start items-start">
+            <div className="border-2 border-white px-[1rem] py-[0.25rem] rounded-full flex justify-center items-center gap-[0.5rem]">
+              <Icon className="text-[17px]" icon="logos:vue" />
+              <p className="font-thin text-[15px]">Vue</p>
+            </div>
+            <div className="border-2 border-white px-[1rem] py-[0.25rem] rounded-full flex justify-center items-center gap-[0.5rem]">
+              <Icon className="text-[20px]" icon="logos:greensock-icon" />
+              <p className="font-thin text-[15px]">GSAP</p>
+            </div>
+          </div>
         </div>
         <div className="project5 flex flex-col items-start gap-[0.5rem] py-[2rem]">
           <div>
             <img className="rounded-md" src="/assets/discproj.webp" alt="" />
           </div>
-          <p className="text-[15px]">Discord Bot Development</p>
+          <p className="text-[15px]">
+            Discord Bot Development -{" "}
+            <span className="text-[#e50914]">deprecated</span>
+          </p>
           <h4>TicketLy</h4>
+          <div className="flex flex-wrap gap-[1rem] justify-start items-start">
+            <div className="border-2 border-white px-[1rem] py-[0.25rem] rounded-full flex justify-center items-center gap-[0.5rem]">
+              <Icon className="text-[18px]" icon="logos:discord-icon" />
+              <p className="font-thin text-[15px]">Discord API</p>
+            </div>
+          </div>
         </div>
         <div
           ref={end}
           className="project6 flex flex-col items-start gap-[0.5rem] py-[2rem]"
         >
           <div>
-            <img
-              className="rounded-md"
-              src="/assets/portfolioold.png"
-              alt=""
-            />
+            <img className="rounded-md" src="/assets/portfolioold.png" alt="" />
           </div>
-          <p className="text-[15px]">Website Development</p>
+          <p className="text-[15px]">
+            Website Development -{" "}
+            <span className="text-[#e50914]">deprecated</span>
+          </p>
           <h4>Old Portfolio</h4>
+          <div className="flex flex-wrap gap-[1rem] justify-start items-start">
+            <div className="border-2 border-white px-[1rem] py-[0.25rem] rounded-full flex justify-center items-center gap-[0.5rem]">
+              <Icon className="text-[17px]" icon="logos:vue" />
+              <p className="font-thin text-[15px]">Vue</p>
+            </div>
+            <div className="border-2 border-white px-[1rem] py-[0.25rem] rounded-full flex justify-center items-center gap-[0.5rem]">
+              <Icon className="text-[20px]" icon="logos:greensock-icon" />
+              <p className="font-thin text-[15px]">GSAP</p>
+            </div>
+          </div>
         </div>
       </div>
     </main>

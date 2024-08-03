@@ -66,14 +66,36 @@ export default function AboutMeFold() {
           viewBox="0 0 2481.000000 3507.000000"
           preserveAspectRatio="xMidYMid meet"
         >
+          <defs>
+            <linearGradient
+              id="gradientStroke"
+              x1="0%"
+              y1="0%"
+              x2="100%"
+              y2="100%"
+            >
+              <stop
+                offset="0%"
+                style={{ stopColor: "#79e7ff", stopOpacity: 1 }}
+              />
+              <stop
+                offset="50%"
+                style={{ stopColor: "#238cc8", stopOpacity: 1 }}
+              />
+              <stop
+                offset="100%"
+                style={{ stopColor: "#47c5e1", stopOpacity: 1 }}
+              />
+            </linearGradient>
+          </defs>
           <g
             transform="translate(0.000000,3507.000000) scale(0.100000,-0.100000)"
             fill="none"
-            stroke="#ffffff"
+            stroke="url(#gradientStroke)"
             stroke-width="65"
           >
             <path
-              stroke="#ffffff"
+              stroke="url(#gradientStroke)"
               d="M11940 31034 c-19 -2 -84 -9 -144 -14 -348 -34 -913 -184 -1276 -340
 -416 -178 -800 -397 -1142 -652 -261 -194 -469 -368 -627 -525 -90 -89 -168
 -160 -173 -157 -4 3 -11 -3 -15 -13 -8 -22 -115 -145 -120 -139 -3 2 -15 51
