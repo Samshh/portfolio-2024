@@ -102,7 +102,7 @@ export default function ProjectsFold() {
       <div className="w-full flex flex-col gap-[1rem]">
         <div
           ref={start}
-          className="project1 flex flex-col items-start gap-[0.5rem]"
+          className="project1 flex flex-col items-start gap-[0.5rem] py-[2rem]"
         >
           <div>
             <img className="rounded-md" src="/assets/chainmed.png" alt="" />
@@ -110,28 +110,28 @@ export default function ProjectsFold() {
           <p className="text-[15px]">Blockchain & Website Development</p>
           <h4>ChainMed</h4>
         </div>
-        <div className="project2 flex flex-col items-start gap-[0.5rem]">
+        <div className="project2 flex flex-col items-start gap-[0.5rem] py-[2rem]">
           <div>
             <img className="rounded-md" src="/assets/gdscproj.webp" alt="" />
           </div>
           <p className="text-[15px]">Website Development</p>
           <h4>GDSC Landing Page</h4>
         </div>
-        <div className="project3 flex flex-col items-start gap-[0.5rem]">
+        <div className="project3 flex flex-col items-start gap-[0.5rem] py-[2rem]">
           <div>
             <img className="rounded-md" src="/assets/ocpproj.webp" alt="" />
           </div>
           <p className="text-[15px]">Website Development</p>
           <h4>OCP Mapúa MCM</h4>
         </div>
-        <div className="project4 flex flex-col items-start gap-[0.5rem]">
+        <div className="project4 flex flex-col items-start gap-[0.5rem] py-[2rem]">
           <div>
             <img className="rounded-md" src="/assets/sAproj.webp" alt="" />
           </div>
           <p className="text-[15px]">Library & Website Development</p>
           <h4>sAminate</h4>
         </div>
-        <div className="project5 flex flex-col items-start gap-[0.5rem]">
+        <div className="project5 flex flex-col items-start gap-[0.5rem] py-[2rem]">
           <div>
             <img className="rounded-md" src="/assets/discproj.webp" alt="" />
           </div>
@@ -140,7 +140,7 @@ export default function ProjectsFold() {
         </div>
         <div
           ref={end}
-          className="project6 flex flex-col items-start gap-[0.5rem]"
+          className="project6 flex flex-col items-start gap-[0.5rem] py-[2rem]"
         >
           <div>
             <img

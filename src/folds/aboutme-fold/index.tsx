@@ -35,7 +35,7 @@ export default function AboutMeFold() {
   return (
     <main
       ref={trigger}
-      className="h-screen flex flex-col md:flex-row items-center px-4 py-4 max-w-[1280px] mx-auto gap-[3rem]"
+      className="h-full flex flex-col md:h-screen md:flex-row items-center px-4 py-4 max-w-[1280px] mx-auto"
     >
       <div className="md:w-1/2 flex flex-col gap-[1rem]">
         <div>
