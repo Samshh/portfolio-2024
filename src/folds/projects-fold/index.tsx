@@ -95,7 +95,7 @@ export default function ProjectsFold() {
   });
 
   return (
-    <main className="md:grid md:grid-cols-2 h-auto min-h-[720px] flex flex-col md:flex-row items-start justify-center px-4 py-4 max-w-[1280px] mx-auto gap-[3rem]">
+    <main className="md:grid md:grid-cols-2 h-auto min-h-[720px] flex flex-col md:flex-row items-start justify-center px-4 py-4 max-w-[1280px] mx-auto gap-[3rem] select-none">
       <div ref={pin} className="w-full h-auto flex flex-col gap-[1rem]">
         <h3>
           <span ref={text}>Projects</span>(6).
@@ -116,11 +116,11 @@ export default function ProjectsFold() {
           </p>
           <h4>ChainMed</h4>
           <div className="flex flex-wrap gap-[1rem] justify-start items-start">
-            <div className="border-2 border-white px-[1rem] py-[0.25rem] rounded-full flex justify-center items-center gap-[0.5rem]">
+            <div className="border border-[#333333] px-[1rem] py-[0.25rem] rounded-full flex justify-center items-center gap-[0.5rem]">
               <Icon className="text-[18px]" icon="logos:react" />
               <p className="font-thin text-[15px]">React</p>
             </div>
-            <div className="border-2 border-white px-[1rem] py-[0.25rem] rounded-full flex justify-center items-center gap-[0.5rem]">
+            <div className="border border-[#333333] px-[1rem] py-[0.25rem] rounded-full flex justify-center items-center gap-[0.5rem]">
               <Icon className="text-[22px]" icon="devicon:tailwindcss" />
               <p className="font-thin text-[15px]">Tailwind</p>
             </div>
@@ -136,15 +136,15 @@ export default function ProjectsFold() {
           </p>
           <h4>GDSC Landing Page</h4>
           <div className="flex flex-wrap gap-[1rem] justify-start items-start">
-            <div className="border-2 border-white px-[1rem] py-[0.25rem] rounded-full flex justify-center items-center gap-[0.5rem]">
+            <div className="border border-[#333333] px-[1rem] py-[0.25rem] rounded-full flex justify-center items-center gap-[0.5rem]">
               <Icon className="text-[18px]" icon="logos:react" />
               <p className="font-thin text-[15px]">React</p>
             </div>
-            <div className="border-2 border-white px-[1rem] py-[0.25rem] rounded-full flex justify-center items-center gap-[0.5rem]">
+            <div className="border border-[#333333] px-[1rem] py-[0.25rem] rounded-full flex justify-center items-center gap-[0.5rem]">
               <Icon className="text-[22px]" icon="devicon:tailwindcss" />
               <p className="font-thin text-[15px]">Tailwind</p>
             </div>
-            <div className="border-2 border-white px-[1rem] py-[0.25rem] rounded-full flex justify-center items-center gap-[0.5rem]">
+            <div className="border border-[#333333] px-[1rem] py-[0.25rem] rounded-full flex justify-center items-center gap-[0.5rem]">
               <Icon className="text-[20px]" icon="logos:greensock-icon" />
               <p className="font-thin text-[15px]">GSAP</p>
             </div>
@@ -159,11 +159,11 @@ export default function ProjectsFold() {
           </p>
           <h4>OCP Mapúa MCM</h4>
           <div className="flex flex-wrap gap-[1rem] justify-start items-start">
-            <div className="border-2 border-white px-[1rem] py-[0.25rem] rounded-full flex justify-center items-center gap-[0.5rem]">
+            <div className="border border-[#333333] px-[1rem] py-[0.25rem] rounded-full flex justify-center items-center gap-[0.5rem]">
               <Icon className="text-[18px]" icon="logos:react" />
               <p className="font-thin text-[15px]">React</p>
             </div>
-            <div className="border-2 border-white px-[1rem] py-[0.25rem] rounded-full flex justify-center items-center gap-[0.5rem]">
+            <div className="border border-[#333333] px-[1rem] py-[0.25rem] rounded-full flex justify-center items-center gap-[0.5rem]">
               <Icon className="text-[20px]" icon="logos:sass" />
               <p className="font-thin text-[15px]">Sass</p>
             </div>
@@ -179,11 +179,11 @@ export default function ProjectsFold() {
           </p>
           <h4>sAminate</h4>
           <div className="flex flex-wrap gap-[1rem] justify-start items-start">
-            <div className="border-2 border-white px-[1rem] py-[0.25rem] rounded-full flex justify-center items-center gap-[0.5rem]">
+            <div className="border border-[#333333] px-[1rem] py-[0.25rem] rounded-full flex justify-center items-center gap-[0.5rem]">
               <Icon className="text-[17px]" icon="logos:vue" />
               <p className="font-thin text-[15px]">Vue</p>
             </div>
-            <div className="border-2 border-white px-[1rem] py-[0.25rem] rounded-full flex justify-center items-center gap-[0.5rem]">
+            <div className="border border-[#333333] px-[1rem] py-[0.25rem] rounded-full flex justify-center items-center gap-[0.5rem]">
               <Icon className="text-[20px]" icon="logos:greensock-icon" />
               <p className="font-thin text-[15px]">GSAP</p>
             </div>
@@ -199,11 +199,11 @@ export default function ProjectsFold() {
           </p>
           <h4>TicketLy</h4>
           <div className="flex flex-wrap gap-[1rem] justify-start items-start">
-            <div className="border-2 border-white px-[1rem] py-[0.25rem] rounded-full flex justify-center items-center gap-[0.5rem]">
+            <div className="border border-[#333333] px-[1rem] py-[0.25rem] rounded-full flex justify-center items-center gap-[0.5rem]">
               <Icon className="text-[20px]" icon="logos:python" />
               <p className="font-thin text-[15px]">Python</p>
             </div>
-            <div className="border-2 border-white px-[1rem] py-[0.25rem] rounded-full flex justify-center items-center gap-[0.5rem]">
+            <div className="border border-[#333333] px-[1rem] py-[0.25rem] rounded-full flex justify-center items-center gap-[0.5rem]">
               <Icon className="text-[18px]" icon="logos:discord-icon" />
               <p className="font-thin text-[15px]">Discord API</p>
             </div>
@@ -222,11 +222,11 @@ export default function ProjectsFold() {
           </p>
           <h4>Old Portfolio</h4>
           <div className="flex flex-wrap gap-[1rem] justify-start items-start">
-            <div className="border-2 border-white px-[1rem] py-[0.25rem] rounded-full flex justify-center items-center gap-[0.5rem]">
+            <div className="border border-[#333333] px-[1rem] py-[0.25rem] rounded-full flex justify-center items-center gap-[0.5rem]">
               <Icon className="text-[17px]" icon="logos:vue" />
               <p className="font-thin text-[15px]">Vue</p>
             </div>
-            <div className="border-2 border-white px-[1rem] py-[0.25rem] rounded-full flex justify-center items-center gap-[0.5rem]">
+            <div className="border border-[#333333] px-[1rem] py-[0.25rem] rounded-full flex justify-center items-center gap-[0.5rem]">
               <Icon className="text-[20px]" icon="logos:greensock-icon" />
               <p className="font-thin text-[15px]">GSAP</p>
             </div>
