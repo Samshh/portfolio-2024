@@ -105,35 +105,35 @@ export default function ProjectsFold() {
           className="project1 flex flex-col items-start gap-[0.5rem]"
         >
           <div>
-            <img className="rounded-md" src="src/assets/chainmed.png" alt="" />
+            <img className="rounded-md" src="/assets/chainmed.png" alt="" />
           </div>
           <p className="text-[15px]">Blockchain & Website Development</p>
           <h4>ChainMed</h4>
         </div>
         <div className="project2 flex flex-col items-start gap-[0.5rem]">
           <div>
-            <img className="rounded-md" src="src/assets/gdscproj.webp" alt="" />
+            <img className="rounded-md" src="/assets/gdscproj.webp" alt="" />
           </div>
           <p className="text-[15px]">Website Development</p>
           <h4>GDSC Landing Page</h4>
         </div>
         <div className="project3 flex flex-col items-start gap-[0.5rem]">
           <div>
-            <img className="rounded-md" src="src/assets/ocpproj.webp" alt="" />
+            <img className="rounded-md" src="/assets/ocpproj.webp" alt="" />
           </div>
           <p className="text-[15px]">Website Development</p>
           <h4>OCP Mapúa MCM</h4>
         </div>
         <div className="project4 flex flex-col items-start gap-[0.5rem]">
           <div>
-            <img className="rounded-md" src="src/assets/sAproj.webp" alt="" />
+            <img className="rounded-md" src="/assets/sAproj.webp" alt="" />
           </div>
           <p className="text-[15px]">Library & Website Development</p>
           <h4>sAminate</h4>
         </div>
         <div className="project5 flex flex-col items-start gap-[0.5rem]">
           <div>
-            <img className="rounded-md" src="src/assets/discproj.webp" alt="" />
+            <img className="rounded-md" src="/assets/discproj.webp" alt="" />
           </div>
           <p className="text-[15px]">Discord Bot Development</p>
           <h4>TicketLy</h4>
