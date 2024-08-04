@@ -174,7 +174,7 @@ export default function App() {
           className="flex items-center justify-center mx-auto max-w-[1280px] mb-[16px]"
           ref={contactRef}
         >
-          <div className="text-[15px] font-normal flex gap-[0.5rem] justify-center items-center">
+          <div className="text-[15px] font-normal flex gap-[0.5rem] justify-center items-center select-none">
             <Icon icon="ph:copyright-light" className="text-[20px]" />
             <p ref={text2}>samshh</p>
             <p>2024</p>
