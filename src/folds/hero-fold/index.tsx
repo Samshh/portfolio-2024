@@ -18,7 +18,6 @@ export default function HeroFold({ projectsRef, contactRef }: HeroFoldProps) {
   const headlineRef = useRef(null);
   const buttonsRef1 = useRef(null);
   const buttonsRef2 = useRef(null);
-
   useGSAP(() => {
     const tl = gsap.timeline({ defaults: { ease: "power3.out" }, delay: 3 });
 
@@ -69,7 +68,6 @@ export default function HeroFold({ projectsRef, contactRef }: HeroFoldProps) {
           <h3 ref={headlineRef}>
             A <span ref={textRef1}>front-end</span> developer specializing in{" "}
             <span ref={textRef2}>React</span>
-            <span className="text-[#333333]">.</span>
           </h3>
         </div>
         <div className="flex justify-start items-center gap-[1rem]">

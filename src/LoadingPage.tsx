@@ -30,7 +30,7 @@ export default function LoadingPage() {
         </div>
       </div>
       <div className="flex justify-center items-center gap-[0.5rem]">
-        <p className="text-[15px] font-thin">powered by</p>
+        <p className="text-[15px] font-thin">made with</p>
         <div ref={spinIcon}>
           <Icon icon="logos:react" className="text-[20px]" />
         </div>

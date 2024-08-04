@@ -93,7 +93,7 @@ export default function AboutMeFold() {
         </div>
         <div ref={textRef2} className="opacity-0">
           <h6 className="text-[#333333]">
-            "The simplest things are often the most profound."
+            "React is life"
           </h6>
         </div>
       </div>
@@ -132,11 +132,11 @@ export default function AboutMeFold() {
           <g
             transform="translate(0.000000,3507.000000) scale(0.100000,-0.100000)"
             fill="none"
-            stroke="#333333"
+            stroke="#e7e7e7"
             stroke-width="65"
           >
             <path
-              stroke="#333333"
+              stroke="#e7e7e7"
               d="M11940 31034 c-19 -2 -84 -9 -144 -14 -348 -34 -913 -184 -1276 -340
 -416 -178 -800 -397 -1142 -652 -261 -194 -469 -368 -627 -525 -90 -89 -168
 -160 -173 -157 -4 3 -11 -3 -15 -13 -8 -22 -115 -145 -120 -139 -3 2 -15 51
