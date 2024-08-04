@@ -102,12 +102,12 @@ export default function ProjectsFold() {
           <span ref={text}>Projects</span>(6)
           <span className="text-[#333333]">.</span>
         </h3>
-        <h6 className="font-light">{description}</h6>
+        <h6 className="font-light bg-[#0c0c0c] border border-[#333333] p-[15px] rounded-lg">{description}</h6>
       </div>
       <div className="w-full flex flex-col gap-[1rem]">
         <div
           ref={start}
-          className="project1 flex flex-col items-start gap-[0.5rem] py-[2rem] relative group"
+          className="project1 flex flex-col items-start gap-[0.5rem] bg-[#0c0c0c] border border-[#333333] p-[15px] rounded-lg relative group"
         >
           <a
             href="https://github.com/Samshh/Hackathon-Project---The-Launchpad"
@@ -144,7 +144,7 @@ export default function ProjectsFold() {
             </div>
           </div>
         </div>
-        <div className="project2 flex flex-col items-start gap-[0.5rem] py-[2rem] relative group">
+        <div className="project2 flex flex-col items-start gap-[0.5rem] bg-[#0c0c0c] border border-[#333333] p-[15px] rounded-lg relative group">
           <a
             href="https://github.com/gdsc-mmcm"
             target="_blank"
@@ -184,7 +184,7 @@ export default function ProjectsFold() {
             </div>
           </div>
         </div>
-        <div className="project3 flex flex-col items-start gap-[0.5rem] py-[2rem] relative group">
+        <div className="project3 flex flex-col items-start gap-[0.5rem] bg-[#0c0c0c] border border-[#333333] p-[15px] rounded-lg relative group">
           <a
             href="https://mmcm-ocp.com/"
             target="_blank"
@@ -219,7 +219,7 @@ export default function ProjectsFold() {
             </div>
           </div>
         </div>
-        <div className="project4 flex flex-col items-start gap-[0.25rem] py-[2rem] relative group">
+        <div className="project4 flex flex-col items-start gap-[0.25rem] bg-[#0c0c0c] border border-[#333333] p-[15px] rounded-lg relative group">
           <a
             href="https://www.npmjs.com/package/saminate"
             target="_blank"
@@ -255,7 +255,7 @@ export default function ProjectsFold() {
             </div>
           </div>
         </div>
-        <div className="project5 flex flex-col items-start gap-[0.5rem] py-[2rem] relative group">
+        <div className="project5 flex flex-col items-start gap-[0.5rem] bg-[#0c0c0c] border border-[#333333] p-[15px] rounded-lg relative group">
           <a
             href="https://github.com/Samshh/DiscordBot"
             target="_blank"
@@ -294,7 +294,7 @@ export default function ProjectsFold() {
         </div>
         <div
           ref={end}
-          className="project6 flex flex-col items-start gap-[0.5rem] py-[2rem] relative group"
+          className="project6 flex flex-col items-start gap-[0.5rem] bg-[#0c0c0c] border border-[#333333] p-[15px] rounded-lg relative group"
         >
           <a
             href="https://samshh.netlify.app/"

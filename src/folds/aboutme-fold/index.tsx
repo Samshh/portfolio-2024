@@ -8,6 +8,8 @@ gsap.registerPlugin(ScrollTrigger);
 export default function AboutMeFold() {
   const trigger = useRef<HTMLElement>(null);
   const text = useGradientText();
+  const qt1 = useGradientText();
+  const qt2 = useGradientText();
   const textRef = useRef<HTMLHeadingElement>(null);
   const textRef2 = useRef<HTMLDivElement>(null);
 
@@ -19,11 +21,10 @@ export default function AboutMeFold() {
 
     gsap.fromTo(
       words,
-      { y: 50, opacity: 0 },
+      { opacity: 0 },
       {
-        y: 0,
         opacity: 1,
-        stagger: 0.04,
+        stagger: 0.10,
         duration: 2,
         ease: "expo.inOut",
         scrollTrigger: {
@@ -79,7 +80,7 @@ export default function AboutMeFold() {
             <span ref={text}>About me</span>.
           </h3>
         </div>
-        <div>
+        <div className="bg-[#0c0c0c] border border-[#333333] p-[15px] rounded-lg">
           <h6 className="font-light flex flex-wrap" ref={textRef}>
             {text2.split(" ").map((word, index) => (
               <span
@@ -93,7 +94,7 @@ export default function AboutMeFold() {
         </div>
         <div ref={textRef2} className="opacity-0">
           <h6 className="italic font-light">
-            生き甲斐 - "A reason for being"
+            生き甲斐 - <span ref={qt1}>"</span>A reason for being<span ref={qt2}>"</span>
           </h6>
         </div>
       </div>
