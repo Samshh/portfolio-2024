@@ -23,6 +23,7 @@ import * as THREE from "three";
 
 export default function App() {
   const text = useGradientText();
+  const text2 = useGradientText();
 
   const heroRef = useRef<HTMLDivElement>(null);
   const aboutMeRef = useRef<HTMLDivElement>(null);
@@ -111,10 +112,7 @@ export default function App() {
         <div ref={loading}>
           <LoadingPage />
         </div>
-        <nav
-          ref={navRef}
-          className="sticky top-0 z-40 select-none"
-        >
+        <nav ref={navRef} className="sticky top-0 z-40 select-none">
           <div className="flex justify-between items-center px-4 py-4 z-50 max-w-[1280px] min-w-[320px] mx-auto">
             <Button>
               <h6
@@ -162,8 +160,15 @@ export default function App() {
         <div ref={projectsRef}>
           <ProjectsFold />
         </div>
-        <div ref={contactRef}>
+        <div>
           <ContactFold />
+        </div>
+        <div className="flex items-center justify-center mx-auto max-w-[1280px] mb-[16px]" ref={contactRef}>
+          <div className="text-[15px] font-normal flex gap-[0.5rem] justify-center items-center">
+            <Icon icon="ph:copyright-light" className="text-[20px]" />
+            <p ref={text2}>samshh</p>
+            <p>2024</p>
+          </div>
         </div>
       </ReactLenis>
     </main>

@@ -5,6 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { animateOpacity } from "@/animations/animateOpacity";
 import { Icon } from "@iconify/react";
+import { Button } from "@/components/ui/button";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -121,7 +122,9 @@ export default function ProjectsFold() {
                 alt=""
               />
               <span className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <Icon className="text-2xl" icon="tabler:external-link" />
+                <Button>
+                  <Icon className="text-2xl" icon="tabler:external-link" />
+                </Button>
               </span>
             </div>
           </a>
@@ -155,7 +158,9 @@ export default function ProjectsFold() {
                 alt=""
               />
               <span className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <Icon className="text-2xl" icon="tabler:external-link" />
+                <Button>
+                  <Icon className="text-2xl" icon="tabler:external-link" />
+                </Button>
               </span>
             </div>
           </a>
@@ -193,7 +198,9 @@ export default function ProjectsFold() {
                 alt=""
               />
               <span className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <Icon className="text-2xl" icon="tabler:external-link" />
+                <Button>
+                  <Icon className="text-2xl" icon="tabler:external-link" />
+                </Button>
               </span>
             </div>
           </a>
@@ -226,7 +233,9 @@ export default function ProjectsFold() {
                 alt=""
               />
               <span className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <Icon className="text-2xl" icon="tabler:external-link" />
+                <Button>
+                  <Icon className="text-2xl" icon="tabler:external-link" />
+                </Button>
               </span>
             </div>
           </a>
@@ -260,7 +269,9 @@ export default function ProjectsFold() {
                 alt=""
               />
               <span className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <Icon className="text-2xl" icon="tabler:external-link" />
+                <Button>
+                  <Icon className="text-2xl" icon="tabler:external-link" />
+                </Button>
               </span>
             </div>
           </a>
@@ -298,7 +309,9 @@ export default function ProjectsFold() {
                 alt=""
               />
               <span className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <Icon className="text-2xl" icon="tabler:external-link" />
+                <Button>
+                  <Icon className="text-2xl" icon="tabler:external-link" />
+                </Button>
               </span>
             </div>
           </a>
