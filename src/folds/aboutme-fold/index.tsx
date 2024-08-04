@@ -92,8 +92,8 @@ export default function AboutMeFold() {
           </h6>
         </div>
         <div ref={textRef2} className="opacity-0">
-          <h6 className="text-[#333333]">
-            "React is life"
+          <h6 className="italic font-light">
+            生き甲斐 - "A reason for being"
           </h6>
         </div>
       </div>
