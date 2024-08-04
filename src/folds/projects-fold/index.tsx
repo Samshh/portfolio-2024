@@ -98,18 +98,33 @@ export default function ProjectsFold() {
     <main className="md:grid md:grid-cols-2 h-auto min-h-[720px] flex flex-col md:flex-row items-start justify-center px-4 py-4 max-w-[1280px] mx-auto gap-[3rem] select-none">
       <div ref={pin} className="w-full h-auto flex flex-col gap-[1rem]">
         <h3>
-          <span ref={text}>Projects</span>(6).
+          <span ref={text}>Projects</span>
+          <span className="text-[#333333]">(6).</span>
         </h3>
         <h6 className="font-light">{description}</h6>
       </div>
       <div className="w-full flex flex-col gap-[1rem]">
         <div
           ref={start}
-          className="project1 flex flex-col items-start gap-[0.5rem] py-[2rem]"
+          className="project1 flex flex-col items-start gap-[0.5rem] py-[2rem] relative group"
         >
-          <div>
-            <img className="rounded-md" src="/assets/chainmed.png" alt="" />
-          </div>
+          <a
+            href="https://github.com/Samshh/Hackathon-Project---The-Launchpad"
+            target="_blank"
+            title="sAminate Docs"
+            rel="noopener"
+          >
+            <div className="relative cursor-pointer">
+              <img
+                className="rounded-md opacity-100 group-hover:opacity-30 transition-opacity duration-300"
+                src="/assets/chainmed.png"
+                alt=""
+              />
+              <span className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <Icon className="text-2xl" icon="tabler:external-link" />
+              </span>
+            </div>
+          </a>
           <p className="text-[15px]">
             Blockchain & Website Development -{" "}
             <span className="text-[#F4B400]">in development</span>
@@ -126,15 +141,29 @@ export default function ProjectsFold() {
             </div>
           </div>
         </div>
-        <div className="project2 flex flex-col items-start gap-[0.5rem] py-[2rem]">
-          <div>
-            <img className="rounded-md" src="/assets/gdscproj.webp" alt="" />
-          </div>
+        <div className="project2 flex flex-col items-start gap-[0.5rem] py-[2rem] relative group">
+          <a
+            href="https://github.com/gdsc-mmcm"
+            target="_blank"
+            title="GDSC MMCM GitHub"
+            rel="noopener"
+          >
+            <div className="relative cursor-pointer">
+              <img
+                className="rounded-md opacity-100 group-hover:opacity-30 transition-opacity duration-300"
+                src="/assets/gdscproj.webp"
+                alt=""
+              />
+              <span className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <Icon className="text-2xl" icon="tabler:external-link" />
+              </span>
+            </div>
+          </a>
           <p className="text-[15px]">
             Website Development -{" "}
             <span className="text-[#F4B400]">in development</span>
           </p>
-          <h4>GDSC Landing Page</h4>
+          <h4>GDSC MMCM</h4>
           <div className="flex flex-wrap gap-[1rem] justify-start items-start">
             <div className="border border-[#333333] px-[1rem] py-[0.25rem] rounded-full flex justify-center items-center gap-[0.5rem]">
               <Icon className="text-[18px]" icon="logos:react" />
@@ -150,10 +179,24 @@ export default function ProjectsFold() {
             </div>
           </div>
         </div>
-        <div className="project3 flex flex-col items-start gap-[0.5rem] py-[2rem]">
-          <div>
-            <img className="rounded-md" src="/assets/ocpproj.webp" alt="" />
-          </div>
+        <div className="project3 flex flex-col items-start gap-[0.5rem] py-[2rem] relative group">
+          <a
+            href="https://mmcm-ocp.com/"
+            target="_blank"
+            title="OCP Website"
+            rel="noopener"
+          >
+            <div className="relative cursor-pointer">
+              <img
+                className="rounded-md opacity-100 group-hover:opacity-30 transition-opacity duration-300"
+                src="/assets/ocpproj.webp"
+                alt=""
+              />
+              <span className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <Icon className="text-2xl" icon="tabler:external-link" />
+              </span>
+            </div>
+          </a>
           <p className="text-[15px]">
             Website Development - <span ref={maintained}>maintained</span>
           </p>
@@ -169,10 +212,24 @@ export default function ProjectsFold() {
             </div>
           </div>
         </div>
-        <div className="project4 flex flex-col items-start gap-[0.25rem] py-[2rem]">
-          <div>
-            <img className="rounded-md" src="/assets/sAproj.webp" alt="" />
-          </div>
+        <div className="project4 flex flex-col items-start gap-[0.25rem] py-[2rem] relative group">
+          <a
+            href="https://www.npmjs.com/package/saminate"
+            target="_blank"
+            title="sAminate Docs"
+            rel="noopener"
+          >
+            <div className="relative cursor-pointer">
+              <img
+                className="rounded-md opacity-100 group-hover:opacity-30 transition-opacity duration-300"
+                src="/assets/sAproj.webp"
+                alt=""
+              />
+              <span className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <Icon className="text-2xl" icon="tabler:external-link" />
+              </span>
+            </div>
+          </a>
           <p className="text-[15px]">
             Library & Website Development -{" "}
             <span ref={maintained2}>maintained</span>
@@ -189,10 +246,25 @@ export default function ProjectsFold() {
             </div>
           </div>
         </div>
-        <div className="project5 flex flex-col items-start gap-[0.5rem] py-[2rem]">
-          <div>
-            <img className="rounded-md" src="/assets/discproj.webp" alt="" />
-          </div>
+        <div className="project5 flex flex-col items-start gap-[0.5rem] py-[2rem] relative group">
+          <a
+            href="https://github.com/Samshh/DiscordBot"
+            target="_blank"
+            title="TicketLy Repo"
+            rel="noopener"
+          >
+            <div className="relative cursor-pointer">
+              <img
+                className="rounded-md opacity-100 group-hover:opacity-30 transition-opacity duration-300"
+                src="/assets/discproj.webp"
+                alt=""
+              />
+              <span className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <Icon className="text-2xl" icon="tabler:external-link" />
+              </span>
+            </div>
+          </a>
+
           <p className="text-[15px]">
             Discord Bot Development -{" "}
             <span className="text-[#e50914]">deprecated</span>
@@ -205,17 +277,31 @@ export default function ProjectsFold() {
             </div>
             <div className="border border-[#333333] px-[1rem] py-[0.25rem] rounded-full flex justify-center items-center gap-[0.5rem]">
               <Icon className="text-[18px]" icon="logos:discord-icon" />
-              <p className="font-thin text-[15px]">Discord API</p>
+              <p className="font-thin text-[15px]">Discord</p>
             </div>
           </div>
         </div>
         <div
           ref={end}
-          className="project6 flex flex-col items-start gap-[0.5rem] py-[2rem]"
+          className="project6 flex flex-col items-start gap-[0.5rem] py-[2rem] relative group"
         >
-          <div>
-            <img className="rounded-md" src="/assets/portfolioold.png" alt="" />
-          </div>
+          <a
+            href="https://samshh.netlify.app/"
+            target="_blank"
+            title="Old Portfolio"
+            rel="noopener"
+          >
+            <div className="relative cursor-pointer">
+              <img
+                className="rounded-md opacity-100 group-hover:opacity-30 transition-opacity duration-300"
+                src="/assets/portfolioold.png"
+                alt=""
+              />
+              <span className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <Icon className="text-2xl" icon="tabler:external-link" />
+              </span>
+            </div>
+          </a>
           <p className="text-[15px]">
             Website Development -{" "}
             <span className="text-[#e50914]">deprecated</span>

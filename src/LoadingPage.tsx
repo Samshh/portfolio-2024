@@ -16,7 +16,7 @@ export default function LoadingPage() {
   return (
     <div className="fixed inset-0 flex flex-col justify-center items-center bg-black z-50 gap-[0.25rem] select-none">
       <h3 className="text-white">
-        <span ref={text}>folio</span> <span className="font-thin">2024</span>
+        <span ref={text}>folio</span> <span className="font-thin text-[#333333]">2024</span>
       </h3>
       <div className="flex justify-center items-center gap-[0.5rem]">
         <p className="text-[15px] font-thin">powered by</p>

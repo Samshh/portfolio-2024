@@ -71,7 +71,7 @@ export default function AboutMeFold() {
     >
       <div className="md:w-1/2 flex flex-col gap-[1rem]">
         <div>
-          <h3>
+          <h3 className="text-[#333333]">
             <span ref={text}>About me</span>.
           </h3>
         </div>

@@ -23,8 +23,10 @@ import {
 export default function App() {
   const text2 = useGradientText();
   const lenis = useLenis(({ scroll }) => {
-      
+    console.log(scroll); 
   });
+
+  console.log(lenis);
 
   const heroRef = useRef<HTMLDivElement>(null);
   const aboutMeRef = useRef<HTMLDivElement>(null);
@@ -61,7 +63,7 @@ export default function App() {
         <nav ref={navRef} className="sticky top-0 bg-black z-40 select-none">
           <div className="flex justify-between items-center px-4 py-4 z-50 max-w-[1280px] min-w-[320px] mx-auto">
             <button>
-              <h6 onClick={() => scrollToSection(heroRef)}>
+              <h6 className="text-[#333333]" onClick={() => scrollToSection(heroRef)}>
                 <span ref={text2}>samshh</span>.
               </h6>
             </button>
