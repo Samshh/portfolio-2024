@@ -4,7 +4,7 @@ import HeroFold from "./folds/hero-fold";
 import ProjectsFold from "./folds/projects-fold";
 import ContactFold from "./folds/contact-fold";
 import LoadingPage from "./LoadingPage";
-import { ReactLenis, useLenis } from "lenis/react";
+import { ReactLenis } from "lenis/react";
 import { Icon } from "@iconify/react";
 import { scrollToSection } from "@/animations/scrollToSection";
 import { useGradientText } from "@/animations/useGradientText";
@@ -23,11 +23,6 @@ import * as THREE from "three";
 
 export default function App() {
   const text = useGradientText();
-  const lenis = useLenis(({ scroll }) => {
-    console.log(scroll);
-  });
-
-  console.log(lenis);
 
   const heroRef = useRef<HTMLDivElement>(null);
   const aboutMeRef = useRef<HTMLDivElement>(null);

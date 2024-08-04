@@ -133,7 +133,7 @@ export default function AboutMeFold() {
             transform="translate(0.000000,3507.000000) scale(0.100000,-0.100000)"
             fill="none"
             stroke="#e7e7e7"
-            stroke-width="65"
+            strokeWidth="65"
           >
             <path
               stroke="#e7e7e7"
