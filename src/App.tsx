@@ -21,7 +21,7 @@ import {
 
 
 export default function App() {
-  const text2 = useGradientText();
+  const text = useGradientText();
   const lenis = useLenis(({ scroll }) => {
     console.log(scroll); 
   });
@@ -40,7 +40,7 @@ export default function App() {
       duration: 1,
       autoAlpha: 0,
       ease: "power2.out",
-      delay: 2,
+      delay: 2.5,
     });
 
     
@@ -48,7 +48,7 @@ export default function App() {
       duration: 1,
       y: -50,
       ease: "power2.out",
-      delay: 2.25,
+      delay: 2.75,
     });
   });
 
@@ -60,18 +60,18 @@ export default function App() {
         >
           <LoadingPage />
         </div>
-        <nav ref={navRef} className="sticky top-0 bg-black z-40 select-none">
+        <nav ref={navRef} className="sticky top-0 bg-[#0c0c0c] z-40 select-none">
           <div className="flex justify-between items-center px-4 py-4 z-50 max-w-[1280px] min-w-[320px] mx-auto">
             <button>
               <h6 className="text-[#333333]" onClick={() => scrollToSection(heroRef)}>
-                <span ref={text2}>samshh</span>.
+                <span ref={text}>samshh</span>.
               </h6>
             </button>
             <DropdownMenu>
               <DropdownMenuTrigger>
                 <Icon
                   icon="gg:menu-right-alt"
-                  className="text-3xl cursor-pointer"
+                  className="text-3xl cursor-pointer text-[#e7e7e7]"
                 />
               </DropdownMenuTrigger>
               <DropdownMenuContent>

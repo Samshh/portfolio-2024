@@ -5,7 +5,7 @@
 
 @layer base {
   body {
-    @apply bg-black text-white font-['JetBrains_Mono'] antialiased flex flex-col items-center justify-center;
+    @apply bg-[#0c0c0c] text-[#e7e7e7] font-['JetBrains_Mono'] antialiased flex flex-col items-center justify-center;
   }
 
   body::-webkit-scrollbar {

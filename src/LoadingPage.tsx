@@ -7,17 +7,28 @@ import { useRef } from "react";
 export default function LoadingPage() {
   const spinIcon = useRef(null);
   const text = useGradientText();
+  const textLeft = useRef(null);
+  const textRight = useRef(null);
   const iconTl = gsap.timeline({ repeat: -1, defaults: { ease: "linear" } });
 
   useGSAP(() => {
     iconTl.to(spinIcon.current, { rotate: 360, duration: 2 });
+    gsap.from(textLeft.current, { y: -50, opacity: 0, duration: 1, delay: 0.25 });
+    gsap.from(textRight.current, { y: -50, opacity: 0, duration: 1, delay: 0.5 });
   });
 
   return (
-    <div className="fixed inset-0 flex flex-col justify-center items-center bg-black z-50 gap-[0.25rem] select-none">
-      <h3 className="text-white">
-        <span ref={text}>folio</span> <span className="font-thin text-[#333333]">2024</span>
-      </h3>
+    <div className="fixed inset-0 flex flex-col justify-center items-center bg-[#0c0c0c] z-50 gap-[0.25rem] select-none">
+      <div className="flex justify-center items-center">
+        <div ref={textLeft}>
+          <h4>
+            <span ref={text}>folio</span>
+          </h4>
+        </div>
+        <div ref={textRight}>
+          <h4 className="font-thin text-[#333333]">2024</h4>
+        </div>
+      </div>
       <div className="flex justify-center items-center gap-[0.5rem]">
         <p className="text-[15px] font-thin">powered by</p>
         <div ref={spinIcon}>

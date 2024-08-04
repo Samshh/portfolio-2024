@@ -13,14 +13,14 @@ interface HeroFoldProps {
 export default function HeroFold({ projectsRef, contactRef }: HeroFoldProps) {
   const textRef1 = useGradientText();
   const textRef2 = useGradientText();
-  
+
   const introTextRef = useRef(null);
   const headlineRef = useRef(null);
   const buttonsRef1 = useRef(null);
   const buttonsRef2 = useRef(null);
 
   useGSAP(() => {
-    const tl = gsap.timeline({ defaults: { ease: "power3.out" }, delay: 2.5 });
+    const tl = gsap.timeline({ defaults: { ease: "power3.out" }, delay: 3 });
 
     tl.fromTo(
       introTextRef.current,
@@ -29,6 +29,18 @@ export default function HeroFold({ projectsRef, contactRef }: HeroFoldProps) {
     )
       .fromTo(
         headlineRef.current,
+        { y: 50, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.8 },
+        "-=0.4"
+      )
+      .fromTo(
+        buttonsRef1.current,
+        { y: 50, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.8 },
+        "-=0.4"
+      )
+      .fromTo(
+        buttonsRef2.current,
         { y: 50, opacity: 0 },
         { y: 0, opacity: 1, duration: 0.8 },
         "-=0.4"
@@ -44,18 +56,6 @@ export default function HeroFold({ projectsRef, contactRef }: HeroFoldProps) {
         { opacity: 0 },
         { opacity: 1, duration: 0.8 },
         "-=0.4"
-      )
-      .fromTo(
-        buttonsRef1.current,
-        { y: 50, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.8 },
-        "-=0.4"
-      )
-      .fromTo(
-        buttonsRef2.current,
-        { y: 50, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.8 },
-        "-=0.4"
       );
   });
 
@@ -63,14 +63,20 @@ export default function HeroFold({ projectsRef, contactRef }: HeroFoldProps) {
     <main className="h-screen px-4 py-4 flex items-center min-h-[600px] max-w-[1280px] min-w-[320px] mx-auto select-none">
       <div className="flex flex-col justify-center h-full lg:w-1/2 gap-[1.5rem]">
         <div className="flex flex-col justify-center items-start gap-[1rem]">
-          <h5 className="font-normal" ref={introTextRef}>I'm Sam Dacara</h5>
+          <h5 className="font-normal" ref={introTextRef}>
+            I'm Sam Dacara
+          </h5>
           <h3 ref={headlineRef}>
             A <span ref={textRef1}>front-end</span> developer specializing in{" "}
-            <span ref={textRef2}>React</span><span className="text-[#333333]">.</span>
+            <span ref={textRef2}>React</span>
+            <span className="text-[#333333]">.</span>
           </h3>
         </div>
         <div className="flex justify-start items-center gap-[1rem]">
-          <Button ref={buttonsRef1} onClick={() => scrollToSection(projectsRef)}>
+          <Button
+            ref={buttonsRef1}
+            onClick={() => scrollToSection(projectsRef)}
+          >
             <h6 className="font-light">projects</h6>
           </Button>
           <Button ref={buttonsRef2} onClick={() => scrollToSection(contactRef)}>
