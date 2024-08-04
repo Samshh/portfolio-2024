@@ -6,15 +6,17 @@ import { useGSAP } from "@gsap/react";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function AboutMeFold() {
-  const trigger = useRef(null);
+  const trigger = useRef<HTMLElement>(null);
   const text = useGradientText();
-  const textRef = useRef(null);
-  const textRef2 = useRef(null);
+  const textRef = useRef<HTMLHeadingElement>(null);
+  const textRef2 = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
     const paths = document.querySelectorAll<SVGPathElement>(".logo path");
+    const words = textRef.current
+      ? textRef.current.querySelectorAll("span")
+      : [];
 
-    const words = textRef.current.querySelectorAll("span");
     gsap.fromTo(
       words,
       { y: 50, opacity: 0 },
@@ -31,11 +33,13 @@ export default function AboutMeFold() {
           toggleActions: "play none none reverse",
         },
         onComplete: () => {
-          gsap.to(textRef2.current, {
-            opacity: 1,
-            duration: 1,
-            ease: "expo.inOut",
-          });
+          if (textRef2.current) {
+            gsap.to(textRef2.current, {
+              opacity: 1,
+              duration: 1,
+              ease: "expo.inOut",
+            });
+          }
         },
       }
     );
@@ -59,7 +63,7 @@ export default function AboutMeFold() {
         ease: "power1.inOut",
       });
     });
-  });
+  }, []);
 
   const text2 =
     "An avid programming polyglot with a deep appreciation for various coding languages, an enthusiastic anime aficionado who enjoys exploring different genres, and a passionate musician.";
