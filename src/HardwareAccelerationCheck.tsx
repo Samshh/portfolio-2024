@@ -3,10 +3,9 @@ import { useGradientText } from "./animations/useGradientText";
 import { Button } from "./components/ui/button";
 import { Icon } from "@iconify/react";
 
-const HardwareAccelerationCheck: React.FC<{ children: React.ReactNode }> = ({
-  children,
-}) => {
+const HardwareAccelerationCheck: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [isSupported, setIsSupported] = useState<boolean | null>(null);
+  const [hasReloaded, setHasReloaded] = useState(false);
   const text = useGradientText();
 
   useEffect(() => {
@@ -15,8 +14,7 @@ const HardwareAccelerationCheck: React.FC<{ children: React.ReactNode }> = ({
         const canvas = document.createElement("canvas");
         return !!(
           window.WebGLRenderingContext &&
-          (canvas.getContext("webgl") ||
-            canvas.getContext("experimental-webgl"))
+          (canvas.getContext("webgl") || canvas.getContext("experimental-webgl"))
         );
       } catch (e) {
         return false;
@@ -26,10 +24,7 @@ const HardwareAccelerationCheck: React.FC<{ children: React.ReactNode }> = ({
     function checkHardwareAcceleration() {
       try {
         const canvas = document.createElement("canvas");
-        const gl = (canvas.getContext("webgl") ||
-          canvas.getContext(
-            "experimental-webgl"
-          )) as WebGLRenderingContext | null;
+        const gl = (canvas.getContext("webgl") || canvas.getContext("experimental-webgl")) as WebGLRenderingContext | null;
         if (!gl) return false;
 
         const maxTextureSize = gl.getParameter(gl.MAX_TEXTURE_SIZE) as number;
@@ -39,16 +34,17 @@ const HardwareAccelerationCheck: React.FC<{ children: React.ReactNode }> = ({
       }
     }
 
-    setIsSupported(isWebGLAvailable() && checkHardwareAcceleration());
-  }, []);
+    const supported = isWebGLAvailable() && checkHardwareAcceleration();
+    setIsSupported(supported);
 
-  if (isSupported === null) {
-    return (
-      <div className="flex justify-center items-center h-screen">
-        Checking hardware acceleration support...
-      </div>
-    );
-  }
+    if (supported && !hasReloaded && !sessionStorage.getItem('hasReloaded')) {
+      sessionStorage.setItem('hasReloaded', 'true');
+      setHasReloaded(true);
+      setTimeout(() => {
+        window.location.reload();
+      }, 1000);
+    }
+  }, [hasReloaded]);
 
   if (!isSupported) {
     return (
@@ -58,37 +54,38 @@ const HardwareAccelerationCheck: React.FC<{ children: React.ReactNode }> = ({
             <span ref={text}>Oops</span>!
           </h3>
           <div>
-            <h6 className="font-light">It looks like you have hardware acceleration turned off, this website uses 3D Graphics and requires it turned on. Please enable it and reload the page</h6>
-            <div></div>
+            <h6 className="font-light">
+              It looks like you have hardware acceleration turned off, this website uses 3D Graphics and requires it turned on. Please enable it and reload the page
+            </h6>
           </div>
           <div className="flex justify-start flex-wrap items-start gap-[1rem]">
-          <Button>
-            <a
-              href="https://github.com/Samshh/"
-              target="_blank"
-              rel="noopener"
-              title="GitHub"
-            >
-              <div className="flex justify-center items-center gap-[.5rem]">
-                <Icon className="text-[23px]" icon="mdi:github" />
-                <h6 className="font-light">GitHub</h6>
-              </div>
-            </a>
-          </Button>
-          <Button>
-            <a
-              href="https://www.linkedin.com/in/samshh/"
-              target="_blank"
-              rel="noopener"
-              title="LinkedIn"
-            >
-              <div className="flex justify-center items-center gap-[.5rem]">
-                <Icon className="text-[19px]" icon="bi:linkedin" />
-                <h6 className="font-light">LinkedIn</h6>
-              </div>
-            </a>
-          </Button>
-        </div>
+            <Button>
+              <a
+                href="https://github.com/Samshh/"
+                target="_blank"
+                rel="noopener"
+                title="GitHub"
+              >
+                <div className="flex justify-center items-center gap-[.5rem]">
+                  <Icon className="text-[23px]" icon="mdi:github" />
+                  <h6 className="font-light">GitHub</h6>
+                </div>
+              </a>
+            </Button>
+            <Button>
+              <a
+                href="https://www.linkedin.com/in/samshh/"
+                target="_blank"
+                rel="noopener"
+                title="LinkedIn"
+              >
+                <div className="flex justify-center items-center gap-[.5rem]">
+                  <Icon className="text-[19px]" icon="bi:linkedin" />
+                  <h6 className="font-light">LinkedIn</h6>
+                </div>
+              </a>
+            </Button>
+          </div>
         </div>
       </div>
     );
