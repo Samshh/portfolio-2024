@@ -52,7 +52,7 @@ const HardwareAccelerationCheck: React.FC<{ children: React.ReactNode }> = ({
 
   if (!isSupported) {
     return (
-      <div className="h-screen max-w-[1280px] mx-auto flex justify-start items-center p-5 z-50">
+      <div className="h-screen max-w-[1280px] mx-auto flex justify-start items-center p-5 z-50 select-none">
         <div className="max-w-2xl flex flex-col justify-center items-start gap-[1rem]">
           <h3 className="text-[#333333]">
             <span ref={text}>Oops</span>!
