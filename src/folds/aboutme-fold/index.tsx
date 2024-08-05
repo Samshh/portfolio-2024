@@ -43,7 +43,7 @@ export default function AboutMeFold() {
         start: "20% center",
         end: "80% center",
         pin: pin.current,
-        markers: true,
+        markers: false,
         toggleActions: "play none none none",
       });
     }
