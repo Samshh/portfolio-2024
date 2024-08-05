@@ -45,8 +45,7 @@ const HardwareAccelerationCheck: React.FC<{ children: React.ReactNode }> = ({ ch
   }, []);
 
   if (isSupported === null) {
-    <>
-    </>
+    return <div className="h-screen"></div>;
   }
 
   if (!isSupported) {
