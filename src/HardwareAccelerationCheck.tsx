@@ -5,23 +5,22 @@ import { Icon } from "@iconify/react";
 
 const HardwareAccelerationCheck: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [isSupported, setIsSupported] = useState<boolean | null>(null);
-  const [hasReloaded, setHasReloaded] = useState(false);
   const text = useGradientText();
 
   useEffect(() => {
-    function isWebGLAvailable() {
+    const isWebGLAvailable = () => {
       try {
         const canvas = document.createElement("canvas");
         return !!(
           window.WebGLRenderingContext &&
           (canvas.getContext("webgl") || canvas.getContext("experimental-webgl"))
         );
-      } catch (e) {
+      } catch {
         return false;
       }
-    }
+    };
 
-    function checkHardwareAcceleration() {
+    const checkHardwareAcceleration = () => {
       try {
         const canvas = document.createElement("canvas");
         const gl = (canvas.getContext("webgl") || canvas.getContext("experimental-webgl")) as WebGLRenderingContext | null;
@@ -29,22 +28,19 @@ const HardwareAccelerationCheck: React.FC<{ children: React.ReactNode }> = ({ ch
 
         const maxTextureSize = gl.getParameter(gl.MAX_TEXTURE_SIZE) as number;
         return maxTextureSize > 4096;
-      } catch (e) {
+      } catch {
         return false;
       }
-    }
+    };
 
     const supported = isWebGLAvailable() && checkHardwareAcceleration();
     setIsSupported(supported);
 
-    if (supported && !hasReloaded && !sessionStorage.getItem('hasReloaded')) {
+    if (supported && !sessionStorage.getItem('hasReloaded')) {
       sessionStorage.setItem('hasReloaded', 'true');
-      setHasReloaded(true);
-      setTimeout(() => {
-        window.location.reload();
-      }, 1000);
+      window.location.reload();
     }
-  }, [hasReloaded]);
+  }, []);
 
   if (!isSupported) {
     return (
@@ -55,7 +51,7 @@ const HardwareAccelerationCheck: React.FC<{ children: React.ReactNode }> = ({ ch
           </h3>
           <div>
             <h6 className="font-light">
-              It looks like you have hardware acceleration turned off, this website uses 3D Graphics and requires it turned on. Please enable it and reload the page
+              It looks like you have hardware acceleration turned off, this website uses 3D Graphics and requires it turned on. Please enable it and reload the page.
             </h6>
           </div>
           <div className="flex justify-start flex-wrap items-start gap-[1rem]">
