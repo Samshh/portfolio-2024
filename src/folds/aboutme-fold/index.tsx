@@ -23,7 +23,7 @@ export default function AboutMeFold() {
       { opacity: 0 },
       {
         opacity: 1,
-        stagger: 0.10,
+        stagger: 0.05,
         duration: 2,
         ease: "expo.inOut",
         scrollTrigger: {

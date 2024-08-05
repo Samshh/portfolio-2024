@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import AboutMeFold from "./folds/aboutme-fold";
 import HeroFold from "./folds/hero-fold";
 import ProjectsFold from "./folds/projects-fold";
@@ -22,6 +22,9 @@ import { Button } from "@/components/ui/button";
 import * as THREE from "three";
 
 export default function App() {
+  const [currentTime, setCurrentTime] = useState(
+    new Date().toLocaleTimeString()
+  );
   const text = useGradientText();
   const text2 = useGradientText();
 
@@ -131,6 +134,14 @@ export default function App() {
     };
   }, []);
 
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrentTime(new Date().toLocaleTimeString());
+    }, 1000);
+
+    return () => clearInterval(intervalId);
+  }, []);
+
   return (
     <main>
       <canvas
@@ -196,13 +207,24 @@ export default function App() {
             <ContactFold />
           </div>
           <div
-            className="flex items-center justify-center mx-auto max-w-[1280px] mb-[16px]"
+            className="flex items-center justify-center md:justify-between mx-auto max-w-[1280px] p-[16px]"
             ref={contactRef}
           >
+            <div className="text-[15px] font-normal gap-[0.5rem] justify-center items-center select-none hidden md:flex">
+              <p>{currentTime}</p>
+            </div>
             <div className="text-[15px] font-normal flex gap-[0.5rem] justify-center items-center select-none">
-              <Icon icon="ph:copyright-light" className="text-[20px]" />
-              <p ref={text2}>samshh</p>
+              <div className="text-[15px] font-normal flex items-center justify-center">
+                <Icon icon="ph:copyright-light" className="text-[21px]" />
+                <p ref={text2}>samshh</p>
+              </div>
               <p>2024</p>
+            </div>
+            <div className="text-[15px] font-thin gap-[0.5rem] justify-center items-center select-none hidden md:flex">
+              <p>powered by</p>
+              <div className="text-[15px] bg-[#e7e7e7] py-[3px] px-[3px] rounded-sm">
+                <Icon icon="devicon:vercel" />
+              </div>
             </div>
           </div>
         </div>
