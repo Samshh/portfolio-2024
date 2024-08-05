@@ -57,7 +57,7 @@ export default function ContactFold() {
   return (
     <main
       ref={contactTrigger}
-      className="h-screen px-4 py-4 max-w-[1280px] min-w-[320px] mx-auto flex flex-col justify-center items-start md:flex-row md:justify-start md:items-center select-none"
+      className="h-screen px-4 py-4 max-w-[1280px] min-h-max mx-auto flex flex-col justify-center items-start md:flex-row md:justify-start md:items-center select-none"
     >
       <div className="flex flex-col justify-start items-start gap-[1.5rem] lg:w-1/2">
         <div ref={headlineRef}>

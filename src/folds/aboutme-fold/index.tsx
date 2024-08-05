@@ -20,9 +20,10 @@ export default function AboutMeFold() {
 
     gsap.fromTo(
       words,
-      { opacity: 0 },
+      { opacity: 0, y: 10 },
       {
         opacity: 1,
+        y: 0,
         stagger: 0.05,
         duration: 2,
         ease: "expo.inOut",
@@ -35,7 +36,7 @@ export default function AboutMeFold() {
       }
     );
 
-    const isMobile = window.innerWidth <= 768;
+    const isMobile = window.innerWidth < 768;
 
     if (!isMobile) {
       ScrollTrigger.create({
@@ -75,7 +76,7 @@ export default function AboutMeFold() {
   return (
     <main
       ref={trigger}
-      className="h-full flex flex-col md:h-screen md:items-start md:grid md:grid-cols-2  items-center justify-center px-4 py-4 my-[3rem] max-w-[1280px] min-h-[720px] mx-auto select-none gap-[3rem]"
+      className="h-full flex flex-col md:h-screen md:items-start md:grid md:grid-cols-2  items-center justify-center px-4 py-4 max-w-[1280px] min-h-max mx-auto select-none gap-[1rem] my-[4rem]"
     >
       <div ref={pin} className="flex flex-col gap-[1rem]">
         <div>
