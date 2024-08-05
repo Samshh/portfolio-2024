@@ -40,14 +40,14 @@ export default function App() {
       duration: 0.25,
       autoAlpha: 0,
       ease: "power2.out",
-      delay: 2.5,
+      delay: 3.5,
     });
 
     gsap.from(navRef.current, {
       duration: 1,
       y: -50,
       ease: "power2.out",
-      delay: 2.75,
+      delay: 3.75,
     });
   });
 
@@ -138,8 +138,25 @@ export default function App() {
     const intervalId = setInterval(() => {
       setCurrentTime(new Date().toLocaleTimeString());
     }, 1000);
+    
+    const hasReloaded = sessionStorage.getItem("hasReloaded");
 
-    return () => clearInterval(intervalId);
+    if (!hasReloaded) {
+      sessionStorage.setItem("hasReloaded", "true");
+
+      const timer = setTimeout(() => {
+        window.location.reload();
+      }, 1000); 
+
+      return () => {
+        clearTimeout(timer);
+        clearInterval(intervalId);
+      };
+    }
+
+    return () => {
+      clearInterval(intervalId);
+    };
   }, []);
 
   return (

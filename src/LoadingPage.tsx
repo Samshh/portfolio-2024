@@ -14,9 +14,9 @@ export default function LoadingPage() {
 
   useGSAP(() => {
     iconTl.to(spinIcon.current, { rotate: 360, duration: 2 });
-    gsap.from(textLeft.current, { y: -30, opacity: 0, duration: 1, delay: 0.25 });
-    gsap.from(textRight.current, { y: -30, opacity: 0, duration: 1, delay: 0.5 });
-    gsap.from(bottomRef.current, { y: 20, opacity: 0, duration: 1, delay: 0.75 });
+    gsap.from(textLeft.current, { y: -30, opacity: 0, duration: 1, delay: 1.25 });
+    gsap.from(textRight.current, { y: -30, opacity: 0, duration: 1, delay: 1.5 });
+    gsap.from(bottomRef.current, { y: 20, opacity: 0, duration: 1, delay: 1.75 });
   });
 
   return (
