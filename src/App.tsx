@@ -40,7 +40,7 @@ export default function App() {
       duration: 0.25,
       autoAlpha: 0,
       ease: "power2.out",
-      delay: 3.5,
+      delay: 2.5,
     });
 
     gsap.from(navRef.current, {
