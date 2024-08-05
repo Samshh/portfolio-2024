@@ -45,7 +45,7 @@ const HardwareAccelerationCheck: React.FC<{ children: React.ReactNode }> = ({ ch
   }, []);
 
   if (isSupported === null) {
-    return <div className="flex justify-center items-center h-screen"></div>;
+    console.log("Checking hardware acceleration...");
   }
 
   if (!isSupported) {
