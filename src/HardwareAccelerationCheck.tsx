@@ -3,44 +3,54 @@ import { useGradientText } from "./animations/useGradientText";
 import { Button } from "./components/ui/button";
 import { Icon } from "@iconify/react";
 
-const HardwareAccelerationCheck: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+const HardwareAccelerationCheck: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
   const [isSupported, setIsSupported] = useState<boolean | null>(null);
+  const [hasReloaded, setHasReloaded] = useState(false);
   const text = useGradientText();
 
   useEffect(() => {
-    const isWebGLAvailable = () => {
+    function isWebGLAvailable() {
       try {
         const canvas = document.createElement("canvas");
         return !!(
           window.WebGLRenderingContext &&
-          (canvas.getContext("webgl") || canvas.getContext("experimental-webgl"))
+          (canvas.getContext("webgl") ||
+            canvas.getContext("experimental-webgl"))
         );
-      } catch {
+      } catch (e) {
         return false;
       }
-    };
+    }
 
-    const checkHardwareAcceleration = () => {
+    function checkHardwareAcceleration() {
       try {
         const canvas = document.createElement("canvas");
-        const gl = (canvas.getContext("webgl") || canvas.getContext("experimental-webgl")) as WebGLRenderingContext | null;
+        const gl = (canvas.getContext("webgl") ||
+          canvas.getContext(
+            "experimental-webgl"
+          )) as WebGLRenderingContext | null;
         if (!gl) return false;
 
         const maxTextureSize = gl.getParameter(gl.MAX_TEXTURE_SIZE) as number;
         return maxTextureSize > 4096;
-      } catch {
+      } catch (e) {
         return false;
       }
-    };
+    }
 
     const supported = isWebGLAvailable() && checkHardwareAcceleration();
     setIsSupported(supported);
 
-    if (supported && !sessionStorage.getItem('hasReloaded')) {
-      sessionStorage.setItem('hasReloaded', 'true');
-      window.location.reload();
+    if (supported && !hasReloaded && !sessionStorage.getItem("hasReloaded")) {
+      sessionStorage.setItem("hasReloaded", "true");
+      setHasReloaded(true);
+      setTimeout(() => {
+        window.location.reload();
+      }, 500);
     }
-  }, []);
+  }, [hasReloaded]);
 
   if (!isSupported) {
     return (
@@ -51,7 +61,9 @@ const HardwareAccelerationCheck: React.FC<{ children: React.ReactNode }> = ({ ch
           </h3>
           <div>
             <h6 className="font-light">
-              It looks like you have hardware acceleration turned off, this website uses 3D Graphics and requires it turned on. Please enable it and reload the page.
+              It looks like you have hardware acceleration turned off, this
+              website uses 3D Graphics and requires it turned on. Please enable
+              it and reload the page
             </h6>
           </div>
           <div className="flex justify-start flex-wrap items-start gap-[1rem]">
