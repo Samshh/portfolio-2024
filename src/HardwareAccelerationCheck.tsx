@@ -45,7 +45,8 @@ const HardwareAccelerationCheck: React.FC<{ children: React.ReactNode }> = ({ ch
   }, []);
 
   if (isSupported === null) {
-    console.log("Checking hardware acceleration...");
+    <>
+    </>
   }
 
   if (!isSupported) {
