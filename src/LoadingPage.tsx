@@ -9,12 +9,14 @@ export default function LoadingPage() {
   const text = useGradientText();
   const textLeft = useRef(null);
   const textRight = useRef(null);
+  const bottomRef = useRef(null);
   const iconTl = gsap.timeline({ repeat: -1, defaults: { ease: "linear" } });
 
   useGSAP(() => {
     iconTl.to(spinIcon.current, { rotate: 360, duration: 2 });
-    gsap.from(textLeft.current, { y: -50, opacity: 0, duration: 1, delay: 1.25 });
-    gsap.from(textRight.current, { y: -50, opacity: 0, duration: 1, delay: 1.5 });
+    gsap.from(textLeft.current, { y: -30, opacity: 0, duration: 1, delay: 1.25 });
+    gsap.from(textRight.current, { y: -30, opacity: 0, duration: 1, delay: 1.5 });
+    gsap.from(bottomRef.current, { y: 20, opacity: 0, duration: 1, delay: 1.75 });
   });
 
   return (
@@ -29,7 +31,7 @@ export default function LoadingPage() {
           <h4 className="font-thin text-[#333333]">2024</h4>
         </div>
       </div>
-      <div className="flex justify-center items-center gap-[0.5rem]">
+      <div ref={bottomRef} className="flex justify-center items-center gap-[0.5rem]">
         <p className="text-[15px] font-thin">made with</p>
         <div ref={spinIcon}>
           <Icon icon="logos:react" className="text-[20px]" />
