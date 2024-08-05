@@ -75,7 +75,7 @@ export default function AboutMeFold() {
   return (
     <main
       ref={trigger}
-      className="h-full flex flex-col md:h-screen md:items-start md:grid md:grid-cols-2  items-center justify-center px-4 py-4 max-w-[1280px] min-h-[720px] mx-auto select-none gap-[3rem]"
+      className="h-full flex flex-col md:h-screen md:items-start md:grid md:grid-cols-2  items-center justify-center px-4 py-4 my-[3rem] max-w-[1280px] min-h-[720px] mx-auto select-none gap-[3rem]"
     >
       <div ref={pin} className="flex flex-col gap-[1rem]">
         <div>
@@ -97,7 +97,7 @@ export default function AboutMeFold() {
         </div>
       </div>
       <div ref={startHere} className="flex flex-col items-center justify-center bg-[#0c0c0c] border border-[#333333] p-[15px] rounded-lg">
-        <img className="rounded-lg" src="/assets/SamGoogle.png" alt="me" />
+        <img className="rounded-lg object-contain" src="/assets/SamGoogle.png" alt="me" />
       </div>
     </main>
   );
