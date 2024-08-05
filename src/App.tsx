@@ -141,65 +141,69 @@ export default function App() {
         <div ref={loading}>
           <LoadingPage />
         </div>
-        <nav ref={navRef} className="sticky top-0 z-40 select-none">
-          <div className="flex justify-between items-center px-4 py-4 z-50 max-w-[1280px] min-w-[320px] mx-auto">
-            <Button>
-              <h6
-                className="text-[#333333]"
-                onClick={() => scrollToSection(heroRef)}
-              >
-                <span ref={text}>samshh</span>.
-              </h6>
-            </Button>
-            <DropdownMenu>
-              <DropdownMenuTrigger>
-                <Button>
-                  <Icon
-                    icon="gg:menu-right-alt"
-                    className="text-3xl cursor-pointer text-[#e7e7e7]"
-                  />
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent>
-                <DropdownMenuLabel>Navigation</DropdownMenuLabel>
-                <DropdownMenuSeparator></DropdownMenuSeparator>
-                <DropdownMenuItem>
-                  <div onClick={() => scrollToSection(aboutMeRef)}>
-                    About me
-                  </div>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <div onClick={() => scrollToSection(projectsRef)}>
-                    Projects
-                  </div>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <div onClick={() => scrollToSection(contactRef)}>Contact</div>
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
+        <div className="overflow-x-clip">
+          <nav ref={navRef} className="sticky top-0 z-40 select-none">
+            <div className="flex justify-between items-center px-4 py-4 z-50 max-w-[1280px] min-w-[320px] mx-auto">
+              <Button>
+                <h6
+                  className="text-[#333333]"
+                  onClick={() => scrollToSection(heroRef)}
+                >
+                  <span ref={text}>samshh</span>.
+                </h6>
+              </Button>
+              <DropdownMenu>
+                <DropdownMenuTrigger>
+                  <Button>
+                    <Icon
+                      icon="gg:menu-right-alt"
+                      className="text-3xl cursor-pointer text-[#e7e7e7]"
+                    />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent>
+                  <DropdownMenuLabel>Navigation</DropdownMenuLabel>
+                  <DropdownMenuSeparator></DropdownMenuSeparator>
+                  <DropdownMenuItem>
+                    <div onClick={() => scrollToSection(aboutMeRef)}>
+                      About me
+                    </div>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <div onClick={() => scrollToSection(projectsRef)}>
+                      Projects
+                    </div>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <div onClick={() => scrollToSection(contactRef)}>
+                      Contact
+                    </div>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </div>
+          </nav>
+          <div ref={heroRef}>
+            <HeroFold projectsRef={projectsRef} contactRef={contactRef} />
           </div>
-        </nav>
-        <div ref={heroRef}>
-          <HeroFold projectsRef={projectsRef} contactRef={contactRef} />
-        </div>
-        <div ref={aboutMeRef}>
-          <AboutMeFold />
-        </div>
-        <div ref={projectsRef}>
-          <ProjectsFold />
-        </div>
-        <div>
-          <ContactFold />
-        </div>
-        <div
-          className="flex items-center justify-center mx-auto max-w-[1280px] mb-[16px]"
-          ref={contactRef}
-        >
-          <div className="text-[15px] font-normal flex gap-[0.5rem] justify-center items-center select-none">
-            <Icon icon="ph:copyright-light" className="text-[20px]" />
-            <p ref={text2}>samshh</p>
-            <p>2024</p>
+          <div ref={aboutMeRef}>
+            <AboutMeFold />
+          </div>
+          <div ref={projectsRef}>
+            <ProjectsFold />
+          </div>
+          <div>
+            <ContactFold />
+          </div>
+          <div
+            className="flex items-center justify-center mx-auto max-w-[1280px] mb-[16px]"
+            ref={contactRef}
+          >
+            <div className="text-[15px] font-normal flex gap-[0.5rem] justify-center items-center select-none">
+              <Icon icon="ph:copyright-light" className="text-[20px]" />
+              <p ref={text2}>samshh</p>
+              <p>2024</p>
+            </div>
           </div>
         </div>
       </ReactLenis>
