@@ -69,7 +69,7 @@ export default function App() {
     renderer.setSize(window.innerWidth, window.innerHeight);
     camera.position.setZ(30);
 
-    const geometry = new THREE.TorusKnotGeometry(10, 3, 100, 16);
+    const geometry = new THREE.TorusKnotGeometry(20, 3, 300, 20, 2, 3);
     const material = new THREE.MeshBasicMaterial({
       color: 0x333333,
       wireframe: true,
@@ -81,6 +81,18 @@ export default function App() {
 
     scene.add(torus);
 
+    let mouseX = 0;
+    let mouseY = 0;
+    let targetMouseX = 0;
+    let targetMouseY = 0;
+    const windowHalfX = window.innerWidth / 2;
+    const windowHalfY = window.innerHeight / 2;
+
+    function handleMouseMove(event: MouseEvent) {
+      targetMouseX = (event.clientX - windowHalfX) / 1000; // Smaller factor for subtle effect
+      targetMouseY = (event.clientY - windowHalfY) / 1000; // Smaller factor for subtle effect
+    }
+
     function animate() {
       requestAnimationFrame(animate);
       torus.rotation.x += 0.01;
@@ -89,10 +101,20 @@ export default function App() {
       const maxScroll = document.body.scrollHeight - window.innerHeight;
       const scrollFraction = scrollY / maxScroll;
       camera.position.z = 30 - scrollFraction * 20;
+
+      mouseX += (targetMouseX - mouseX) * 0.05;
+      mouseY += (targetMouseY - mouseY) * 0.05;
+
+      camera.rotation.y = mouseX * 0.1;
+      camera.rotation.x = -mouseY * 0.1;
+
       renderer.render(scene, camera);
     }
 
+    document.addEventListener("mousemove", handleMouseMove);
+
     animate();
+
     const handleResize = () => {
       camera.aspect = window.innerWidth / window.innerHeight;
       camera.updateProjectionMatrix();
