@@ -99,15 +99,15 @@ export default function ProjectsFold() {
     <main className="md:grid md:grid-cols-2 h-auto min-h-[720px] flex flex-col items-start justify-center px-4 py-4 max-w-[1280px] mx-auto gap-[1rem] select-none">
       <div ref={pin} className="w-full h-auto flex flex-col gap-[1rem]">
         <h3>
-          <span ref={text}>Projects</span>(6)
-          <span className="text-[#333333]">.</span>
+          <span ref={text}>Projects</span>
+          <span className="text-[#333333]">(6).</span>
         </h3>
-        <h6 className="font-light bg-[#0c0c0c] border border-[#333333] p-[15px] rounded-lg">{description}</h6>
+        <h6 className="font-light border border-[#333333] p-[15px] rounded-lg">{description}</h6>
       </div>
       <div className="w-full flex flex-col gap-[1rem]">
         <div
           ref={start}
-          className="project1 flex flex-col items-start gap-[0.5rem] bg-[#0c0c0c] border border-[#333333] p-[15px] rounded-lg relative group"
+          className="project1 flex flex-col items-start gap-[0.5rem] border border-[#333333] p-[15px] rounded-lg relative group"
         >
           <a
             href="https://github.com/Samshh/Hackathon-Project---The-Launchpad"
@@ -144,7 +144,7 @@ export default function ProjectsFold() {
             </div>
           </div>
         </div>
-        <div className="project2 flex flex-col items-start gap-[0.5rem] bg-[#0c0c0c] border border-[#333333] p-[15px] rounded-lg relative group">
+        <div className="project2 flex flex-col items-start gap-[0.5rem] border border-[#333333] p-[15px] rounded-lg relative group">
           <a
             href="https://github.com/gdsc-mmcm"
             target="_blank"
@@ -184,7 +184,7 @@ export default function ProjectsFold() {
             </div>
           </div>
         </div>
-        <div className="project3 flex flex-col items-start gap-[0.5rem] bg-[#0c0c0c] border border-[#333333] p-[15px] rounded-lg relative group">
+        <div className="project3 flex flex-col items-start gap-[0.5rem] border border-[#333333] p-[15px] rounded-lg relative group">
           <a
             href="https://mmcm-ocp.com/"
             target="_blank"
@@ -219,7 +219,7 @@ export default function ProjectsFold() {
             </div>
           </div>
         </div>
-        <div className="project4 flex flex-col items-start gap-[0.25rem] bg-[#0c0c0c] border border-[#333333] p-[15px] rounded-lg relative group">
+        <div className="project4 flex flex-col items-start gap-[0.25rem] border border-[#333333] p-[15px] rounded-lg relative group">
           <a
             href="https://www.npmjs.com/package/saminate"
             target="_blank"
@@ -255,7 +255,7 @@ export default function ProjectsFold() {
             </div>
           </div>
         </div>
-        <div className="project5 flex flex-col items-start gap-[0.5rem] bg-[#0c0c0c] border border-[#333333] p-[15px] rounded-lg relative group">
+        <div className="project5 flex flex-col items-start gap-[0.5rem] border border-[#333333] p-[15px] rounded-lg relative group">
           <a
             href="https://github.com/Samshh/DiscordBot"
             target="_blank"
@@ -275,7 +275,6 @@ export default function ProjectsFold() {
               </span>
             </div>
           </a>
-
           <p className="text-[15px]">
             Discord Bot Development -{" "}
             <span className="text-[#e50914]">deprecated</span>
@@ -294,7 +293,7 @@ export default function ProjectsFold() {
         </div>
         <div
           ref={end}
-          className="project6 flex flex-col items-start gap-[0.5rem] bg-[#0c0c0c] border border-[#333333] p-[15px] rounded-lg relative group"
+          className="project6 flex flex-col items-start gap-[0.5rem] border border-[#333333] p-[15px] rounded-lg relative group"
         >
           <a
             href="https://samshh.netlify.app/"
