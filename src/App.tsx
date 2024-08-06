@@ -83,9 +83,10 @@ export default function App() {
     loader.load(
       "assets/3d/scene.gltf",
       function (gltf) {
+        
         gltf.scene.scale.set(18, 18, 18);
-        gltf.scene.position.set(13, -35, 0);
-        gltf.scene.rotation.set(0, -20, 0);
+        gltf.scene.position.set(8, -35, 0);
+        gltf.scene.rotation.set(0, (-20 * Math.PI) / 180, 0);
 
         gltf.scene.traverse((child) => {
           if (child instanceof THREE.Mesh) {
@@ -105,6 +106,18 @@ export default function App() {
       }
     );
 
+    let mouseX = 0;
+    let mouseY = 0;
+    let targetMouseX = 0;
+    let targetMouseY = 0;
+    const windowHalfX = window.innerWidth / 2;
+    const windowHalfY = window.innerHeight / 2;
+
+    function handleMouseMove(event: MouseEvent) {
+      targetMouseX = (event.clientX - windowHalfX) / 7000;
+      targetMouseY = (event.clientY - windowHalfY) / 7000;
+    }
+
     function animate() {
       requestAnimationFrame(animate);
 
@@ -114,8 +127,19 @@ export default function App() {
       camera.position.y = 0 - scrollFraction * 5;
       camera.position.x = 0 + scrollFraction * 13;
 
+      mouseX += (targetMouseX - mouseX) * 0.05;
+      mouseY += (targetMouseY - mouseY) * 0.05;
+
+      camera.rotation.y = mouseX * 0.1;
+      camera.rotation.x = -mouseY * 0.1;
+
+      directionalLight.position.x = 13 * Math.sin(Date.now() * 0.0008);
+      directionalLight.position.z = 5 * Math.sin(Date.now() * 0.0008);
+
       renderer.render(scene, camera);
     }
+
+    document.addEventListener("mousemove", handleMouseMove);
 
     animate();
 
