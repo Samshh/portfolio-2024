@@ -92,8 +92,8 @@ export default function App() {
     const windowHalfY = window.innerHeight / 2;
 
     function handleMouseMove(event: MouseEvent) {
-      targetMouseX = (event.clientX - windowHalfX) / 1000; // Smaller factor for subtle effect
-      targetMouseY = (event.clientY - windowHalfY) / 1000; // Smaller factor for subtle effect
+      targetMouseX = (event.clientX - windowHalfX) / 1000;
+      targetMouseY = (event.clientY - windowHalfY) / 1000;
     }
 
     function animate() {
