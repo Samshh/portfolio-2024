@@ -162,20 +162,20 @@ export default function App() {
       setCurrentTime(new Date().toLocaleTimeString());
     }, 1000);
 
-    const hasReloaded = sessionStorage.getItem("hasReloaded");
+    // const hasReloaded = sessionStorage.getItem("hasReloaded");
 
-    if (!hasReloaded) {
-      sessionStorage.setItem("hasReloaded", "true");
+    // if (!hasReloaded) {
+    //   sessionStorage.setItem("hasReloaded", "true");
 
-      const timer = setTimeout(() => {
-        window.location.reload();
-      }, 1000);
+    //   const timer = setTimeout(() => {
+    //     window.location.reload();
+    //   }, 1000);
 
-      return () => {
-        clearTimeout(timer);
-        clearInterval(intervalId);
-      };
-    }
+    //   return () => {
+    //     clearTimeout(timer);
+    //     clearInterval(intervalId);
+    //   };
+    // }
 
     return () => {
       clearInterval(intervalId);
