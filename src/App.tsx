@@ -20,6 +20,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
 import * as THREE from "three";
+import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 
 export default function App() {
   const [currentTime, setCurrentTime] = useState(
@@ -52,6 +53,7 @@ export default function App() {
   });
 
   useEffect(() => {
+    const loader = new GLTFLoader();
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(
       75,
@@ -67,54 +69,53 @@ export default function App() {
     });
 
     renderer.setClearColor(0x000000, 0);
-
     renderer.setPixelRatio(window.devicePixelRatio);
     renderer.setSize(window.innerWidth, window.innerHeight);
     camera.position.setZ(30);
 
-    const geometry = new THREE.TorusKnotGeometry(20, 3, 300, 20, 2, 3);
-    const material = new THREE.MeshBasicMaterial({
-      color: 0x333333,
-      wireframe: true,
-    });
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+    scene.add(ambientLight);
 
-    const torus = new THREE.Mesh(geometry, material);
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+    directionalLight.position.set(5, -5, 7.5);
+    scene.add(directionalLight);
 
-    torus.position.set(0, 0, 0);
+    loader.load(
+      "assets/3d/scene.gltf",
+      function (gltf) {
+        gltf.scene.scale.set(18, 18, 18);
+        gltf.scene.position.set(13, -35, 0);
+        gltf.scene.rotation.set(0, -20, 0);
 
-    scene.add(torus);
+        gltf.scene.traverse((child) => {
+          if (child instanceof THREE.Mesh) {
+            child.material = new THREE.MeshStandardMaterial({
+              color: 0x333333,
+              metalness: 0.5,
+              roughness: 1,
+            });
+          }
+        });
 
-    let mouseX = 0;
-    let mouseY = 0;
-    let targetMouseX = 0;
-    let targetMouseY = 0;
-    const windowHalfX = window.innerWidth / 2;
-    const windowHalfY = window.innerHeight / 2;
-
-    function handleMouseMove(event: MouseEvent) {
-      targetMouseX = (event.clientX - windowHalfX) / 1000; // Smaller factor for subtle effect
-      targetMouseY = (event.clientY - windowHalfY) / 1000; // Smaller factor for subtle effect
-    }
+        scene.add(gltf.scene);
+      },
+      undefined,
+      function (error) {
+        console.error(error);
+      }
+    );
 
     function animate() {
       requestAnimationFrame(animate);
-      torus.rotation.x += 0.01;
-      torus.rotation.y += 0.005;
 
       const maxScroll = document.body.scrollHeight - window.innerHeight;
-      const scrollFraction = scrollY / maxScroll;
+      const scrollFraction = scrollY / maxScroll / 2;
       camera.position.z = 30 - scrollFraction * 20;
-
-      mouseX += (targetMouseX - mouseX) * 0.05;
-      mouseY += (targetMouseY - mouseY) * 0.05;
-
-      camera.rotation.y = mouseX * 0.1;
-      camera.rotation.x = -mouseY * 0.1;
+      camera.position.y = 0 - scrollFraction * 5;
+      camera.position.x = 0 + scrollFraction * 13;
 
       renderer.render(scene, camera);
     }
-
-    document.addEventListener("mousemove", handleMouseMove);
 
     animate();
 
@@ -128,8 +129,6 @@ export default function App() {
 
     return () => {
       window.removeEventListener("resize", handleResize);
-      geometry.dispose();
-      material.dispose();
       renderer.dispose();
     };
   }, []);
@@ -138,7 +137,7 @@ export default function App() {
     const intervalId = setInterval(() => {
       setCurrentTime(new Date().toLocaleTimeString());
     }, 1000);
-    
+
     const hasReloaded = sessionStorage.getItem("hasReloaded");
 
     if (!hasReloaded) {
@@ -146,7 +145,7 @@ export default function App() {
 
       const timer = setTimeout(() => {
         window.location.reload();
-      }, 1000); 
+      }, 1000);
 
       return () => {
         clearTimeout(timer);

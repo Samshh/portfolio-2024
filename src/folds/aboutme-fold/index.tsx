@@ -84,7 +84,7 @@ export default function AboutMeFold() {
             <span ref={text}>About me</span>.
           </h3>
         </div>
-        <div className="bg-[#0c0c0c] border border-[#333333] p-[15px] rounded-lg">
+        <div className="border border-[#333333] p-[15px] rounded-lg">
           <h6 className="font-light flex flex-wrap" ref={textRef}>
             {text2.split(" ").map((word, index) => (
               <span
@@ -97,7 +97,7 @@ export default function AboutMeFold() {
           </h6>
         </div>
       </div>
-      <div ref={startHere} className="flex flex-col items-center justify-center bg-[#0c0c0c] border border-[#333333] p-[15px] rounded-lg">
+      <div ref={startHere} className="flex flex-col items-center justify-center border border-[#333333] p-[15px] rounded-lg">
         <img className="rounded-lg object-contain" src="/assets/SamGoogle.png" alt="me" />
       </div>
     </main>
