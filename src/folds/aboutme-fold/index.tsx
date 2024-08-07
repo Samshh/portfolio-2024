@@ -1,15 +1,16 @@
 import { useGradientText } from "@/animations/useGradientText";
+import { Component } from "./chart";
 
 export default function AboutMeFold() {
   const text = useGradientText();
 
   return (
-    <main className="h-auto flex flex-col md:h-screen md:items-start items-center justify-center px-4 py-4 max-w-[1280px] min-h-[720px] mx-auto select-none gap-[1rem]">
-      <div className="flex flex-col gap-[1rem] md:w-1/2">
+    <main className="h-auto flex flex-col md:grid md:grid-cols-2 md:h-screen items-center justify-center px-4 py-4 max-w-[1280px] min-h-[720px] mx-auto select-none gap-[1rem]">
+      <div className="flex flex-col gap-[1rem]">
         <div>
-          <h3 className="text-[#333333]">
+          <h2 className="text-[#333333]">
             <span ref={text}>About me</span>.
-          </h3>
+          </h2>
         </div>
         <div className="border border-[#333333] p-[15px] rounded-lg">
           <h6 className="font-light flex flex-wrap">
@@ -18,6 +19,7 @@ export default function AboutMeFold() {
             exploring different genres, and a passionate musician.
           </h6>
         </div>
+        <Component />
       </div>
     </main>
   );

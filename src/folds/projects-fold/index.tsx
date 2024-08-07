@@ -98,10 +98,10 @@ export default function ProjectsFold() {
   return (
     <main className="md:grid md:grid-cols-2 h-auto min-h-[720px] flex flex-col items-start justify-center px-4 py-4 max-w-[1280px] mx-auto gap-[1rem] select-none">
       <div ref={pin} className="w-full h-auto flex flex-col gap-[1rem]">
-        <h3>
+        <h2 className="flex flex-wrap">
           <span ref={text}>Projects</span>
           <span className="text-[#333333]">(6).</span>
-        </h3>
+        </h2>
         <h6 className="font-light border border-[#333333] p-[15px] rounded-lg">{description}</h6>
       </div>
       <div className="w-full flex flex-col gap-[1rem]">

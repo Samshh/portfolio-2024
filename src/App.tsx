@@ -268,7 +268,7 @@ export default function App() {
             </div>
             <div className="text-[15px] font-thin gap-[0.5rem] justify-center items-center select-none hidden md:flex">
               <p>powered by</p>
-              <div className="text-[15px] bg-[#e7e7e7] py-[3px] px-[3px] rounded-sm">
+              <div className="text-[14px] bg-[#e7e7e7] py-[4px] px-[4px] rounded-full">
                 <Icon icon="devicon:vercel" />
               </div>
             </div>
