@@ -69,32 +69,32 @@ export default function ContactFold() {
           </h3>
         </div>
         <div className="flex justify-start flex-wrap items-start gap-[1rem]">
-          <Button ref={buttonsRef1}>
-            <a
-              href="https://github.com/Samshh/"
-              target="_blank"
-              rel="noopener"
-              title="GitHub"
-            >
+          <a
+            href="https://github.com/Samshh/"
+            target="_blank"
+            rel="noopener"
+            title="GitHub"
+          >
+            <Button ref={buttonsRef1}>
               <div className="flex justify-center items-center gap-[.5rem]">
                 <Icon className="text-[23px]" icon="mdi:github" />
                 <h6 className="font-light">GitHub</h6>
               </div>
-            </a>
-          </Button>
-          <Button ref={buttonsRef2}>
-            <a
-              href="https://www.linkedin.com/in/samshh/"
-              target="_blank"
-              rel="noopener"
-              title="LinkedIn"
-            >
+            </Button>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/samshh/"
+            target="_blank"
+            rel="noopener"
+            title="LinkedIn"
+          >
+            <Button ref={buttonsRef2}>
               <div className="flex justify-center items-center gap-[.5rem]">
                 <Icon className="text-[19px]" icon="bi:linkedin" />
                 <h6 className="font-light">LinkedIn</h6>
               </div>
-            </a>
-          </Button>
+            </Button>
+          </a>
         </div>
       </div>
     </main>

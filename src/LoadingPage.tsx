@@ -20,7 +20,7 @@ export default function LoadingPage() {
   });
 
   return (
-    <div className="fixed inset-0 flex flex-col justify-center items-center bg-[#0c0c0c] z-50 gap-[0.25rem] select-none">
+    <div className="fixed inset-0 flex flex-col justify-center items-center bg-[#0c0c0c] z-40 gap-[0.25rem] select-none">
       <div className="flex justify-center items-center">
         <div ref={textLeft}>
           <h4>

@@ -83,7 +83,6 @@ export default function App() {
     loader.load(
       "assets/3d/scene.gltf",
       function (gltf) {
-        
         gltf.scene.scale.set(18, 18, 18);
         gltf.scene.position.set(8, -35, 0);
         gltf.scene.rotation.set(0, (-20 * Math.PI) / 180, 0);
@@ -162,21 +161,6 @@ export default function App() {
       setCurrentTime(new Date().toLocaleTimeString());
     }, 1000);
 
-    // const hasReloaded = sessionStorage.getItem("hasReloaded");
-
-    // if (!hasReloaded) {
-    //   sessionStorage.setItem("hasReloaded", "true");
-
-    //   const timer = setTimeout(() => {
-    //     window.location.reload();
-    //   }, 1000);
-
-    //   return () => {
-    //     clearTimeout(timer);
-    //     clearInterval(intervalId);
-    //   };
-    // }
-
     return () => {
       clearInterval(intervalId);
     };
@@ -188,17 +172,39 @@ export default function App() {
         id="bg"
         className="fixed top-0 left-0 w-full h-full -z-10"
       ></canvas>
+      <svg
+        className="fixed top-0 left-0 w-full h-full z-50 pointer-events-none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <filter id="noise">
+          <feTurbulence
+            type="turbelance"
+            baseFrequency="0.25"
+            numOctaves="3"
+            stitchTiles="stitch"
+          >
+            <animate
+              attributeName="seed"
+              from="0"
+              to="100"
+              dur="8s"
+              repeatCount="indefinite"
+            />
+          </feTurbulence>
+          <feColorMatrix type="saturate" values="0" />
+        </filter>
+        <rect width="100%" height="100%" filter="url(#noise)" opacity="0.05" />
+      </svg>
       <ReactLenis root>
         <div ref={loading}>
           <LoadingPage />
         </div>
         <div className="overflow-x-clip">
-          <nav ref={navRef} className="sticky top-0 z-40 select-none">
+          <nav ref={navRef} className="sticky top-0 z-30 select-none">
             <div className="flex justify-between items-center px-4 py-4 z-50 max-w-[1280px] min-w-[320px] mx-auto">
-              <Button>
+              <Button onClick={() => scrollToSection(heroRef)}>
                 <h6
                   className="text-[#333333]"
-                  onClick={() => scrollToSection(heroRef)}
                 >
                   <span ref={text}>samshh</span>.
                 </h6>
@@ -215,18 +221,18 @@ export default function App() {
                 <DropdownMenuContent>
                   <DropdownMenuLabel>Navigation</DropdownMenuLabel>
                   <DropdownMenuSeparator></DropdownMenuSeparator>
-                  <DropdownMenuItem>
-                    <div onClick={() => scrollToSection(aboutMeRef)}>
+                  <DropdownMenuItem onClick={() => scrollToSection(aboutMeRef)}>
+                    <div>
                       About me
                     </div>
                   </DropdownMenuItem>
-                  <DropdownMenuItem>
-                    <div onClick={() => scrollToSection(projectsRef)}>
+                  <DropdownMenuItem onClick={() => scrollToSection(projectsRef)}>
+                    <div>
                       Projects
                     </div>
                   </DropdownMenuItem>
-                  <DropdownMenuItem>
-                    <div onClick={() => scrollToSection(contactRef)}>
+                  <DropdownMenuItem onClick={() => scrollToSection(contactRef)}>
+                    <div>
                       Contact
                     </div>
                   </DropdownMenuItem>
