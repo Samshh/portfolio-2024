@@ -203,9 +203,7 @@ export default function App() {
           <nav ref={navRef} className="sticky top-0 z-30 select-none">
             <div className="flex justify-between items-center px-4 py-4 max-w-[1280px] min-w-[320px] mx-auto">
               <Button onClick={() => scrollToSection(heroRef)}>
-                <h6
-                  className="text-[#333333]"
-                >
+                <h6 className="text-[#333333]">
                   <span ref={text}>samshh</span>.
                 </h6>
               </Button>
@@ -219,22 +217,20 @@ export default function App() {
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
-                  <DropdownMenuLabel>Navigation</DropdownMenuLabel>
+                  <DropdownMenuLabel>
+                    <h6>Navigation</h6>
+                  </DropdownMenuLabel>
                   <DropdownMenuSeparator></DropdownMenuSeparator>
                   <DropdownMenuItem onClick={() => scrollToSection(aboutMeRef)}>
-                    <div>
-                      About me
-                    </div>
+                    <h6 className="font-light">About me</h6>
                   </DropdownMenuItem>
-                  <DropdownMenuItem onClick={() => scrollToSection(projectsRef)}>
-                    <div>
-                      Projects
-                    </div>
+                  <DropdownMenuItem
+                    onClick={() => scrollToSection(projectsRef)}
+                  >
+                    <h6 className="font-light">Projects</h6>
                   </DropdownMenuItem>
                   <DropdownMenuItem onClick={() => scrollToSection(contactRef)}>
-                    <div>
-                      Contact
-                    </div>
+                    <h6 className="font-light">Contact</h6>
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
@@ -262,7 +258,9 @@ export default function App() {
             <div className="flex gap-[0.5rem] justify-center items-center select-none">
               <div className="flex items-center justify-center">
                 <Icon icon="ph:copyright-light" className="text-[21px]" />
-                <p className="font-bold" ref={text2}>samshh</p>
+                <p className="font-bold" ref={text2}>
+                  samshh
+                </p>
               </div>
               <p>2024</p>
             </div>
