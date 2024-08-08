@@ -22,6 +22,14 @@ export default function AboutMeFold() {
     );
   });
 
+  const handleMouseEnter1 = () => {
+    gsap.to(text.current, { text: "Sur moi", duration: 0.5 });
+  };
+
+  const handleMouseLeave1 = () => {
+    gsap.to(text.current, { text: "About me", duration: 0.5 });
+  };
+
   return (
     <main
       ref={trigger}
@@ -29,7 +37,7 @@ export default function AboutMeFold() {
     >
       <div className="flex flex-col gap-[1rem]">
         <div>
-          <h1 className="text-[#333333]">
+          <h1 className="text-[#333333] w-[238px]" onMouseEnter={handleMouseEnter1} onMouseLeave={handleMouseLeave1}>
             <span ref={text}></span>.
           </h1>
         </div>

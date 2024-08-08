@@ -9,6 +9,9 @@ import {
 import { useGSAP } from "@gsap/react";
 import { Icon } from "@iconify/react";
 import { useRef } from "react";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
 export default function ProjectsFold() {
   const trigger = useRef(null);
@@ -17,6 +20,14 @@ export default function ProjectsFold() {
     animateText(text, trigger, "Travaux", "Projects", 2);
   });
 
+  const handleMouseEnter1 = () => {
+    gsap.to(text.current, { text: "Travaux", duration: 0.5 });
+  };
+
+  const handleMouseLeave1 = () => {
+    gsap.to(text.current, { text: "Projects", duration: 0.5 });
+  };
+
   return (
     <main
       ref={trigger}
@@ -24,7 +35,11 @@ export default function ProjectsFold() {
     >
       <div className="w-full h-auto flex flex-col gap-[1rem]">
         <h1>
-          <span ref={text}>Projects</span>
+          <span
+            onMouseEnter={handleMouseEnter1}
+            onMouseLeave={handleMouseLeave1}
+            ref={text}
+          ></span>
           <span className="text-[#333333]">.</span>
         </h1>
       </div>

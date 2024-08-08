@@ -46,7 +46,7 @@ export default function HeroFold({ projectsRef, contactRef }: HeroFoldProps) {
       )
       .fromTo(
         textRef1.current,
-        { text: "l'extrémité" },
+        { text: "avant" },
         { text: "front-end", duration: 0.8 },
         "-=0.4"
       )
@@ -66,8 +66,8 @@ export default function HeroFold({ projectsRef, contactRef }: HeroFoldProps) {
             Sam Dacara
           </h4>
           <h1 ref={headlineRef}>
-            A <span ref={textRef1}></span> developer specializing in{" "}
-            <span ref={textRef2}></span><span className="text-[#333333]">.</span>
+            A <span className="w-[213px]" ref={textRef1}></span> developer specializing in{" "}
+            <span className="w-[121px]" ref={textRef2}></span><span className="text-[#333333]">.</span>
           </h1>
         </div>
         <div className="flex justify-start items-center gap-[1rem]">

@@ -51,7 +51,12 @@ export default function ContactFold() {
       )
       .fromTo(textRef1.current, { text: "lien" }, { text: "connect" }, "-=0.4")
       .fromTo(textRef2.current, { text: "créer" }, { text: "create" }, "-=0.4")
-      .fromTo(textRef3.current, { text: "incroyable" }, { text: "amazing" }, "-=0.4");
+      .fromTo(
+        textRef3.current,
+        { text: "incroyable" },
+        { text: "amazing" },
+        "-=0.4"
+      );
   });
 
   return (
@@ -62,7 +67,8 @@ export default function ContactFold() {
       <div className="flex flex-col justify-start items-start gap-[1.5rem] lg:w-1/2">
         <div ref={headlineRef}>
           <h1>
-            Let's <span ref={textRef1}></span> and <span ref={textRef2}></span> something <span ref={textRef3}></span>
+            Let's <span ref={textRef1}></span> and <span ref={textRef2}></span>{" "}
+            something <span ref={textRef3}></span>
             <span className="text-[#333333]">.</span>
           </h1>
         </div>
