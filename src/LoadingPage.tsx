@@ -28,11 +28,11 @@ export default function LoadingPage() {
           </h4>
         </div>
         <div ref={textRight}>
-          <h4 className="font-thin text-[#333333]">2024</h4>
+          <h4 className="font-light text-[#333333]">2024</h4>
         </div>
       </div>
       <div ref={bottomRef} className="flex justify-center items-center gap-[0.5rem]">
-        <p className="text-[20px] font-thin">made with</p>
+        <p className="font-normal">made with</p>
         <div ref={spinIcon}>
           <Icon icon="logos:react" className="text-[20px]" />
         </div>

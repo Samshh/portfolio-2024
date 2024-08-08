@@ -38,6 +38,11 @@
   h6 {
     font-weight: 700;
   }
+  
+  p {
+    @apply text-[1.25rem] font-thin;
+    line-height: 1.5;
+  }
 
   h1 {
     font-size: var(--text-h1-size);
