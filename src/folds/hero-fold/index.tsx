@@ -46,14 +46,14 @@ export default function HeroFold({ projectsRef, contactRef }: HeroFoldProps) {
       )
       .fromTo(
         textRef1.current,
-        { opacity: 0 },
-        { opacity: 1, duration: 0.8 },
+        { text: "l'extrémité" },
+        { text: "front-end", duration: 0.8 },
         "-=0.4"
       )
       .fromTo(
         textRef2.current,
-        { opacity: 0 },
-        { opacity: 1, duration: 0.8 },
+        { text: "Réagir" },
+        { text: "React", duration: 0.8 },
         "-=0.4"
       );
   });
@@ -66,8 +66,8 @@ export default function HeroFold({ projectsRef, contactRef }: HeroFoldProps) {
             Sam Dacara
           </h4>
           <h1 ref={headlineRef}>
-            A <span ref={textRef1}>front-end</span> developer specializing in{" "}
-            <span ref={textRef2}>React</span><span className="text-[#333333]">.</span>
+            A <span ref={textRef1}></span> developer specializing in{" "}
+            <span ref={textRef2}></span><span className="text-[#333333]">.</span>
           </h1>
         </div>
         <div className="flex justify-start items-center gap-[1rem]">
@@ -75,10 +75,10 @@ export default function HeroFold({ projectsRef, contactRef }: HeroFoldProps) {
             ref={buttonsRef1}
             onClick={() => scrollToSection(projectsRef)}
           >
-            <h6 className="font-light">Projects</h6>
+            <h6 className="font-light">PROJECTS</h6>
           </Button>
           <Button ref={buttonsRef2} onClick={() => scrollToSection(contactRef)}>
-            <h6 className="font-light">Contact</h6>
+            <h6 className="font-light">CONTACT</h6>
           </Button>
         </div>
       </div>

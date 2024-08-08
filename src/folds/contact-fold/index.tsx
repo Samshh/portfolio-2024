@@ -49,9 +49,9 @@ export default function ContactFold() {
         { opacity: 1, y: 0 },
         "-=0.4"
       )
-      .fromTo(textRef1.current, { opacity: 0 }, { opacity: 1 }, "-=0.4")
-      .fromTo(textRef2.current, { opacity: 0 }, { opacity: 1 }, "-=0.4")
-      .fromTo(textRef3.current, { opacity: 0 }, { opacity: 1 }, "-=0.4");
+      .fromTo(textRef1.current, { text: "lien" }, { text: "connect" }, "-=0.4")
+      .fromTo(textRef2.current, { text: "créer" }, { text: "create" }, "-=0.4")
+      .fromTo(textRef3.current, { text: "incroyable" }, { text: "amazing" }, "-=0.4");
   });
 
   return (
@@ -62,9 +62,7 @@ export default function ContactFold() {
       <div className="flex flex-col justify-start items-start gap-[1.5rem] lg:w-1/2">
         <div ref={headlineRef}>
           <h1>
-            Let's<span ref={textRef1}> connect </span>and
-            <span ref={textRef2}> create </span> something amazing
-            <span ref={textRef3}> together</span>
+            Let's <span ref={textRef1}></span> and <span ref={textRef2}></span> something <span ref={textRef3}></span>
             <span className="text-[#333333]">.</span>
           </h1>
         </div>
@@ -78,7 +76,7 @@ export default function ContactFold() {
             <Button ref={buttonsRef1}>
               <div className="flex justify-center items-center gap-[.5rem]">
                 <Icon className="text-[23px]" icon="mdi:github" />
-                <h6 className="font-light">GitHub</h6>
+                <h6 className="font-light">GITHUB</h6>
               </div>
             </Button>
           </a>
@@ -91,7 +89,7 @@ export default function ContactFold() {
             <Button ref={buttonsRef2}>
               <div className="flex justify-center items-center gap-[.5rem]">
                 <Icon className="text-[19px]" icon="bi:linkedin" />
-                <h6 className="font-light">LinkedIn</h6>
+                <h6 className="font-light">LINKED IN</h6>
               </div>
             </Button>
           </a>

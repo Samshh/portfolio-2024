@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import AboutMeFold from "./folds/aboutme-fold";
 import HeroFold from "./folds/hero-fold";
 import ProjectsFold from "./folds/projects-fold";
@@ -15,7 +15,6 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-  DropdownMenuLabel,
   DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
@@ -23,12 +22,7 @@ import * as THREE from "three";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 
 export default function App() {
-  const [currentTime, setCurrentTime] = useState(
-    new Date().toLocaleTimeString()
-  );
   const text = useGradientText();
-  const text2 = useGradientText();
-
   const heroRef = useRef<HTMLDivElement>(null);
   const aboutMeRef = useRef<HTMLDivElement>(null);
   const projectsRef = useRef<HTMLDivElement>(null);
@@ -156,16 +150,6 @@ export default function App() {
     };
   }, []);
 
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      setCurrentTime(new Date().toLocaleTimeString());
-    }, 1000);
-
-    return () => {
-      clearInterval(intervalId);
-    };
-  }, []);
-
   return (
     <main>
       <canvas
@@ -203,32 +187,30 @@ export default function App() {
           <nav ref={navRef} className="sticky top-0 z-30 select-none">
             <div className="flex justify-between items-center px-4 py-4 max-w-[1280px] min-w-[320px] mx-auto">
               <Button onClick={() => scrollToSection(heroRef)}>
-                <h6 className="text-[#333333]">
-                  <span ref={text}>samshh</span>.
+                <h6 className="text-[#333333] font-black">
+                  <span ref={text}>SAM</span>.
                 </h6>
               </Button>
               <DropdownMenu>
                 <DropdownMenuTrigger>
                   <Button>
                     <Icon
-                      icon="gg:menu-right-alt"
+                      icon="material-symbols-light:menu"
                       className="text-3xl cursor-pointer text-[#e7e7e7]"
                     />
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
-                  <DropdownMenuLabel>
-                    <h6>Navigation</h6>
-                  </DropdownMenuLabel>
-                  <DropdownMenuSeparator></DropdownMenuSeparator>
                   <DropdownMenuItem onClick={() => scrollToSection(aboutMeRef)}>
                     <h6 className="font-light">About me</h6>
                   </DropdownMenuItem>
+                  <DropdownMenuSeparator></DropdownMenuSeparator>
                   <DropdownMenuItem
                     onClick={() => scrollToSection(projectsRef)}
                   >
                     <h6 className="font-light">Projects</h6>
                   </DropdownMenuItem>
+                  <DropdownMenuSeparator></DropdownMenuSeparator>
                   <DropdownMenuItem onClick={() => scrollToSection(contactRef)}>
                     <h6 className="font-light">Contact</h6>
                   </DropdownMenuItem>
@@ -245,31 +227,8 @@ export default function App() {
           <div ref={projectsRef}>
             <ProjectsFold />
           </div>
-          <div>
+          <div ref={contactRef}>
             <ContactFold />
-          </div>
-          <div
-            className="flex items-center justify-center md:justify-between mx-auto max-w-[1280px] p-[16px]"
-            ref={contactRef}
-          >
-            <div className="gap-[0.5rem] justify-center items-center select-none hidden md:flex">
-              <p>{currentTime}</p>
-            </div>
-            <div className="flex gap-[0.5rem] justify-center items-center select-none">
-              <div className="flex items-center justify-center">
-                <Icon icon="ph:copyright-light" className="text-[21px]" />
-                <p className="font-bold" ref={text2}>
-                  samshh
-                </p>
-              </div>
-              <p>2024</p>
-            </div>
-            <div className="gap-[0.5rem] justify-center items-center select-none hidden md:flex">
-              <p>powered by</p>
-              <div className="text-[14px] bg-[#e7e7e7] py-[4px] px-[4px] rounded-full">
-                <Icon icon="devicon:vercel" />
-              </div>
-            </div>
           </div>
         </div>
       </ReactLenis>

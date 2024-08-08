@@ -17,6 +17,7 @@ export default function LoadingPage() {
     gsap.from(textLeft.current, { y: -30, opacity: 0, duration: 1, delay: 1.25 });
     gsap.from(textRight.current, { y: -30, opacity: 0, duration: 1, delay: 1.5 });
     gsap.from(bottomRef.current, { y: 20, opacity: 0, duration: 1, delay: 1.75 });
+    
   });
 
   return (
@@ -32,7 +33,7 @@ export default function LoadingPage() {
         </div>
       </div>
       <div ref={bottomRef} className="flex justify-center items-center gap-[0.5rem]">
-        <p className="font-normal">made with</p>
+        <h4 className="font-normal text-[1rem]">made with</h4>
         <div ref={spinIcon}>
           <Icon icon="logos:react" className="text-[20px]" />
         </div>
