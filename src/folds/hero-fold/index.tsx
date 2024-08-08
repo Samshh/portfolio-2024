@@ -61,14 +61,14 @@ export default function HeroFold({ projectsRef, contactRef }: HeroFoldProps) {
   return (
     <main className="h-screen px-4 py-4 flex items-center min-h-[720px] max-w-[1280px] mx-auto select-none">
       <div className="flex flex-col justify-center h-full lg:w-1/2 gap-[1.5rem]">
-        <div className="flex flex-col justify-center items-start gap-[1rem]">
-          <h5 className="font-normal" ref={introTextRef}>
+        <div className="flex flex-col justify-center items-start">
+          <h4 className="font-thin" ref={introTextRef}>
             Sam Dacara
-          </h5>
-          <h3 ref={headlineRef}>
+          </h4>
+          <h1 ref={headlineRef}>
             A <span ref={textRef1}>front-end</span> developer specializing in{" "}
-            <span ref={textRef2}>React</span>
-          </h3>
+            <span ref={textRef2}>React</span><span className="text-[#333333]">.</span>
+          </h1>
         </div>
         <div className="flex justify-start items-center gap-[1rem]">
           <Button

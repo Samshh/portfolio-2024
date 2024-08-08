@@ -61,12 +61,12 @@ export default function ContactFold() {
     >
       <div className="flex flex-col justify-start items-start gap-[1.5rem] lg:w-1/2">
         <div ref={headlineRef}>
-          <h3>
+          <h1>
             Let's<span ref={textRef1}> connect </span>and
             <span ref={textRef2}> create </span> something amazing
             <span ref={textRef3}> together</span>
             <span className="text-[#333333]">.</span>
-          </h3>
+          </h1>
         </div>
         <div className="flex justify-start flex-wrap items-start gap-[1rem]">
           <a
@@ -96,7 +96,6 @@ export default function ContactFold() {
             </Button>
           </a>
         </div>
-
       </div>
     </main>
   );

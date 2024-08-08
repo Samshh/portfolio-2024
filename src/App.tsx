@@ -256,17 +256,17 @@ export default function App() {
             className="flex items-center justify-center md:justify-between mx-auto max-w-[1280px] p-[16px]"
             ref={contactRef}
           >
-            <div className="text-[15px] font-normal gap-[0.5rem] justify-center items-center select-none hidden md:flex">
+            <div className="text-[20px] font-normal gap-[0.5rem] justify-center items-center select-none hidden md:flex">
               <p>{currentTime}</p>
             </div>
-            <div className="text-[15px] font-normal flex gap-[0.5rem] justify-center items-center select-none">
-              <div className="text-[15px] font-normal flex items-center justify-center">
+            <div className="text-[20px] font-normal flex gap-[0.5rem] justify-center items-center select-none">
+              <div className="text-[20px] font-normal flex items-center justify-center">
                 <Icon icon="ph:copyright-light" className="text-[21px]" />
                 <p ref={text2}>samshh</p>
               </div>
               <p>2024</p>
             </div>
-            <div className="text-[15px] font-thin gap-[0.5rem] justify-center items-center select-none hidden md:flex">
+            <div className="text-[20px] font-thin gap-[0.5rem] justify-center items-center select-none hidden md:flex">
               <p>powered by</p>
               <div className="text-[14px] bg-[#e7e7e7] py-[4px] px-[4px] rounded-full">
                 <Icon icon="devicon:vercel" />
