@@ -1,5 +1,4 @@
 import { useGradientText } from "@/animations/useGradientText";
-import { Component } from "./chart";
 
 export default function AboutMeFold() {
   const text = useGradientText();
@@ -19,8 +18,7 @@ export default function AboutMeFold() {
             exploring different genres, and a passionate musician.
           </h6>
         </div>
-        <Component />
-      </div>
+       </div>
     </main>
   );
 }
