@@ -100,7 +100,7 @@ export default function ProjectsFold() {
       <div ref={pin} className="w-full h-auto flex flex-col gap-[1rem]">
         <h1 className="flex flex-wrap">
           <span ref={text}>Projects</span>
-          <span className="text-[#333333]">(6).</span>
+          <span className="text-[#333333]">.</span>
         </h1>
         <h5 className="font-light">{description}</h5>
       </div>
