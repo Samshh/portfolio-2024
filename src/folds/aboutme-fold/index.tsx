@@ -13,6 +13,13 @@ export default function AboutMeFold() {
 
   useGSAP(() => {
     animateText(text, trigger, "Sur moi", "About me", 2);
+    animateText(
+      text2,
+      trigger,
+      "Un développeur React dédié avec une profonde appréciation pour divers langages de codage, un passionné d'anime enthousiaste qui aime explorer différents genres, et un musicien passionné.",
+      "A dedicated React developer with a deep appreciation for various coding languages, an enthusiastic anime aficionado who enjoys exploring different genres, and a passionate musician.",
+      2
+    );
   });
 
   return (
@@ -27,11 +34,7 @@ export default function AboutMeFold() {
           </h1>
         </div>
         <div>
-          <h5 ref={text2} className="font-light flex flex-wrap">
-            A dedicated React developer with a deep appreciation for various
-            coding languages, an enthusiastic anime aficionado who enjoys
-            exploring different genres, and a passionate musician.
-          </h5>
+          <h5 ref={text2} className="font-light flex flex-wrap"></h5>
         </div>
       </div>
     </main>
