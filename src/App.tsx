@@ -182,13 +182,13 @@ export default function App() {
             numOctaves="3"
             stitchTiles="stitch"
           >
-            <animate
+            {/* <animate
               attributeName="seed"
               from="0"
               to="100"
               dur="8s"
               repeatCount="indefinite"
-            />
+            /> */}
           </feTurbulence>
           <feColorMatrix type="saturate" values="0" />
         </filter>
