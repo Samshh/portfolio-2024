@@ -10,14 +10,15 @@ export default function LoadingPage() {
   const textLeft = useRef(null);
   const textRight = useRef(null);
   const bottomRef = useRef(null);
+  const messageRef = useRef(null);
   const iconTl = gsap.timeline({ repeat: -1, defaults: { ease: "linear" } });
 
   useGSAP(() => {
     iconTl.to(spinIcon.current, { rotate: 360, duration: 2 });
-    gsap.from(textLeft.current, { y: -30, opacity: 0, duration: 1, delay: 1.25 });
-    gsap.from(textRight.current, { y: -30, opacity: 0, duration: 1, delay: 1.5 });
-    gsap.from(bottomRef.current, { y: 20, opacity: 0, duration: 1, delay: 1.75 });
-    
+    gsap.from(textLeft.current, { y: -30, opacity: 0, duration: 1, delay: 0.25 });
+    gsap.from(textRight.current, { y: -30, opacity: 0, duration: 1, delay: 0.5 });
+    gsap.from(bottomRef.current, { y: 20, opacity: 0, duration: 1, delay: 0.75 });
+    gsap.to(messageRef.current, { opacity: 1, duration: 1, delay: 5, ease: "power2.inOut" });
   });
 
   return (
@@ -37,6 +38,9 @@ export default function LoadingPage() {
         <div ref={spinIcon}>
           <Icon icon="logos:react" className="text-[20px]" />
         </div>
+      </div>
+      <div ref={messageRef} className="fixed bottom-4 opacity-0">
+        <h4 className="font-normal text-[1rem] text-[#ffffff]">Assets took a while to load...</h4>
       </div>
     </div>
   );

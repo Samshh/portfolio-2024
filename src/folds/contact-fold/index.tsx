@@ -68,9 +68,9 @@ export default function ContactFold() {
   return (
     <main
       ref={contactTrigger}
-      className="h-screen px-4 py-4 max-w-[1280px] min-h-[400px] mx-auto flex flex-col justify-center items-start md:flex-row md:justify-start md:items-center select-none"
+      className="h-screen px-4 py-4 max-w-[1280px] min-h-[400px] mx-auto flex flex-col justify-center items-start select-none relative"
     >
-      <div className="flex flex-col justify-start items-start gap-[1.5rem] lg:w-1/2">
+      <div className="flex flex-grow flex-col justify-center items-start gap-[1.5rem] lg:w-1/2">
         <div ref={headlineRef}>
           <h1>
             Let's <span ref={textRef1}></span> and <span ref={textRef2}></span>{" "}
@@ -106,6 +106,10 @@ export default function ContactFold() {
             </Button>
           </a>
         </div>
+      </div>
+      <div className="w-full max-w-[1280px] flex justify-between items-center">
+        <p className="font-normal text-[0.55rem] md:text-[1rem] text-[#333333]">Sam Dacara // © All Rights Reserved</p>
+        <p className="font-normal text-[0.55rem] md:text-[1rem] text-[#333333]">Powered by Vercel</p>
       </div>
     </main>
   );
