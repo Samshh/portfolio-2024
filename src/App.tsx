@@ -44,10 +44,10 @@ export default function App() {
         autoAlpha: 0,
         ease: "power2.out",
         onComplete: () => {
-          gsap.from(navRef.current, {
+          gsap.to(navRef.current, {
             duration: 1,
-            autoAlpha: 0,
-            y: -50,
+            autoAlpha: 1,
+            y: 0,
             ease: "power2.out",
           });
         },
@@ -198,7 +198,7 @@ export default function App() {
           <LoadingPage />
         </div>
         <div className="overflow-x-clip">
-          <nav ref={navRef} className="sticky top-0 z-30 select-none">
+          <nav ref={navRef} className="sticky top-0 z-30 select-none opacity-0 transform -translate-y-12">
             <div className="flex justify-between items-center px-4 py-4 max-w-[1280px] min-w-[320px] mx-auto">
               <Button ref={homeButton} onClick={() => scrollToSection(heroRef)}>
                 <h6 className="text-[#333333] font-black">
