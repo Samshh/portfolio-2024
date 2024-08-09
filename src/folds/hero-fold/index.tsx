@@ -26,7 +26,7 @@ export default function HeroFold({ projectsRef, contactRef }: HeroFoldProps) {
   useAnimateButton(text2, buttonsRef1, "TRAVAUX", "PROJECTS", 0.5);
   useAnimateButton(text3, buttonsRef2, "CONNECTER", "CONTACT", 0.5);
   useGSAP(() => {
-    const tl = gsap.timeline({ defaults: { ease: "power3.out" }, delay: 0.5 });
+    const tl = gsap.timeline({ defaults: { ease: "expo.inOut" }, delay: 0.5 });
 
     tl.fromTo(
       introTextRef.current,
