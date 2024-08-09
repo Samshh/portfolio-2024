@@ -246,7 +246,7 @@ export default function ProjectsFold() {
               <AccordionContent>
                 <div className="flex flex-col gap-[1rem]">
                   <div className="flex items-center justify-between">
-                    <h6 className="font-light">Library</h6>
+                    <h6 className="font-light">Website/Library</h6>
                     <a
                       href="https://www.npmjs.com/package/saminate"
                       target="_blank"

@@ -60,7 +60,7 @@ export default function AboutMeFold() {
     >
       <div className="flex flex-col gap-[1rem]">
         <div>
-          <h1 className="text-[#333333] w-[238px]" onMouseEnter={handleMouseEnter1} onMouseLeave={handleMouseLeave1}>
+          <h1 className="text-[#333333] w-[265px]" onMouseEnter={handleMouseEnter1} onMouseLeave={handleMouseLeave1}>
             <span ref={text}></span>.
           </h1>
         </div>
