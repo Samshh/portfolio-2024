@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { scrollToSection } from "@/animations/scrollToSection";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import useAnimateButton from "@/animations/animateButton";
 
 interface HeroFoldProps {
   projectsRef: React.RefObject<HTMLDivElement>;
@@ -18,6 +19,12 @@ export default function HeroFold({ projectsRef, contactRef }: HeroFoldProps) {
   const headlineRef = useRef(null);
   const buttonsRef1 = useRef(null);
   const buttonsRef2 = useRef(null);
+
+  const text2 = useRef<HTMLSpanElement>(null);
+  const text3 = useRef<HTMLSpanElement>(null);
+
+  useAnimateButton(text2, buttonsRef1, "TRAVAUX", "PROJECTS", 0.5);
+  useAnimateButton(text3, buttonsRef2, "CONNECTER", "CONTACT", 0.5);
   useGSAP(() => {
     const tl = gsap.timeline({ defaults: { ease: "power3.out" }, delay: 0.5 });
 
@@ -76,10 +83,10 @@ export default function HeroFold({ projectsRef, contactRef }: HeroFoldProps) {
             ref={buttonsRef1}
             onClick={() => scrollToSection(projectsRef)}
           >
-            <h6 className="font-light">PROJECTS</h6>
+            <h6 className="font-light"><span ref={text2}>PROJECTS</span></h6>
           </Button>
           <Button ref={buttonsRef2} onClick={() => scrollToSection(contactRef)}>
-            <h6 className="font-light">CONTACT</h6>
+            <h6 className="font-light"><span ref={text3}>CONTACT</span></h6>
           </Button>
         </div>
       </div>

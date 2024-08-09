@@ -19,10 +19,12 @@ import {
 import { Button } from "@/components/ui/button";
 import * as THREE from "three";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+import useAnimateButton from "./animations/animateButton";
 
 export default function App() {
   const [isGLTFLoaded, setIsGLTFLoaded] = useState(false);
   const text = useGradientText();
+  const text2 = useRef<HTMLSpanElement>(null);
   const heroRef = useRef<HTMLDivElement>(null);
   const aboutMeRef = useRef<HTMLDivElement>(null);
   const projectsRef = useRef<HTMLDivElement>(null);
@@ -30,6 +32,10 @@ export default function App() {
   const navRef = useRef<HTMLDivElement>(null);
   const loading = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const homeButton = useRef<HTMLButtonElement>(null);
+  const navButton = useRef<HTMLDivElement>(null);
+  useAnimateButton(text, homeButton, "MEIPLE", "SAM", 0.5);
+  useAnimateButton(text2, navButton, "VOY", "NAV", 0.5);
 
   useGSAP(() => {
     if (isGLTFLoaded && loading.current) {
@@ -195,15 +201,23 @@ export default function App() {
         <div className="overflow-x-clip">
           <nav ref={navRef} className="sticky top-0 z-30 select-none">
             <div className="flex justify-between items-center px-4 py-4 max-w-[1280px] min-w-[320px] mx-auto">
-              <Button onClick={() => scrollToSection(heroRef)}>
+              <Button ref={homeButton} onClick={() => scrollToSection(heroRef)}>
                 <h6 className="text-[#333333] font-black">
                   <span ref={text}>SAM</span>.
                 </h6>
               </Button>
               <DropdownMenu>
                 <DropdownMenuTrigger>
-                  <div className="h-10 px-4 py-2 border border-[#333333] bg-[#0c0c0c] font-['Playfair_Display'] hover:bg-[#1a1a1a] flex items-center justify-center">
-                    <h6>NAV<span className="text-[#333333]">.</span></h6>
+                  <div
+                    ref={navButton}
+                    className="h-10 px-4 py-2 border text-[#333333] border-[#333333] bg-[#0c0c0c] font-['Playfair_Display'] hover:bg-[#1a1a1a] flex items-center justify-center"
+                  >
+                    <h6>
+                      <span ref={text2} className="text-[#e7e7e7]">
+                        NAV
+                      </span>
+                      .
+                    </h6>
                   </div>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>

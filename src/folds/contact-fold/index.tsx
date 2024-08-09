@@ -5,16 +5,22 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import { useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Icon } from "@iconify/react";
+import useAnimateButton from "@/animations/animateButton";
 
 gsap.registerPlugin(ScrollTrigger);
 export default function ContactFold() {
   const textRef1 = useGradientText();
   const textRef2 = useGradientText();
   const textRef3 = useGradientText();
+  const textGithub = useRef(null);
+  const textLinkedin = useRef(null);
   const buttonsRef1 = useRef(null);
   const buttonsRef2 = useRef(null);
   const contactTrigger = useRef(null);
   const headlineRef = useRef(null);
+
+  useAnimateButton(textGithub, buttonsRef1, "/SAMSHH", "GITHUB", 0.5);
+  useAnimateButton(textLinkedin, buttonsRef2, "/SAMSHH", "LINKED IN", 0.5);
   useGSAP(() => {
     const tl = gsap.timeline({
       scrollTrigger: {
@@ -82,7 +88,7 @@ export default function ContactFold() {
             <Button ref={buttonsRef1}>
               <div className="flex justify-center items-center gap-[.5rem]">
                 <Icon className="text-[23px]" icon="mdi:github" />
-                <h6 className="font-light">GITHUB</h6>
+                <h6 className="font-light"><span ref={textGithub}>GITHUB</span></h6>
               </div>
             </Button>
           </a>
@@ -95,7 +101,7 @@ export default function ContactFold() {
             <Button ref={buttonsRef2}>
               <div className="flex justify-center items-center gap-[.5rem]">
                 <Icon className="text-[19px]" icon="bi:linkedin" />
-                <h6 className="font-light">LINKED IN</h6>
+                <h6 className="font-light"><span ref={textLinkedin}>LINKED IN</span></h6>
               </div>
             </Button>
           </a>
