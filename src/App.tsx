@@ -47,6 +47,7 @@ export default function App() {
           if (navRef.current) {
             gsap.from(navRef.current, {
               duration: 1,
+              autoAlpha: 0,
               y: -50,
               ease: "power2.out",
             });
