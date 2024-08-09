@@ -94,7 +94,7 @@ export default function ProjectsFold() {
           </AccordionItem>
         </Accordion>
         <Accordion type="single" collapsible>
-          <AccordionItem value="item-1">
+          <AccordionItem value="item-2">
             <AccordionTrigger>
               <h4 className="font-normal">
                 GDSC<span className="text-[#333333]">.</span>
@@ -146,7 +146,7 @@ export default function ProjectsFold() {
           </AccordionItem>
         </Accordion>
         <Accordion type="single" collapsible>
-          <AccordionItem value="item-1">
+          <AccordionItem value="item-3">
             <AccordionTrigger>
               <h4 className="font-normal">
                 OCP Mapúa MCM<span className="text-[#333333]">.</span>
@@ -193,7 +193,7 @@ export default function ProjectsFold() {
           </AccordionItem>
         </Accordion>
         <Accordion type="single" collapsible>
-          <AccordionItem value="item-1">
+          <AccordionItem value="item-4">
             <AccordionTrigger>
               <h4 className="font-normal">
                 sAminate<span className="text-[#333333]">.</span>
@@ -240,7 +240,7 @@ export default function ProjectsFold() {
           </AccordionItem>
         </Accordion>
         <Accordion type="single" collapsible>
-          <AccordionItem value="item-1">
+          <AccordionItem value="item-5">
             <AccordionTrigger>
               <div className="flex items-center">
                 <h4 className="font-normal">
