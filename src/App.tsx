@@ -1,11 +1,10 @@
-import { useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import AboutMeFold from "./folds/aboutme-fold";
 import HeroFold from "./folds/hero-fold";
 import ProjectsFold from "./folds/projects-fold";
 import ContactFold from "./folds/contact-fold";
 import LoadingPage from "./LoadingPage";
 import { ReactLenis } from "lenis/react";
-import { Icon } from "@iconify/react";
 import { scrollToSection } from "@/animations/scrollToSection";
 import { useGradientText } from "@/animations/useGradientText";
 import gsap from "gsap";
@@ -22,6 +21,7 @@ import * as THREE from "three";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 
 export default function App() {
+  const [isGLTFLoaded, setIsGLTFLoaded] = useState(false);
   const text = useGradientText();
   const heroRef = useRef<HTMLDivElement>(null);
   const aboutMeRef = useRef<HTMLDivElement>(null);
@@ -29,25 +29,30 @@ export default function App() {
   const contactRef = useRef<HTMLDivElement>(null);
   const navRef = useRef<HTMLDivElement>(null);
   const loading = useRef<HTMLDivElement>(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useGSAP(() => {
-    gsap.to(loading.current, {
-      duration: 0.25,
-      autoAlpha: 0,
-      ease: "power2.out",
-      delay: 3.5,
-    });
-
-    gsap.from(navRef.current, {
-      duration: 1,
-      y: -50,
-      ease: "power2.out",
-      delay: 3.75,
-    });
-  });
+    if (isGLTFLoaded && loading.current) {
+      gsap.to(loading.current, {
+        duration: 0.25,
+        autoAlpha: 0,
+        ease: "power2.out",
+        onComplete: () => {
+          if (navRef.current) {
+            gsap.from(navRef.current, {
+              duration: 1,
+              y: -50,
+              ease: "power2.out",
+            });
+          }
+        },
+      });
+    }
+  }, [isGLTFLoaded]);
 
   useEffect(() => {
-    const loader = new GLTFLoader();
+    if (!canvasRef.current) return;
+
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(
       75,
@@ -56,9 +61,8 @@ export default function App() {
       1000
     );
 
-    const canvas = document.getElementById("bg") as HTMLCanvasElement;
     const renderer = new THREE.WebGLRenderer({
-      canvas,
+      canvas: canvasRef.current,
       alpha: true,
     });
 
@@ -74,6 +78,7 @@ export default function App() {
     directionalLight.position.set(5, -5, 7.5);
     scene.add(directionalLight);
 
+    const loader = new GLTFLoader();
     loader.load(
       "assets/3d/scene.gltf",
       function (gltf) {
@@ -92,10 +97,13 @@ export default function App() {
         });
 
         scene.add(gltf.scene);
+        setIsGLTFLoaded(true);
+        console.log("3D Model loaded");
       },
       undefined,
       function (error) {
-        console.error(error);
+        console.error("Error loading GLTF:", error);
+        setIsGLTFLoaded(true);
       }
     );
 
@@ -115,7 +123,7 @@ export default function App() {
       requestAnimationFrame(animate);
 
       const maxScroll = document.body.scrollHeight - window.innerHeight;
-      const scrollFraction = scrollY / maxScroll / 2;
+      const scrollFraction = window.scrollY / maxScroll / 2;
       camera.position.z = 30 - scrollFraction * 20;
       camera.position.y = 0 - scrollFraction * 5;
       camera.position.x = 0 + scrollFraction * 13;
@@ -146,6 +154,7 @@ export default function App() {
 
     return () => {
       window.removeEventListener("resize", handleResize);
+      document.removeEventListener("mousemove", handleMouseMove);
       renderer.dispose();
     };
   }, []);
@@ -153,7 +162,7 @@ export default function App() {
   return (
     <main>
       <canvas
-        id="bg"
+        ref={canvasRef}
         className="fixed top-0 left-0 w-full h-full -z-10"
       ></canvas>
       <svg
@@ -193,12 +202,9 @@ export default function App() {
               </Button>
               <DropdownMenu>
                 <DropdownMenuTrigger>
-                  <Button>
-                    <Icon
-                      icon="material-symbols-light:menu"
-                      className="text-3xl cursor-pointer text-[#e7e7e7]"
-                    />
-                  </Button>
+                  <div className="h-10 px-4 py-2 border border-[#333333] bg-[#0c0c0c] font-['Playfair_Display'] hover:bg-[#1a1a1a] flex items-center justify-center">
+                    <h6>NAV<span className="text-[#333333]">.</span></h6>
+                  </div>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
                   <DropdownMenuItem onClick={() => scrollToSection(aboutMeRef)}>
@@ -218,18 +224,22 @@ export default function App() {
               </DropdownMenu>
             </div>
           </nav>
-          <div ref={heroRef}>
-            <HeroFold projectsRef={projectsRef} contactRef={contactRef} />
-          </div>
-          <div ref={aboutMeRef}>
-            <AboutMeFold />
-          </div>
-          <div ref={projectsRef}>
-            <ProjectsFold />
-          </div>
-          <div ref={contactRef}>
-            <ContactFold />
-          </div>
+          {isGLTFLoaded && (
+            <>
+              <div ref={heroRef}>
+                <HeroFold projectsRef={projectsRef} contactRef={contactRef} />
+              </div>
+              <div ref={aboutMeRef}>
+                <AboutMeFold />
+              </div>
+              <div ref={projectsRef}>
+                <ProjectsFold />
+              </div>
+              <div ref={contactRef}>
+                <ContactFold />
+              </div>
+            </>
+          )}
         </div>
       </ReactLenis>
     </main>

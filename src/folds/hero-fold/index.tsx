@@ -19,7 +19,7 @@ export default function HeroFold({ projectsRef, contactRef }: HeroFoldProps) {
   const buttonsRef1 = useRef(null);
   const buttonsRef2 = useRef(null);
   useGSAP(() => {
-    const tl = gsap.timeline({ defaults: { ease: "power3.out" }, delay: 3 });
+    const tl = gsap.timeline({ defaults: { ease: "power3.out" }, delay: 0.5 });
 
     tl.fromTo(
       introTextRef.current,
@@ -66,8 +66,9 @@ export default function HeroFold({ projectsRef, contactRef }: HeroFoldProps) {
             Sam Dacara
           </h4>
           <h1 ref={headlineRef}>
-            A <span className="w-[213px]" ref={textRef1}></span> developer specializing in{" "}
-            <span className="w-[121px]" ref={textRef2}></span><span className="text-[#333333]">.</span>
+            A <span className="w-[213px]" ref={textRef1}></span> developer
+            specializing in <span className="w-[121px]" ref={textRef2}></span>
+            <span className="text-[#333333]">.</span>
           </h1>
         </div>
         <div className="flex justify-start items-center gap-[1rem]">
