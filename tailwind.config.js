@@ -2,10 +2,10 @@
 module.exports = {
   darkMode: ["class"],
   content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
   ],
   prefix: "",
   theme: {
@@ -28,7 +28,8 @@ module.exports = {
         },
       },
       fontFamily: {
-        'jetbrains-mono': ['JetBrains Mono', 'monospace'],
+        serif: "var(--font-main)",
+        sans: "var(--font-sans)",
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -37,4 +38,4 @@ module.exports = {
     },
   },
   plugins: [require("tailwindcss-animate")],
-}
+};

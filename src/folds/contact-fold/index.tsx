@@ -108,8 +108,8 @@ export default function ContactFold() {
         </div>
       </div>
       <div className="w-full max-w-[1280px] flex flex-col md:justify-between md:flex-row items-center">
-        <p className="font-normal text-[0.75rem] md:text-[1rem] text-[#333333]">Sam Dacara // © All Rights Reserved</p>
-        <p className="font-normal text-[0.75rem] md:text-[1rem] text-[#333333]">Powered by Vercel</p>
+        <p className="font-normal text-[0.75rem] md:text-[1rem] text-[#333333] font-serif">Sam Dacara // © All Rights Reserved</p>
+        <p className="font-normal text-[0.75rem] md:text-[1rem] text-[#333333] font-serif">Powered by Vercel</p>
       </div>
     </main>
   );

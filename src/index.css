@@ -5,7 +5,7 @@
 
 @layer base {
   body {
-    @apply bg-[#0c0c0c] text-[#e7e7e7] font-['Lato'] antialiased flex flex-col items-center justify-center;
+    @apply bg-[#0c0c0c] text-[#e7e7e7] font-sans antialiased flex flex-col items-center justify-center;
   }
 
   body::-webkit-scrollbar {
@@ -21,7 +21,7 @@
   h2,
   h3,
   h4 {
-    @apply font-extrabold font-['Playfair_Display'];
+    @apply font-extrabold font-serif;
   }
 
   #root {
@@ -82,4 +82,6 @@
   --text-h4-size: 2rem;
   --text-h5-size: 1.5rem;
   --text-h6-size: 1.25rem;
+  --font-main: 'Playfair Display';
+  --font-sans: 'Lato';
 }

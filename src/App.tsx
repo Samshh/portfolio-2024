@@ -209,7 +209,7 @@ export default function App() {
                 <DropdownMenuTrigger>
                   <div
                     ref={navButton}
-                    className="h-10 px-4 py-2 border text-[#333333] border-[#333333] bg-[#0c0c0c] font-['Playfair_Display'] hover:bg-[#1a1a1a] flex items-center justify-center"
+                    className="h-10 px-4 py-2 border text-[#333333] border-[#333333] bg-[#0c0c0c] font-serif hover:bg-[#1a1a1a] flex items-center justify-center"
                   >
                     <h6>
                       <span ref={text2} className="text-[#e7e7e7]">
