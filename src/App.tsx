@@ -44,14 +44,12 @@ export default function App() {
         autoAlpha: 0,
         ease: "power2.out",
         onComplete: () => {
-          if (navRef.current) {
-            gsap.from(navRef.current, {
-              duration: 1,
-              autoAlpha: 0,
-              y: -50,
-              ease: "power2.out",
-            });
-          }
+          gsap.from(navRef.current, {
+            duration: 1,
+            autoAlpha: 0,
+            y: -50,
+            ease: "power2.out",
+          });
         },
       });
     }
