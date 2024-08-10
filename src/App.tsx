@@ -76,6 +76,61 @@ export default function App() {
     renderer.setSize(window.innerWidth, window.innerHeight);
     camera.position.setZ(30);
 
+    function createStarField() {
+      const geometry = new THREE.BufferGeometry();
+      const vertices = [];
+      const sizes = [];
+
+      for (let i = 0; i < 5000; i++) {
+        vertices.push(
+          THREE.MathUtils.randFloatSpread(1000), 
+          THREE.MathUtils.randFloatSpread(1000), 
+          THREE.MathUtils.randFloatSpread(1000) 
+        );
+
+        sizes.push(Math.random() * 2 + 0.5); 
+      }
+
+      geometry.setAttribute(
+        "position",
+        new THREE.Float32BufferAttribute(vertices, 3)
+      );
+      geometry.setAttribute("size", new THREE.Float32BufferAttribute(sizes, 1));
+
+      const material = new THREE.ShaderMaterial({
+        uniforms: {
+          pixelRatio: { value: window.devicePixelRatio },
+        },
+        vertexShader: `
+          attribute float size;
+          uniform float pixelRatio;
+          void main() {
+            vec4 mvPosition = modelViewMatrix * vec4(position, 1.0);
+            gl_PointSize = size * pixelRatio * (300.0 / -mvPosition.z);
+            gl_Position = projectionMatrix * mvPosition;
+          }
+        `,
+        fragmentShader: `
+          void main() {
+            vec2 center = gl_PointCoord - 0.5;
+            float distance = length(center);
+            if (distance > 0.5) discard;
+            float alpha = smoothstep(0.5, 0.4, distance);
+            gl_FragColor = vec4(1.0, 1.0, 1.0, alpha);
+          }
+        `,
+        transparent: true,
+        blending: THREE.AdditiveBlending,
+      });
+
+      const stars = new THREE.Points(geometry, material);
+      scene.add(stars);
+
+      return stars;
+    }
+
+    createStarField();
+
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
     scene.add(ambientLight);
 
@@ -83,34 +138,38 @@ export default function App() {
     directionalLight.position.set(5, -5, 7.5);
     scene.add(directionalLight);
 
-    const loader = new GLTFLoader();
-    loader.load(
-      "assets/3d/scene.gltf",
-      function (gltf) {
-        gltf.scene.scale.set(18, 18, 18);
-        gltf.scene.position.set(8, -35, 0);
-        gltf.scene.rotation.set(0, (-20 * Math.PI) / 180, 0);
+    function loadGLTFModel() {
+      const loader = new GLTFLoader();
+      loader.load(
+        "assets/3d/scene.gltf",
+        function (gltf) {
+          gltf.scene.scale.set(18, 18, 18);
+          gltf.scene.position.set(8, -35, 0);
+          gltf.scene.rotation.set(0, (-20 * Math.PI) / 180, 0);
 
-        gltf.scene.traverse((child) => {
-          if (child instanceof THREE.Mesh) {
-            child.material = new THREE.MeshStandardMaterial({
-              color: 0x333333,
-              metalness: 0.5,
-              roughness: 1,
-            });
-          }
-        });
+          gltf.scene.traverse((child) => {
+            if (child instanceof THREE.Mesh) {
+              child.material = new THREE.MeshStandardMaterial({
+                color: 0x333333,
+                metalness: 0.5,
+                roughness: 1,
+              });
+            }
+          });
 
-        scene.add(gltf.scene);
-        setIsGLTFLoaded(true);
-        console.log("3D Model loaded");
-      },
-      undefined,
-      function (error) {
-        console.error("Error loading GLTF:", error);
-        setIsGLTFLoaded(true);
-      }
-    );
+          scene.add(gltf.scene);
+          setIsGLTFLoaded(true);
+          console.log("3D Model loaded");
+        },
+        undefined,
+        function (error) {
+          console.error("Error loading GLTF:", error);
+          setIsGLTFLoaded(true);
+        }
+      );
+    }
+
+    loadGLTFModel();
 
     let mouseX = 0;
     let mouseY = 0;
@@ -181,13 +240,6 @@ export default function App() {
             numOctaves="3"
             stitchTiles="stitch"
           >
-            {/* <animate
-              attributeName="seed"
-              from="0"
-              to="100"
-              dur="8s"
-              repeatCount="indefinite"
-            /> */}
           </feTurbulence>
           <feColorMatrix type="saturate" values="0" />
         </filter>
@@ -198,7 +250,10 @@ export default function App() {
           <LoadingPage />
         </div>
         <div className="overflow-x-clip">
-          <nav ref={navRef} className="sticky top-0 z-30 select-none opacity-0 transform -translate-y-12">
+          <nav
+            ref={navRef}
+            className="sticky top-0 z-30 select-none opacity-0 transform -translate-y-12"
+          >
             <div className="flex justify-between items-center px-4 py-4 max-w-[1280px] min-w-[320px] mx-auto">
               <Button ref={homeButton} onClick={() => scrollToSection(heroRef)}>
                 <h6 className="text-[#333333] font-black">
