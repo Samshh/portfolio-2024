@@ -23,6 +23,7 @@ import useAnimateButton from "./animations/animateButton";
 
 export default function App() {
   const [isGLTFLoaded, setIsGLTFLoaded] = useState(false);
+  const [isStarFieldLoaded, setIsStarFieldLoaded] = useState(false);
   const text = useGradientText();
   const text2 = useRef<HTMLSpanElement>(null);
   const heroRef = useRef<HTMLDivElement>(null);
@@ -38,7 +39,7 @@ export default function App() {
   useAnimateButton(text2, navButton, "VOY", "NAV", 0.5);
 
   useGSAP(() => {
-    if (isGLTFLoaded && loading.current) {
+    if (isGLTFLoaded && isStarFieldLoaded && loading.current) {
       gsap.to(loading.current, {
         duration: 0.25,
         autoAlpha: 0,
@@ -125,11 +126,12 @@ export default function App() {
 
       const stars = new THREE.Points(geometry, material);
       scene.add(stars);
-
+      setIsStarFieldLoaded(true);
+      console.log("Star field loaded");
       return stars;
     }
 
-    createStarField();
+    const starField = createStarField();
 
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
     scene.add(ambientLight);
@@ -195,8 +197,8 @@ export default function App() {
       mouseX += (targetMouseX - mouseX) * 0.05;
       mouseY += (targetMouseY - mouseY) * 0.05;
 
-      camera.rotation.y = mouseX * 0.1;
-      camera.rotation.x = -mouseY * 0.1;
+      starField.rotation.y = mouseX * 1;
+      starField.rotation.x = -mouseY * 0.5;
 
       directionalLight.position.x = 13 * Math.sin(Date.now() * 0.0008);
       directionalLight.position.z = 5 * Math.sin(Date.now() * 0.0008);
@@ -292,7 +294,7 @@ export default function App() {
               </DropdownMenu>
             </div>
           </nav>
-          {isGLTFLoaded && (
+          {isGLTFLoaded && isStarFieldLoaded && (
             <>
               <div ref={heroRef}>
                 <HeroFold projectsRef={projectsRef} contactRef={contactRef} />
