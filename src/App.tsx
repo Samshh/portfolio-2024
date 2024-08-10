@@ -84,12 +84,12 @@ export default function App() {
 
       for (let i = 0; i < 5000; i++) {
         vertices.push(
-          THREE.MathUtils.randFloatSpread(1000), 
-          THREE.MathUtils.randFloatSpread(1000), 
-          THREE.MathUtils.randFloatSpread(1000) 
+          THREE.MathUtils.randFloatSpread(1000),
+          THREE.MathUtils.randFloatSpread(1000),
+          THREE.MathUtils.randFloatSpread(1000)
         );
 
-        sizes.push(Math.random() * 2 + 0.5); 
+        sizes.push(Math.random() * 2 + 0.5);
       }
 
       geometry.setAttribute(
@@ -190,6 +190,7 @@ export default function App() {
 
       const maxScroll = document.body.scrollHeight - window.innerHeight;
       const scrollFraction = window.scrollY / maxScroll / 2;
+
       camera.position.z = 30 - scrollFraction * 20;
       camera.position.y = 0 - scrollFraction * 5;
       camera.position.x = 0 + scrollFraction * 13;
@@ -199,6 +200,12 @@ export default function App() {
 
       starField.rotation.y = mouseX * 1;
       starField.rotation.x = -mouseY * 0.5;
+
+      const starSizes = starField.geometry.attributes.size.array;
+      for (let i = 0; i < starSizes.length; i++) {
+        starSizes[i] = 1 + 0.5 * Math.sin(Date.now() * 0.001 + i);
+      }
+      starField.geometry.attributes.size.needsUpdate = true;
 
       directionalLight.position.x = 13 * Math.sin(Date.now() * 0.0008);
       directionalLight.position.z = 5 * Math.sin(Date.now() * 0.0008);
@@ -241,8 +248,7 @@ export default function App() {
             baseFrequency="0.25"
             numOctaves="3"
             stitchTiles="stitch"
-          >
-          </feTurbulence>
+          ></feTurbulence>
           <feColorMatrix type="saturate" values="0" />
         </filter>
         <rect width="100%" height="100%" filter="url(#noise)" opacity="0.05" />
