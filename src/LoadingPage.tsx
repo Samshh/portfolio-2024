@@ -40,7 +40,7 @@ export default function LoadingPage() {
         </div>
       </div>
       <div ref={messageRef} className="fixed bottom-4 opacity-0">
-        <p className="font-normal font-serif text-[1rem] text-[#333333]">Assets took a while to load...</p>
+        <p className="font-normal font-serif text-[1rem] text-[#333333]">Rendering in progress, please wait...</p>
       </div>
     </div>
   );
