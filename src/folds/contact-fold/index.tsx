@@ -70,7 +70,7 @@ export default function ContactFold() {
       ref={contactTrigger}
       className="h-screen px-4 py-4 max-w-[1280px] min-h-[400px] mx-auto flex flex-col justify-center items-start select-none relative"
     >
-      <div className="flex flex-grow flex-col justify-center items-start gap-[1.5rem] lg:w-1/2">
+      <div className="flex flex-grow flex-col justify-center items-start gap-[1.5rem] md:w-1/2">
         <div ref={headlineRef}>
           <h1>
             Let's <span ref={textRef1}></span> and <span ref={textRef2}></span>{" "}
