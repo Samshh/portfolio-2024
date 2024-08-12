@@ -66,7 +66,7 @@ export default function ContactFold() {
   });
 
   return (
-    <main
+    <div
       ref={contactTrigger}
       className="h-screen px-4 py-4 max-w-[1280px] min-h-[400px] mx-auto flex flex-col justify-center items-start select-none relative"
     >
@@ -111,6 +111,6 @@ export default function ContactFold() {
         <p className="font-normal text-[0.75rem] md:text-[1rem] text-[#333333] font-serif">Sam Dacara // © All Rights Reserved</p>
         <p className="font-normal text-[0.75rem] md:text-[1rem] text-[#333333] font-serif">Powered by Vercel</p>
       </div>
-    </main>
+    </div>
   );
 }

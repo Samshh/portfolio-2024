@@ -66,7 +66,7 @@ export default function HeroFold({ projectsRef, contactRef }: HeroFoldProps) {
   });
 
   return (
-    <main className="h-screen px-4 py-4 flex items-center min-h-[720px] max-w-[1280px] mx-auto select-none">
+    <div className="h-screen px-4 py-4 flex items-center min-h-[720px] max-w-[1280px] mx-auto select-none">
       <div className="flex flex-col justify-center h-full md:w-1/2 gap-[1.5rem]">
         <div className="flex flex-col justify-center items-start">
           <h4 className="font-thin" ref={introTextRef}>
@@ -90,6 +90,6 @@ export default function HeroFold({ projectsRef, contactRef }: HeroFoldProps) {
           </Button>
         </div>
       </div>
-    </main>
+    </div>
   );
 }

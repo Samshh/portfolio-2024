@@ -245,7 +245,7 @@ export default function App() {
         <filter id="noise">
           <feTurbulence
             type="turbulence"
-            baseFrequency="0.25"
+            baseFrequency="0.30"
             numOctaves="3"
             stitchTiles="stitch"
           ></feTurbulence>
@@ -302,18 +302,18 @@ export default function App() {
           </nav>
           {isGLTFLoaded && isStarFieldLoaded && (
             <>
-              <div ref={heroRef}>
+              <section ref={heroRef}>
                 <HeroFold projectsRef={projectsRef} contactRef={contactRef} />
-              </div>
-              <div ref={aboutMeRef}>
+              </section>
+              <section ref={aboutMeRef}>
                 <AboutMeFold />
-              </div>
-              <div ref={projectsRef}>
+              </section>
+              <section ref={projectsRef}>
                 <ProjectsFold />
-              </div>
-              <div ref={contactRef}>
+              </section>
+              <section ref={contactRef}>
                 <ContactFold />
-              </div>
+              </section>
             </>
           )}
         </div>

@@ -57,7 +57,7 @@ export default function ProjectsFold() {
   };
 
   return (
-    <main
+    <div
       ref={trigger}
       className="h-auto min-h-[720px] flex flex-col items-start justify-center px-4 py-4 max-w-[1280px] mx-auto gap-[1rem] select-none"
     >
@@ -340,6 +340,6 @@ export default function ProjectsFold() {
           </Accordion>
         </div>
       </div>
-    </main>
+    </div>
   );
 }
