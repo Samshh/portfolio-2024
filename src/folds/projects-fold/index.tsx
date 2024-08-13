@@ -110,14 +110,14 @@ export default function ProjectsFold() {
                   </div>
                   <div className="flex flex-wrap gap-[1rem] justify-start items-center">
                     <div className="bg-[#0c0c0c] border border-[#333333] px-[1rem] py-[0.25rem] flex justify-center items-center gap-[0.5rem]">
-                      <Icon className="text-[18px]" icon="logos:react" />
+                      <Icon
+                        className="text-[18px]"
+                        icon="akar-icons:react-fill"
+                      />
                       <p className="text-[1rem]">React</p>
                     </div>
                     <div className="bg-[#0c0c0c] border border-[#333333] px-[1rem] py-[0.25rem] flex justify-center items-center gap-[0.5rem]">
-                      <Icon
-                        className="text-[22px]"
-                        icon="devicon:tailwindcss"
-                      />
+                      <Icon className="text-[24px]" icon="mdi:tailwind" />
                       <p className="text-[1rem]">Tailwind</p>
                     </div>
                   </div>
@@ -163,21 +163,18 @@ export default function ProjectsFold() {
                   </div>
                   <div className="flex flex-wrap gap-[1rem] justify-start items-center">
                     <div className="bg-[#0c0c0c] border border-[#333333] px-[1rem] py-[0.25rem] flex justify-center items-center gap-[0.5rem]">
-                      <Icon className="text-[18px]" icon="logos:react" />
+                      <Icon
+                        className="text-[18px]"
+                        icon="akar-icons:react-fill"
+                      />
                       <p className="text-[1rem]">React</p>
                     </div>
                     <div className="bg-[#0c0c0c] border border-[#333333] px-[1rem] py-[0.25rem] flex justify-center items-center gap-[0.5rem]">
-                      <Icon
-                        className="text-[22px]"
-                        icon="devicon:tailwindcss"
-                      />
+                      <Icon className="text-[24px]" icon="mdi:tailwind" />
                       <p className="text-[1rem]">Tailwind</p>
                     </div>
                     <div className="bg-[#0c0c0c] border border-[#333333] px-[1rem] py-[0.25rem] flex justify-center items-center gap-[0.5rem]">
-                      <Icon
-                        className="text-[20px]"
-                        icon="logos:greensock-icon"
-                      />
+                      <Icon className="text-[20px]" icon="cib:greensock" />
                       <p className="text-[1rem]">GSAP</p>
                     </div>
                   </div>
@@ -222,11 +219,14 @@ export default function ProjectsFold() {
                   </div>
                   <div className="flex flex-wrap gap-[1rem] justify-start items-center">
                     <div className="bg-[#0c0c0c] border border-[#333333] px-[1rem] py-[0.25rem]  flex justify-center items-center gap-[0.5rem]">
-                      <Icon className="text-[18px]" icon="logos:react" />
+                      <Icon
+                        className="text-[18px]"
+                        icon="akar-icons:react-fill"
+                      />
                       <p className="text-[1rem]">React</p>
                     </div>
                     <div className="bg-[#0c0c0c] border border-[#333333] px-[1rem] py-[0.25rem]  flex justify-center items-center gap-[0.5rem]">
-                      <Icon className="text-[20px]" icon="logos:sass" />
+                      <Icon className="text-[20px]" icon="cib:sass" />
                       <p className="text-[1rem]">Sass</p>
                     </div>
                   </div>
@@ -271,14 +271,11 @@ export default function ProjectsFold() {
                   </div>
                   <div className="flex flex-wrap gap-[1rem] justify-start items-center">
                     <div className="bg-[#0c0c0c] border border-[#333333] px-[1rem] py-[0.25rem]  flex justify-center items-center gap-[0.5rem]">
-                      <Icon className="text-[17px]" icon="logos:vue" />
+                      <Icon className="text-[23px]" icon="mdi:vuejs" />
                       <p className="text-[1rem]">Vue</p>
                     </div>
                     <div className="bg-[#0c0c0c] border border-[#333333] px-[1rem] py-[0.25rem]  flex justify-center items-center gap-[0.5rem]">
-                      <Icon
-                        className="text-[20px]"
-                        icon="logos:greensock-icon"
-                      />
+                      <Icon className="text-[20px]" icon="cib:greensock" />
                       <p className="text-[1rem]">GSAP</p>
                     </div>
                   </div>
@@ -326,11 +323,14 @@ export default function ProjectsFold() {
                   </div>
                   <div className="flex flex-wrap gap-[1rem] justify-start items-center">
                     <div className="bg-[#0c0c0c] border border-[#333333] px-[1rem] py-[0.25rem]  flex justify-center items-center gap-[0.5rem]">
-                      <Icon className="text-[20px]" icon="logos:python" />
+                      <Icon className="text-[18px]" icon="cib:python" />
                       <p className="text-[1rem]">Python</p>
                     </div>
                     <div className="bg-[#0c0c0c] border border-[#333333] px-[1rem] py-[0.25rem]  flex justify-center items-center gap-[0.5rem]">
-                      <Icon className="text-[18px]" icon="logos:discord-icon" />
+                      <Icon
+                        className="text-[23px]"
+                        icon="ic:baseline-discord"
+                      />
                       <p className="text-[1rem]">Discord</p>
                     </div>
                   </div>

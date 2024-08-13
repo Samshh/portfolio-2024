@@ -5,6 +5,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { TextPlugin } from "gsap/TextPlugin";
 import { useRef } from "react";
+import { Icon } from "@iconify/react";
 
 gsap.registerPlugin(TextPlugin, ScrollTrigger);
 
@@ -20,7 +21,12 @@ export default function AboutMeFold() {
     if (!text2Element) return;
 
     const words = text2Element.textContent?.split(" ") || [];
-    text2Element.innerHTML = words.map((word) => `<span style="display: inline-block; margin-right: 5px;">${word}</span>`).join(" ");
+    text2Element.innerHTML = words
+      .map(
+        (word) =>
+          `<span style="display: inline-block; margin-right: 5px;">${word}</span>`
+      )
+      .join(" ");
 
     gsap.fromTo(
       text2Element.children,
@@ -33,12 +39,26 @@ export default function AboutMeFold() {
         duration: 1,
         scrollTrigger: {
           trigger: trigger.current,
-          start: "top center", 
-          end: "bottom center", 
-          toggleActions: "play none none reverse", 
+          start: "top center",
+          end: "bottom center",
+          toggleActions: "play none none reverse",
         },
       }
     );
+
+    gsap.from(".skill-item", {
+      opacity: 0,
+      x: 50,
+      duration: 1,
+      stagger: 0.2,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: trigger.current,
+        start: "top center",
+        end: "bottom center",
+        toggleActions: "play none none reverse",
+      },
+    });
   });
 
   const handleMouseEnter1 = () => {
@@ -60,14 +80,70 @@ export default function AboutMeFold() {
     >
       <div className="flex flex-col gap-[1rem]">
         <div>
-          <h1 className="text-[#333333] w-[265px]" onMouseEnter={handleMouseEnter1} onMouseLeave={handleMouseLeave1}>
+          <h1
+            className="text-[#333333] w-[265px]"
+            onMouseEnter={handleMouseEnter1}
+            onMouseLeave={handleMouseLeave1}
+          >
             <span ref={text}></span>.
           </h1>
         </div>
         <div>
           <h5 ref={text2} className="font-light flex flex-wrap">
-            A dedicated React developer with a deep appreciation for various coding languages, an enthusiastic anime aficionado who enjoys exploring different genres, and a passionate musician.
+            A dedicated React developer with a deep appreciation for various
+            coding languages, an enthusiastic anime aficionado who enjoys
+            exploring different genres, and a passionate musician.
           </h5>
+        </div>
+        <div className="w-full h-[1px] bg-[#333333]"></div>
+        <div className="flex flex-wrap justify-start items-center gap-[0.5rem]">
+          <div className="skill-item bg-[#0c0c0c] border border-[#333333] px-[1rem] py-[0.25rem] flex justify-center items-center gap-[0.5rem]">
+            <Icon className="text-[18px]" icon="akar-icons:react-fill" />
+            <p className="text-[1rem]">React</p>
+          </div>
+          <div className="skill-item bg-[#0c0c0c] border border-[#333333] px-[1rem] py-[0.25rem] flex justify-center items-center gap-[0.5rem]">
+            <Icon className="text-[24px]" icon="mdi:tailwind" />
+            <p className="text-[1rem]">Tailwind</p>
+          </div>
+          <div className="skill-item bg-[#0c0c0c] border border-[#333333] px-[1rem] py-[0.25rem] flex justify-center items-center gap-[0.5rem]">
+            <Icon className="text-[20px]" icon="cib:greensock" />
+            <p className="text-[1rem]">GSAP</p>
+          </div>
+          <div className="skill-item bg-[#0c0c0c] border border-[#333333] px-[1rem] py-[0.25rem] flex justify-center items-center gap-[0.5rem]">
+            <Icon
+              className="text-[20px] font-light"
+              icon="tabler:brand-threejs"
+            />
+            <p className="text-[1rem]">Three</p>
+          </div>
+          <div className="skill-item bg-[#0c0c0c] border border-[#333333] px-[1rem] py-[0.25rem] flex justify-center items-center gap-[0.5rem]">
+            <Icon className="text-[18px]" icon="simple-icons:shadcnui" />
+            <p className="text-[1rem]">Shadcn</p>
+          </div>
+          <div className="skill-item bg-[#0c0c0c] border border-[#333333] px-[1rem] py-[0.25rem] flex justify-center items-center gap-[0.5rem]">
+            <Icon className="text-[20px]" icon="cib:typescript" />
+            <p className="text-[1rem]">TypeScript</p>
+          </div>
+          <div className="skill-item bg-[#0c0c0c] border border-[#333333] px-[1rem] py-[0.25rem] flex justify-center items-center gap-[0.5rem]">
+            <Icon className="text-[20px]" icon="cib:javascript" />
+            <p className="text-[1rem]">JavaScript</p>
+          </div>
+          <div className="skill-item bg-[#0c0c0c] border border-[#333333] px-[1rem] py-[0.25rem]  flex justify-center items-center gap-[0.5rem]">
+            <Icon className="text-[20px]" icon="cib:sass" />
+            <p className="text-[1rem]">Sass</p>
+          </div>
+          <div className="skill-item bg-[#0c0c0c] border border-[#333333] px-[1rem] py-[0.25rem]  flex justify-center items-center gap-[0.5rem]">
+            <Icon className="text-[20px]" icon="simple-icons:vite" />
+            <p className="text-[1rem]">Vite</p>
+          </div>
+          <div className="skill-item bg-[#0c0c0c] border border-[#333333] px-[1rem] py-[0.25rem]  flex justify-center items-center gap-[0.5rem]">
+            <Icon className="text-[20px]" icon="ri:nextjs-fill" />
+            <p className="text-[1rem]">Nextjs</p>
+          </div>
+          <div className="skill-item  bg-[#0c0c0c] border border-[#333333] px-[1rem] py-[0.25rem]  flex justify-center items-center gap-[0.5rem]">
+            <Icon className="text-[20px]" icon="cib:git" />
+            <p className="text-[1rem]">Git</p>
+          </div>
         </div>
       </div>
     </div>
