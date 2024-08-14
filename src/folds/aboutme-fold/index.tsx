@@ -76,7 +76,7 @@ export default function AboutMeFold() {
   return (
     <div
       ref={trigger}
-      className="h-auto flex flex-col md:grid md:grid-cols-2 md:h-screen items-center justify-center px-4 py-4 max-w-[1280px] min-h-[720px] mx-auto select-none gap-[1rem]"
+      className="h-auto flex flex-col md:grid md:grid-cols-2 md:h-screen items-center justify-center px-4 py-4 max-w-[1280px] min-h-[720px] mx-auto select-none"
     >
       <div className="flex flex-col gap-[1rem]">
         <div>
