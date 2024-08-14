@@ -196,7 +196,7 @@ export default function App() {
       camera.position.x = 0 + scrollFraction * 13;
 
       mouseX += (targetMouseX - mouseX) * 0.05;
-      mouseY += (targetMouseY - mouseY) * 0.05;
+      mouseY += (targetMouseY - mouseY) * 0.15;
 
       starField.rotation.y = mouseX * 1;
       starField.rotation.x = -mouseY * 0.5;
