@@ -90,9 +90,10 @@ export default function AboutMeFold() {
         </div>
         <div>
           <h5 ref={text2} className="font-light flex flex-wrap">
-            A dedicated React developer with a deep appreciation for various
-            coding languages, an enthusiastic anime aficionado who enjoys
-            exploring different genres, and a passionate musician.
+            A dedicated React developer with a deep appreciation for web design
+            and UI/UX, passionate about crafting seamless user experiences. An
+            enthusiastic anime aficionado who enjoys exploring different genres,
+            and a passionate musician.
           </h5>
         </div>
         <div className="w-full h-[1px] bg-[#333333]"></div>
@@ -100,6 +101,14 @@ export default function AboutMeFold() {
           <div className="skill-item bg-[#0c0c0c] border border-[#333333] px-[1rem] py-[0.25rem] flex justify-center items-center gap-[0.5rem]">
             <Icon className="text-[18px]" icon="akar-icons:react-fill" />
             <p className="text-[1rem]">React</p>
+          </div>
+          <div className="skill-item bg-[#0c0c0c] border border-[#333333] px-[1rem] py-[0.25rem] flex justify-center items-center gap-[0.5rem]">
+            <Icon className="text-[20px]" icon="cib:typescript" />
+            <p className="text-[1rem]">TypeScript</p>
+          </div>
+          <div className="skill-item bg-[#0c0c0c] border border-[#333333] px-[1rem] py-[0.25rem] flex justify-center items-center gap-[0.5rem]">
+            <Icon className="text-[20px]" icon="cib:javascript" />
+            <p className="text-[1rem]">JavaScript</p>
           </div>
           <div className="skill-item bg-[#0c0c0c] border border-[#333333] px-[1rem] py-[0.25rem] flex justify-center items-center gap-[0.5rem]">
             <Icon className="text-[24px]" icon="mdi:tailwind" />
@@ -114,23 +123,27 @@ export default function AboutMeFold() {
               className="text-[20px] font-light"
               icon="tabler:brand-threejs"
             />
-            <p className="text-[1rem]">Three</p>
+            <p className="text-[1rem]">Three.js</p>
           </div>
           <div className="skill-item bg-[#0c0c0c] border border-[#333333] px-[1rem] py-[0.25rem] flex justify-center items-center gap-[0.5rem]">
             <Icon className="text-[18px]" icon="simple-icons:shadcnui" />
-            <p className="text-[1rem]">Shadcn</p>
+            <p className="text-[1rem]">Shadcn/UI</p>
           </div>
           <div className="skill-item bg-[#0c0c0c] border border-[#333333] px-[1rem] py-[0.25rem] flex justify-center items-center gap-[0.5rem]">
-            <Icon className="text-[20px]" icon="cib:typescript" />
-            <p className="text-[1rem]">TypeScript</p>
-          </div>
-          <div className="skill-item bg-[#0c0c0c] border border-[#333333] px-[1rem] py-[0.25rem] flex justify-center items-center gap-[0.5rem]">
-            <Icon className="text-[20px]" icon="cib:javascript" />
-            <p className="text-[1rem]">JavaScript</p>
+            <Icon className="text-[18px]" icon="simple-icons:radixui" />
+            <p className="text-[1rem]">RadixUI</p>
           </div>
           <div className="skill-item bg-[#0c0c0c] border border-[#333333] px-[1rem] py-[0.25rem]  flex justify-center items-center gap-[0.5rem]">
             <Icon className="text-[20px]" icon="cib:sass" />
             <p className="text-[1rem]">Sass</p>
+          </div>
+          <div className="skill-item bg-[#0c0c0c] border border-[#333333] px-[1rem] py-[0.25rem]  flex justify-center items-center gap-[0.5rem]">
+            <Icon className="text-[23px]" icon="ion:logo-pwa" />
+            <p className="text-[1rem]">PWA</p>
+          </div>
+          <div className="skill-item bg-[#0c0c0c] border border-[#333333] px-[1rem] py-[0.25rem]  flex justify-center items-center gap-[0.5rem]">
+            <Icon className="text-[20px]" icon="devicon-plain:nodejs" />
+            <p className="text-[1rem]">Node.js</p>
           </div>
           <div className="skill-item bg-[#0c0c0c] border border-[#333333] px-[1rem] py-[0.25rem]  flex justify-center items-center gap-[0.5rem]">
             <Icon className="text-[20px]" icon="simple-icons:vite" />
@@ -138,11 +151,19 @@ export default function AboutMeFold() {
           </div>
           <div className="skill-item bg-[#0c0c0c] border border-[#333333] px-[1rem] py-[0.25rem]  flex justify-center items-center gap-[0.5rem]">
             <Icon className="text-[20px]" icon="ri:nextjs-fill" />
-            <p className="text-[1rem]">Nextjs</p>
+            <p className="text-[1rem]">Next.js</p>
           </div>
           <div className="skill-item  bg-[#0c0c0c] border border-[#333333] px-[1rem] py-[0.25rem]  flex justify-center items-center gap-[0.5rem]">
             <Icon className="text-[20px]" icon="cib:git" />
             <p className="text-[1rem]">Git</p>
+          </div>
+          <div className="skill-item  bg-[#0c0c0c] border border-[#333333] px-[1rem] py-[0.25rem]  flex justify-center items-center gap-[0.5rem]">
+            <Icon className="text-[24px]" icon="solar:figma-bold-duotone" />
+            <p className="text-[1rem]">Figma</p>
+          </div>
+          <div className="skill-item  bg-[#0c0c0c] border border-[#333333] px-[1rem] py-[0.25rem]  flex justify-center items-center gap-[0.5rem]">
+            <Icon className="text-[24px]" icon="simple-icons:blender" />
+            <p className="text-[1rem]">Blender</p>
           </div>
         </div>
       </div>
