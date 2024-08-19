@@ -111,7 +111,7 @@ export default function ProjectsFold() {
                   <div className="flex flex-wrap gap-[1rem] justify-start items-center">
                     <div className="bg-[#0c0c0c] border border-[#333333] px-[1rem] py-[0.25rem] flex justify-center items-center gap-[0.5rem]">
                       <Icon
-                        className="text-[18px]"
+                        className="text-[22px]"
                         icon="akar-icons:react-fill"
                       />
                       <p className="text-[1rem]">React</p>
@@ -164,7 +164,7 @@ export default function ProjectsFold() {
                   <div className="flex flex-wrap gap-[1rem] justify-start items-center">
                     <div className="bg-[#0c0c0c] border border-[#333333] px-[1rem] py-[0.25rem] flex justify-center items-center gap-[0.5rem]">
                       <Icon
-                        className="text-[18px]"
+                        className="text-[22px]"
                         icon="akar-icons:react-fill"
                       />
                       <p className="text-[1rem]">React</p>
@@ -174,7 +174,7 @@ export default function ProjectsFold() {
                       <p className="text-[1rem]">Tailwind</p>
                     </div>
                     <div className="bg-[#0c0c0c] border border-[#333333] px-[1rem] py-[0.25rem] flex justify-center items-center gap-[0.5rem]">
-                      <Icon className="text-[20px]" icon="cib:greensock" />
+                      <Icon className="text-[24px]" icon="cib:greensock" />
                       <p className="text-[1rem]">GSAP</p>
                     </div>
                   </div>
@@ -220,7 +220,7 @@ export default function ProjectsFold() {
                   <div className="flex flex-wrap gap-[1rem] justify-start items-center">
                     <div className="bg-[#0c0c0c] border border-[#333333] px-[1rem] py-[0.25rem]  flex justify-center items-center gap-[0.5rem]">
                       <Icon
-                        className="text-[18px]"
+                        className="text-[22px]"
                         icon="akar-icons:react-fill"
                       />
                       <p className="text-[1rem]">React</p>
@@ -275,7 +275,7 @@ export default function ProjectsFold() {
                       <p className="text-[1rem]">Vue</p>
                     </div>
                     <div className="bg-[#0c0c0c] border border-[#333333] px-[1rem] py-[0.25rem]  flex justify-center items-center gap-[0.5rem]">
-                      <Icon className="text-[20px]" icon="cib:greensock" />
+                      <Icon className="text-[24px]" icon="cib:greensock" />
                       <p className="text-[1rem]">GSAP</p>
                     </div>
                   </div>
