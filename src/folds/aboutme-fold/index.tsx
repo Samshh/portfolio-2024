@@ -99,7 +99,7 @@ export default function AboutMeFold() {
         <div className="w-full h-[1px] bg-[#333333]"></div>
         <div className="flex flex-wrap justify-start items-center gap-[0.5rem]">
           <div className="skill-item bg-[#0c0c0c] border border-[#333333] px-[1rem] py-[0.25rem] flex justify-center items-center gap-[0.5rem]">
-            <Icon className="text-[18px]" icon="akar-icons:react-fill" />
+            <Icon className="text-[22px]" icon="akar-icons:react-fill" />
             <p className="text-[1rem]">React</p>
           </div>
           <div className="skill-item bg-[#0c0c0c] border border-[#333333] px-[1rem] py-[0.25rem] flex justify-center items-center gap-[0.5rem]">
@@ -115,12 +115,12 @@ export default function AboutMeFold() {
             <p className="text-[1rem]">Tailwind</p>
           </div>
           <div className="skill-item bg-[#0c0c0c] border border-[#333333] px-[1rem] py-[0.25rem] flex justify-center items-center gap-[0.5rem]">
-            <Icon className="text-[20px]" icon="cib:greensock" />
+            <Icon className="text-[24px]" icon="cib:greensock" />
             <p className="text-[1rem]">GSAP</p>
           </div>
           <div className="skill-item bg-[#0c0c0c] border border-[#333333] px-[1rem] py-[0.25rem] flex justify-center items-center gap-[0.5rem]">
             <Icon
-              className="text-[20px] font-light"
+              className="text-[24px] font-light"
               icon="tabler:brand-threejs"
             />
             <p className="text-[1rem]">Three.js</p>
@@ -130,7 +130,7 @@ export default function AboutMeFold() {
             <p className="text-[1rem]">Shadcn/UI</p>
           </div>
           <div className="skill-item bg-[#0c0c0c] border border-[#333333] px-[1rem] py-[0.25rem] flex justify-center items-center gap-[0.5rem]">
-            <Icon className="text-[18px]" icon="simple-icons:radixui" />
+            <Icon className="text-[20px]" icon="simple-icons:radixui" />
             <p className="text-[1rem]">RadixUI</p>
           </div>
           <div className="skill-item bg-[#0c0c0c] border border-[#333333] px-[1rem] py-[0.25rem]  flex justify-center items-center gap-[0.5rem]">
@@ -150,7 +150,7 @@ export default function AboutMeFold() {
             <p className="text-[1rem]">Vite</p>
           </div>
           <div className="skill-item bg-[#0c0c0c] border border-[#333333] px-[1rem] py-[0.25rem]  flex justify-center items-center gap-[0.5rem]">
-            <Icon className="text-[20px]" icon="ri:nextjs-fill" />
+            <Icon className="text-[24px]" icon="ri:nextjs-fill" />
             <p className="text-[1rem]">Next.js</p>
           </div>
           <div className="skill-item  bg-[#0c0c0c] border border-[#333333] px-[1rem] py-[0.25rem]  flex justify-center items-center gap-[0.5rem]">
@@ -158,12 +158,16 @@ export default function AboutMeFold() {
             <p className="text-[1rem]">Git</p>
           </div>
           <div className="skill-item  bg-[#0c0c0c] border border-[#333333] px-[1rem] py-[0.25rem]  flex justify-center items-center gap-[0.5rem]">
-            <Icon className="text-[24px]" icon="solar:figma-bold-duotone" />
+            <Icon className="text-[22px]" icon="solar:figma-bold-duotone" />
             <p className="text-[1rem]">Figma</p>
           </div>
           <div className="skill-item  bg-[#0c0c0c] border border-[#333333] px-[1rem] py-[0.25rem]  flex justify-center items-center gap-[0.5rem]">
             <Icon className="text-[24px]" icon="simple-icons:blender" />
             <p className="text-[1rem]">Blender</p>
+          </div>
+          <div className="skill-item  bg-[#0c0c0c] border border-[#333333] px-[1rem] py-[0.25rem]  flex justify-center items-center gap-[0.5rem]">
+            <Icon className="text-[20px]" icon="simple-icons:inkscape" />
+            <p className="text-[1rem]">Inkscape</p>
           </div>
         </div>
       </div>
