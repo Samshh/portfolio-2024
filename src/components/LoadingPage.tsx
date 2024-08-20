@@ -1,4 +1,4 @@
-import { useGradientText } from "./animations/useGradientText";
+import { useGradientText } from "../animations/useGradientText";
 import { Icon } from "@iconify/react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
