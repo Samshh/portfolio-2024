@@ -23,7 +23,7 @@ const CustomCursor: React.FC = () => {
         if (!isHoveredRef.current) {
           setIsActive(false);
         }
-      }, 500);
+      }, 2000);
 
       gsap.to(bigBall, {
         x: e.clientX - 15,
