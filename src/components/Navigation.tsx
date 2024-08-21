@@ -37,7 +37,7 @@ export default function Navigation({
   return (
     <nav
       ref={navRef}
-      className="sticky top-0 z-30 select-none opacity-0 transform -translate-y-12"
+      className="z-30 sticky top-0 select-none opacity-0 transform -translate-y-12"
     >
       <div className="flex justify-between items-center px-4 py-4 max-w-[1280px] min-w-[320px] mx-auto">
         <Button ref={homeButton} onClick={() => scrollToSection(heroRef)}>
@@ -49,7 +49,7 @@ export default function Navigation({
           <DropdownMenuTrigger>
             <div
               ref={navButton}
-              className="h-10 px-4 py-2 border text-[#333333] border-[#333333] bg-[#0c0c0c] font-serif flex items-center justify-center"
+              className="hoverable h-10 px-4 py-2 border text-[#333333] border-[#333333] bg-[#0c0c0c] font-serif flex items-center justify-center"
             >
               <h6>
                 <span ref={text2} className="text-[#e7e7e7]">

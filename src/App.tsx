@@ -10,6 +10,7 @@ import LoadingPage from "@/components/LoadingPage";
 import Navigation from "@/components/Navigation";
 import SVGGrainEffect from "@/components/SVGGrainEffect";
 import ThreeRenderer from "@/components/ThreeRenderer";
+import CustomCursor from "./components/CustomCursor";
 
 export default function App() {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -42,6 +43,7 @@ export default function App() {
   return (
     <main>
       {Canvas()}
+      <CustomCursor />
       <SVGGrainEffect />
       <ReactLenis root>
         <div ref={loading}>

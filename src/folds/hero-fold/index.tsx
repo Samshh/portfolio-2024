@@ -83,10 +83,14 @@ export default function HeroFold({ projectsRef, contactRef }: HeroFoldProps) {
             ref={buttonsRef1}
             onClick={() => scrollToSection(projectsRef)}
           >
-            <h6 className="font-light"><span ref={text2}>PROJECTS</span></h6>
+            <h6 className="font-light">
+              <span ref={text2}>PROJECTS</span>
+            </h6>
           </Button>
           <Button ref={buttonsRef2} onClick={() => scrollToSection(contactRef)}>
-            <h6 className="font-light"><span ref={text3}>CONTACT</span></h6>
+            <h6 className="font-light">
+              <span ref={text3}>CONTACT</span>
+            </h6>
           </Button>
         </div>
       </div>
