@@ -4,8 +4,9 @@ import { gsap } from "gsap";
 const CustomCursor: React.FC = () => {
   const bigBallRef = useRef<HTMLDivElement>(null);
   const smallBallRef = useRef<HTMLDivElement>(null);
-  const [isActive, setIsActive] = useState(true);
+  const [isActive, setIsActive] = useState(false);
   const inactivityTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const isHoveredRef = useRef(false);
 
   useEffect(() => {
     const bigBall = bigBallRef.current;
@@ -18,7 +19,11 @@ const CustomCursor: React.FC = () => {
       if (inactivityTimeoutRef.current) {
         clearTimeout(inactivityTimeoutRef.current);
       }
-      inactivityTimeoutRef.current = setTimeout(() => setIsActive(false), 1000);
+      inactivityTimeoutRef.current = setTimeout(() => {
+        if (!isHoveredRef.current) {
+          setIsActive(false);
+        }
+      }, 500);
 
       gsap.to(bigBall, {
         x: e.clientX - 15,
@@ -33,16 +38,21 @@ const CustomCursor: React.FC = () => {
     };
 
     const onMouseHover = () => {
-      gsap.to(bigBall, {
+      isHoveredRef.current = true;
+      setIsActive(true);
+      gsap.to([bigBall, smallBall], {
         scale: 4,
         duration: 0.3,
+        stagger: 0.1,
       });
     };
 
     const onMouseHoverOut = () => {
-      gsap.to(bigBall, {
+      isHoveredRef.current = false;
+      gsap.to([bigBall, smallBall], {
         scale: 1,
         duration: 0.3,
+        stagger: 0.1,
       });
     };
 
