@@ -31,7 +31,7 @@ export default function Navigation({
   const homeButton = useRef<HTMLButtonElement>(null);
   const navButton = useRef<HTMLDivElement>(null);
 
-  useAnimateButton(text, homeButton, "MEIPLE", "SAM", 0.5);
+  useAnimateButton(text, homeButton, "MEI", "SAM", 0.5);
   useAnimateButton(text2, navButton, "VOY", "NAV", 0.5);
 
   return (
@@ -49,7 +49,7 @@ export default function Navigation({
           <DropdownMenuTrigger>
             <div
               ref={navButton}
-              className="h-10 px-4 py-2 border text-[#333333] border-[#333333] bg-[#0c0c0c] font-serif hover:bg-[#1a1a1a] flex items-center justify-center"
+              className="h-10 px-4 py-2 border text-[#333333] border-[#333333] bg-[#0c0c0c] font-serif flex items-center justify-center"
             >
               <h6>
                 <span ref={text2} className="text-[#e7e7e7]">
