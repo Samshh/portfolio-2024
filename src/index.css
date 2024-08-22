@@ -17,6 +17,10 @@
     height: 100%;
   }
 
+  *:focus {
+    outline: none;
+  }
+
   h1,
   h2,
   h3,

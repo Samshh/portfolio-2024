@@ -3,12 +3,11 @@ import { scrollToSection } from "@/animations/scrollToSection";
 import { useGradientText } from "@/animations/useGradientText";
 import { Button } from "@/components/ui/button";
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-  DropdownMenuSeparator,
-} from "@/components/ui/dropdown-menu";
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+  SheetClose,
+} from "@/components/ui/sheet";
 import useAnimateButton from "@/animations/animateButton";
 
 interface NavigationProps {
@@ -45,8 +44,8 @@ export default function Navigation({
             <span ref={text}>SAM</span>.
           </h6>
         </Button>
-        <DropdownMenu>
-          <DropdownMenuTrigger>
+        <Sheet>
+          <SheetTrigger asChild>
             <div
               ref={navButton}
               className="hoverable h-10 px-4 py-2 border text-[#333333] border-[#333333] bg-[#0c0c0c] font-serif flex items-center justify-center"
@@ -58,21 +57,31 @@ export default function Navigation({
                 .
               </h6>
             </div>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent>
-            <DropdownMenuItem onClick={() => scrollToSection(aboutMeRef)}>
-              <h6 className="font-light">About me</h6>
-            </DropdownMenuItem>
-            <DropdownMenuSeparator></DropdownMenuSeparator>
-            <DropdownMenuItem onClick={() => scrollToSection(projectsRef)}>
-              <h6 className="font-light">Projects</h6>
-            </DropdownMenuItem>
-            <DropdownMenuSeparator></DropdownMenuSeparator>
-            <DropdownMenuItem onClick={() => scrollToSection(contactRef)}>
-              <h6 className="font-light">Contact</h6>
-            </DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
+          </SheetTrigger>
+          <SheetContent side={"top"}>
+            <div className="flex flex-col gap-[0.5rem] select-none"></div>
+            <SheetClose>
+              <h3 onClick={() => scrollToSection(aboutMeRef)}>
+                About Me<span className="text-[#333333]">.</span>
+              </h3>
+            </SheetClose>
+            <SheetClose>
+              <h3 onClick={() => scrollToSection(projectsRef)}>
+                Projects<span className="text-[#333333]">.</span>
+              </h3>
+            </SheetClose>
+            <SheetClose>
+              <h3 onClick={() => scrollToSection(contactRef)}>
+                Contact<span className="text-[#333333]">.</span>
+              </h3>
+            </SheetClose>
+            <SheetClose>
+              <h3>
+                Close<span className="text-[#E50914]">.</span>
+              </h3>
+            </SheetClose>
+          </SheetContent>
+        </Sheet>
       </div>
     </nav>
   );
