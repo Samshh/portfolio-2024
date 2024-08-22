@@ -6,6 +6,7 @@ import useAnimateButton from "@/animations/animateButton";
 import BackgroundMusic from "@/components/BackgroundMusic";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
+import ThreeNavRenderer from "./ThreeNavRenderer";
 
 interface NavigationProps {
   heroRef: React.RefObject<HTMLDivElement>;
@@ -177,6 +178,7 @@ export default function Navigation({
             </h3>
           </div>
         </div>
+        <ThreeNavRenderer />
       </div>
     </nav>
   );
