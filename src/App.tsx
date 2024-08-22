@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import HeroFold from "./folds/hero-fold";
 import AboutMeFold from "./folds/aboutme-fold";
 import ProjectsFold from "./folds/projects-fold";
@@ -13,6 +13,7 @@ import ThreeRenderer from "@/components/ThreeRenderer";
 import CustomCursor from "./components/CustomCursor";
 
 export default function App() {
+  const [menuOpen, setMenuOpen] = useState(false);
   const heroRef = useRef<HTMLDivElement>(null);
   const aboutMeRef = useRef<HTMLDivElement>(null);
   const projectsRef = useRef<HTMLDivElement>(null);
@@ -22,6 +23,9 @@ export default function App() {
 
   const { isGLTFLoaded, isStarFieldLoaded, Canvas } = ThreeRenderer();
 
+  const handleMenuToggle = () => {
+    setMenuOpen((prev) => !prev);
+  };
   useGSAP(() => {
     if (isGLTFLoaded && isStarFieldLoaded && loading.current) {
       gsap.to(loading.current, {
@@ -29,16 +33,30 @@ export default function App() {
         autoAlpha: 0,
         ease: "power2.out",
         onComplete: () => {
-          gsap.to(navRef.current, {
-            duration: 1,
-            autoAlpha: 1,
-            y: 0,
-            ease: "power2.out",
-          });
+          if (navRef.current) {
+            gsap.to(navRef.current, {
+              duration: 1,
+              autoAlpha: 1,
+              y: 0,
+              ease: "power2.out",
+            });
+          }
         },
       });
     }
   }, [isGLTFLoaded, isStarFieldLoaded]);
+
+  useGSAP(() => {
+    const elements = [heroRef.current, aboutMeRef.current, projectsRef.current, contactRef.current];
+    if (elements.every(el => el !== null)) {
+      gsap.to(elements, {
+        opacity: menuOpen ? 0 : 1,
+        duration: 0.5,
+        delay: menuOpen ? 0 : 0.5,
+        ease: menuOpen ? "power2.in" : "power2.out",
+      });
+    }
+  }, [menuOpen]);
 
   return (
     <main>
@@ -56,6 +74,8 @@ export default function App() {
             projectsRef={projectsRef}
             contactRef={contactRef}
             navRef={navRef}
+            menuOpen={menuOpen}
+            onMenuToggle={handleMenuToggle}
           />
           {isGLTFLoaded && isStarFieldLoaded && (
             <>

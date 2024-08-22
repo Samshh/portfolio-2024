@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useRef } from "react";
 import { scrollToSection } from "@/animations/scrollToSection";
 import { useGradientText } from "@/animations/useGradientText";
 import { Button } from "@/components/ui/button";
@@ -6,7 +6,6 @@ import useAnimateButton from "@/animations/animateButton";
 import BackgroundMusic from "@/components/BackgroundMusic";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
-import ThreeNavRenderer from "./ThreeNavRenderer";
 
 interface NavigationProps {
   heroRef: React.RefObject<HTMLDivElement>;
@@ -14,6 +13,8 @@ interface NavigationProps {
   projectsRef: React.RefObject<HTMLDivElement>;
   contactRef: React.RefObject<HTMLDivElement>;
   navRef: React.RefObject<HTMLDivElement>;
+  menuOpen: boolean;
+  onMenuToggle: () => void;
 }
 
 export default function Navigation({
@@ -22,14 +23,16 @@ export default function Navigation({
   projectsRef,
   contactRef,
   navRef,
+  menuOpen,
+  onMenuToggle,
 }: NavigationProps) {
-  const [menuOpen, setMenuOpen] = useState(false);
   const text = useGradientText();
   const text2 = useRef<HTMLSpanElement>(null);
   const homeButton = useRef<HTMLButtonElement>(null);
   const navButton = useRef<HTMLDivElement>(null);
   const menuRef = useRef<HTMLDivElement>(null);
   const menuItemsRef = useRef<HTMLDivElement>(null);
+  const hideOnToggle = useRef<HTMLDivElement>(null);
 
   const aboutMeRefH3 = useRef<HTMLHeadingElement>(null);
   const projectsRefH3 = useRef<HTMLHeadingElement>(null);
@@ -48,20 +51,18 @@ export default function Navigation({
   useAnimateButton(contactRefH3, contactRefDiv, "Connecter", "Contact", 0.5);
   useAnimateButton(closeRefH3, closeRefDiv, "Fermer", "Close", 0.5);
 
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
-  };
-
-  const closeMenu = () => {
-    setMenuOpen(false);
-  };
-
   useGSAP(() => {
     if (menuOpen) {
+      gsap.to(hideOnToggle.current, {
+        duration: 0.5,
+        opacity: 0,
+        y: -50,
+        ease: "power1.in",
+      });
       gsap.to(menuRef.current, {
         duration: 0.5,
         opacity: 1,
-        ease: "power1.in",
+        ease: "power1.out",
         display: "flex",
       });
       if (menuItemsRef.current) {
@@ -80,6 +81,13 @@ export default function Navigation({
         );
       }
     } else {
+      gsap.to(hideOnToggle.current, {
+        duration: 0.5,
+        opacity: 1,
+        y: 0,
+        delay: 0.5,
+        ease: "power1.out",
+      });
       gsap.to(menuRef.current, {
         duration: 0.5,
         opacity: 0,
@@ -94,7 +102,10 @@ export default function Navigation({
       ref={navRef}
       className="z-30 sticky top-0 select-none opacity-0 transform -translate-y-12"
     >
-      <div className="flex justify-between items-center px-4 py-4 max-w-[1280px] min-w-[320px] mx-auto">
+      <div
+        ref={hideOnToggle}
+        className="flex justify-between items-center px-4 py-4 max-w-[1280px] min-w-[320px] mx-auto"
+      >
         <Button ref={homeButton} onClick={() => scrollToSection(heroRef)}>
           <h6 className="text-[#333333] font-black">
             <span ref={text}>SAM</span>.
@@ -104,7 +115,7 @@ export default function Navigation({
           <BackgroundMusic />
           <div
             ref={navButton}
-            onClick={toggleMenu}
+            onClick={onMenuToggle}
             className="hoverable h-10 px-4 py-2 border text-[#333333] border-[#333333] bg-[#0c0c0c] font-serif flex items-center justify-center cursor-pointer"
           >
             <h6>
@@ -118,7 +129,7 @@ export default function Navigation({
       </div>
       <div
         ref={menuRef}
-        className="fixed inset-0 z-40 bg-[#0c0c0c] items-center justify-center h-screen w-screen opacity-0 p-[1rem]"
+        className="fixed inset-0 z-30 items-center justify-center h-screen w-screen opacity-0 p-[1rem]"
       >
         <div
           ref={menuItemsRef}
@@ -128,7 +139,7 @@ export default function Navigation({
             <h3
               onClick={() => {
                 scrollToSection(aboutMeRef);
-                closeMenu();
+                onMenuToggle();
               }}
               className="select-none text-[#333333] hoverable"
             >
@@ -142,7 +153,7 @@ export default function Navigation({
             <h3
               onClick={() => {
                 scrollToSection(projectsRef);
-                closeMenu();
+                onMenuToggle();
               }}
               className="select-none text-[#333333] hoverable"
             >
@@ -156,7 +167,7 @@ export default function Navigation({
             <h3
               onClick={() => {
                 scrollToSection(contactRef);
-                closeMenu();
+                onMenuToggle();
               }}
               className="select-none text-[#333333] hoverable"
             >
@@ -168,7 +179,7 @@ export default function Navigation({
           </div>
           <div ref={closeRefDiv} className="w-[188px]">
             <h3
-              onClick={closeMenu}
+              onClick={onMenuToggle}
               className="select-none text-[#E50914] hoverable"
             >
               <span ref={closeRefH3} className="text-[#e7e7e7]">
@@ -178,7 +189,6 @@ export default function Navigation({
             </h3>
           </div>
         </div>
-        <ThreeNavRenderer />
       </div>
     </nav>
   );
