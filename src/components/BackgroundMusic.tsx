@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import ReactAudioPlayer from "react-audio-player";
 import { Button } from "./ui/button";
 import { Icon } from "@iconify/react";
@@ -6,6 +6,12 @@ import { Icon } from "@iconify/react";
 export default function BackgroundMusic() {
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef<ReactAudioPlayer>(null);
+
+  useEffect(() => {
+    if (audioRef.current?.audioEl.current) {
+      setIsPlaying(!audioRef.current.audioEl.current.paused);
+    }
+  }, []);
 
   const handleTogglePlay = () => {
     setIsPlaying((prev) => !prev);
