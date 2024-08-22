@@ -115,14 +115,13 @@ export default function Navigation({
           </div>
         </div>
       </div>
-
       <div
         ref={menuRef}
-        className="fixed inset-0 z-40 bg-[#0c0c0c] flex flex-col items-center justify-center h-screen w-screen opacity-0 p-[1rem]"
+        className="fixed inset-0 z-40 bg-[#0c0c0c] items-center justify-center h-screen w-screen opacity-0 p-[1rem]"
       >
         <div
           ref={menuItemsRef}
-          className="flex flex-col items-start justify-center max-w-[1280px] mx-auto w-full gap-[1rem]"
+          className="flex flex-col items-start justify-center gap-[1rem] max-w-[1280px] mx-auto w-full"
         >
           <div ref={aboutMeRefDiv} className="w-[203px]">
             <h3
