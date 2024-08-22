@@ -59,11 +59,10 @@ export default function Navigation({
             </div>
           </SheetTrigger>
           <SheetContent side={"top"}>
-            <div className="flex flex-col gap-[0.5rem] select-none"></div>
             <SheetClose>
               <h3
                 onClick={() => scrollToSection(aboutMeRef)}
-                className="hover:text-[#333333] transition-colors duration-300 ease-in-out"
+                className="hover:text-[#333333] transition-colors duration-300 ease-in-out select-none"
               >
                 About Me<span className="text-[#333333]">.</span>
               </h3>
@@ -71,7 +70,7 @@ export default function Navigation({
             <SheetClose>
               <h3
                 onClick={() => scrollToSection(projectsRef)}
-                className="hover:text-[#333333] transition-colors duration-300 ease-in-out"
+                className="hover:text-[#333333] transition-colors duration-300 ease-in-out select-none"
               >
                 Projects<span className="text-[#333333]">.</span>
               </h3>
@@ -79,13 +78,13 @@ export default function Navigation({
             <SheetClose>
               <h3
                 onClick={() => scrollToSection(contactRef)}
-                className="hover:text-[#333333] transition-colors duration-300 ease-in-out"
+                className="hover:text-[#333333] transition-colors duration-300 ease-in-out select-none"
               >
                 Contact<span className="text-[#333333]">.</span>
               </h3>
             </SheetClose>
             <SheetClose>
-              <h3 className="hover:text-[#333333] transition-colors duration-300 ease-in-out">
+              <h3 className="hover:text-[#333333] transition-colors duration-300 ease-in-out select-none">
                 Close<span className="text-[#E50914]">.</span>
               </h3>
             </SheetClose>
