@@ -9,6 +9,7 @@ import {
   SheetClose,
 } from "@/components/ui/sheet";
 import useAnimateButton from "@/animations/animateButton";
+import BackgroundMusic from "@/components/BackgroundMusic";
 
 interface NavigationProps {
   heroRef: React.RefObject<HTMLDivElement>;
@@ -44,52 +45,55 @@ export default function Navigation({
             <span ref={text}>SAM</span>.
           </h6>
         </Button>
-        <Sheet>
-          <SheetTrigger asChild>
-            <div
-              ref={navButton}
-              className="hoverable h-10 px-4 py-2 border text-[#333333] border-[#333333] bg-[#0c0c0c] font-serif flex items-center justify-center"
-            >
-              <h6>
-                <span ref={text2} className="text-[#e7e7e7]">
-                  NAV
-                </span>
-                .
-              </h6>
-            </div>
-          </SheetTrigger>
-          <SheetContent side={"top"}>
-            <SheetClose>
-              <h3
-                onClick={() => scrollToSection(aboutMeRef)}
-                className="hover:text-[#333333] transition-colors duration-300 ease-in-out select-none"
+        <div className="flex items-center justify-center gap-[1rem]">
+          <BackgroundMusic />
+          <Sheet>
+            <SheetTrigger asChild>
+              <div
+                ref={navButton}
+                className="hoverable h-10 px-4 py-2 border text-[#333333] border-[#333333] bg-[#0c0c0c] font-serif flex items-center justify-center"
               >
-                About Me<span className="text-[#333333]">.</span>
-              </h3>
-            </SheetClose>
-            <SheetClose>
-              <h3
-                onClick={() => scrollToSection(projectsRef)}
-                className="hover:text-[#333333] transition-colors duration-300 ease-in-out select-none"
-              >
-                Projects<span className="text-[#333333]">.</span>
-              </h3>
-            </SheetClose>
-            <SheetClose>
-              <h3
-                onClick={() => scrollToSection(contactRef)}
-                className="hover:text-[#333333] transition-colors duration-300 ease-in-out select-none"
-              >
-                Contact<span className="text-[#333333]">.</span>
-              </h3>
-            </SheetClose>
-            <SheetClose>
-              <h3 className="hover:text-[#333333] transition-colors duration-300 ease-in-out select-none">
-                Close<span className="text-[#E50914]">.</span>
-              </h3>
-            </SheetClose>
-          </SheetContent>
-        </Sheet>
+                <h6>
+                  <span ref={text2} className="text-[#e7e7e7]">
+                    NAV
+                  </span>
+                  .
+                </h6>
+              </div>
+            </SheetTrigger>
+            <SheetContent side={"top"}>
+              <SheetClose>
+                <h3
+                  onClick={() => scrollToSection(aboutMeRef)}
+                  className="hover:text-[#333333] transition-colors duration-300 ease-in-out select-none"
+                >
+                  About Me<span className="text-[#333333]">.</span>
+                </h3>
+              </SheetClose>
+              <SheetClose>
+                <h3
+                  onClick={() => scrollToSection(projectsRef)}
+                  className="hover:text-[#333333] transition-colors duration-300 ease-in-out select-none"
+                >
+                  Projects<span className="text-[#333333]">.</span>
+                </h3>
+              </SheetClose>
+              <SheetClose>
+                <h3
+                  onClick={() => scrollToSection(contactRef)}
+                  className="hover:text-[#333333] transition-colors duration-300 ease-in-out select-none"
+                >
+                  Contact<span className="text-[#333333]">.</span>
+                </h3>
+              </SheetClose>
+              <SheetClose>
+                <h3 className="hover:text-[#333333] transition-colors duration-300 ease-in-out select-none">
+                  Close<span className="text-[#E50914]">.</span>
+                </h3>
+              </SheetClose>
+            </SheetContent>
+          </Sheet>
+        </div>
       </div>
     </nav>
   );
