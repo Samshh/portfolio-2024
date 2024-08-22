@@ -27,17 +27,10 @@ export default function BackgroundMusic() {
   return (
     <div>
       <Button onClick={handleTogglePlay}>
-        {isPlaying ? (
-          <Icon
-            className="text-[25px]"
-            icon="solar:music-note-2-bold-duotone"
-          />
-        ) : (
-          <Icon
-            className="text-[25px]"
-            icon="solar:music-note-2-line-duotone"
-          />
-        )}
+        <Icon
+          className="text-[25px]"
+          icon={isPlaying ? "solar:music-note-2-bold-duotone" : "solar:music-note-2-line-duotone"}
+        />
       </Button>
       <ReactAudioPlayer
         ref={audioRef}
