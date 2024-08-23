@@ -6,6 +6,7 @@ export default function ThreeRenderer() {
   const [isGLTFLoaded, setIsGLTFLoaded] = useState(false);
   const [isStarFieldLoaded, setIsStarFieldLoaded] = useState(false);
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const starFieldMaterialRef = useRef<THREE.ShaderMaterial | null>(null);
 
   useEffect(() => {
     if (!canvasRef.current) return;
@@ -52,6 +53,7 @@ export default function ThreeRenderer() {
       const material = new THREE.ShaderMaterial({
         uniforms: {
           pixelRatio: { value: window.devicePixelRatio },
+          opacity: { value: 1 },
         },
         vertexShader: `
           attribute float size;
@@ -63,17 +65,20 @@ export default function ThreeRenderer() {
           }
         `,
         fragmentShader: `
+          uniform float opacity; // Use uniform opacity
           void main() {
             vec2 center = gl_PointCoord - 0.5;
             float distance = length(center);
             if (distance > 0.5) discard;
-            float alpha = smoothstep(0.5, 0.4, distance);
+            float alpha = smoothstep(0.5, 0.4, distance) * opacity; // Apply opacity to fragment
             gl_FragColor = vec4(1.0, 1.0, 1.0, alpha);
           }
         `,
         transparent: true,
         blending: THREE.AdditiveBlending,
       });
+
+      starFieldMaterialRef.current = material;
 
       const stars = new THREE.Points(geometry, material);
       scene.add(stars);
@@ -190,5 +195,6 @@ export default function ThreeRenderer() {
     ></canvas>
   );
 
-  return { isGLTFLoaded, isStarFieldLoaded, Canvas };
+  return { isGLTFLoaded, isStarFieldLoaded, Canvas, starFieldMaterialRef };
 }
+

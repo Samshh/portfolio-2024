@@ -21,11 +21,13 @@ export default function App() {
   const navRef = useRef<HTMLDivElement>(null);
   const loading = useRef<HTMLDivElement>(null);
 
-  const { isGLTFLoaded, isStarFieldLoaded, Canvas } = ThreeRenderer();
+  const threeRenderer = ThreeRenderer();
+  const { isGLTFLoaded, isStarFieldLoaded, Canvas, starFieldMaterialRef } = threeRenderer;
 
   const handleMenuToggle = () => {
     setMenuOpen((prev) => !prev);
   };
+
   useGSAP(() => {
     if (isGLTFLoaded && isStarFieldLoaded && loading.current) {
       gsap.to(loading.current, {
@@ -54,6 +56,14 @@ export default function App() {
         duration: 0.5,
         delay: menuOpen ? 0 : 0.5,
         ease: menuOpen ? "power2.in" : "power2.out",
+      });
+    }
+  
+    if (starFieldMaterialRef.current) {
+      gsap.to(starFieldMaterialRef.current.uniforms.opacity, {
+        value: menuOpen ? 0 : 1,
+        duration: 0.5,
+        ease: "power2.inOut",
       });
     }
   }, [menuOpen]);
