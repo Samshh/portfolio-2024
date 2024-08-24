@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { scrollToSection } from "@/animations/scrollToSection";
 import { useGradientText } from "@/animations/useGradientText";
 import { Button } from "@/components/ui/button";
@@ -26,6 +26,8 @@ export default function Navigation({
   menuOpen,
   onMenuToggle,
 }: NavigationProps) {
+  const [buttonDisabled, setButtonDisabled] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
   const text = useGradientText();
   const text2 = useRef<HTMLSpanElement>(null);
   const homeButton = useRef<HTMLButtonElement>(null);
@@ -33,6 +35,7 @@ export default function Navigation({
   const menuRef = useRef<HTMLDivElement>(null);
   const menuItemsRef = useRef<HTMLDivElement>(null);
   const hideOnToggle = useRef<HTMLDivElement>(null);
+  const debounceTimeout = useRef<NodeJS.Timeout | null>(null);
 
   const aboutMeRefH3 = useRef<HTMLHeadingElement>(null);
   const projectsRefH3 = useRef<HTMLHeadingElement>(null);
@@ -50,6 +53,23 @@ export default function Navigation({
   useAnimateButton(projectsRefH3, projectsRefDiv, "Travaux", "Projects", 0.5);
   useAnimateButton(contactRefH3, contactRefDiv, "Connecter", "Contact", 0.5);
   useAnimateButton(closeRefH3, closeRefDiv, "Fermer", "Close", 0.5);
+
+  const handleMenuToggle = () => {
+    if (isAnimating) return;
+
+    setIsAnimating(true);
+    if (debounceTimeout.current) {
+      clearTimeout(debounceTimeout.current);
+    }
+
+    setButtonDisabled(true);
+    onMenuToggle();
+
+    debounceTimeout.current = setTimeout(() => {
+      setIsAnimating(false);
+      setButtonDisabled(false);
+    }, 500);
+  };
 
   useGSAP(() => {
     if (menuOpen) {
@@ -106,8 +126,12 @@ export default function Navigation({
         ref={hideOnToggle}
         className="flex justify-between items-center px-4 py-4 max-w-[1280px] min-w-[320px] mx-auto"
       >
-        <Button ref={homeButton} onClick={() => scrollToSection(heroRef)}>
-          <h6 className="text-[#333333] font-black">
+        <Button
+          ref={homeButton}
+          onClick={() => scrollToSection(heroRef)}
+          disabled={buttonDisabled}
+        >
+          <h6 className="text-[#333333]">
             <span ref={text}>SAM</span>.
           </h6>
         </Button>
@@ -115,8 +139,10 @@ export default function Navigation({
           <BackgroundMusic />
           <div
             ref={navButton}
-            onClick={onMenuToggle}
-            className="hoverable h-10 px-4 py-2 border text-[#333333] border-[#333333] bg-[#0c0c0c] font-serif flex items-center justify-center cursor-pointer"
+            onClick={handleMenuToggle}
+            className={`hoverable h-10 px-4 py-2 border text-[#333333] border-[#333333] bg-[#0c0c0c] font-serif flex items-center justify-center cursor-pointer ${
+              buttonDisabled ? "cursor-not-allowed" : ""
+            }`}
           >
             <h6>
               <span ref={text2} className="text-[#e7e7e7]">
@@ -139,7 +165,7 @@ export default function Navigation({
             <h3
               onClick={() => {
                 scrollToSection(aboutMeRef);
-                onMenuToggle();
+                handleMenuToggle();
               }}
               className="select-none text-[#333333] hoverable"
             >
@@ -153,7 +179,7 @@ export default function Navigation({
             <h3
               onClick={() => {
                 scrollToSection(projectsRef);
-                onMenuToggle();
+                handleMenuToggle();
               }}
               className="select-none text-[#333333] hoverable"
             >
@@ -167,7 +193,7 @@ export default function Navigation({
             <h3
               onClick={() => {
                 scrollToSection(contactRef);
-                onMenuToggle();
+                handleMenuToggle();
               }}
               className="select-none text-[#333333] hoverable"
             >
@@ -179,7 +205,7 @@ export default function Navigation({
           </div>
           <div ref={closeRefDiv} className="w-[188px]">
             <h3
-              onClick={onMenuToggle}
+              onClick={handleMenuToggle}
               className="select-none text-[#E50914] hoverable"
             >
               <span ref={closeRefH3} className="text-[#e7e7e7]">
