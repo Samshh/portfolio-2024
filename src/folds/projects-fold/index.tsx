@@ -32,7 +32,7 @@ export default function ProjectsFold() {
         end: "bottom center",
         toggleActions: "play none none reverse",
       },
-      defaults: { ease: "expo.inOut" },
+      defaults: { ease: "power2.out" },
     });
 
     tl.fromTo(

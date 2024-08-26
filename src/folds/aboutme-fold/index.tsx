@@ -34,8 +34,8 @@ export default function AboutMeFold() {
       {
         opacity: 1,
         y: 0,
-        ease: "expo.inOut",
-        stagger: 0.05,
+        ease: "power2.out",
+        stagger: 0.02,
         duration: 1,
         scrollTrigger: {
           trigger: trigger.current,
@@ -48,9 +48,9 @@ export default function AboutMeFold() {
 
     gsap.from(".skill-item", {
       opacity: 0,
-      x: 50,
+      x: -50,
       duration: 1,
-      stagger: 0.2,
+      stagger: 0.02,
       ease: "power2.out",
       scrollTrigger: {
         trigger: trigger.current,
