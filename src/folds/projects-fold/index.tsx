@@ -87,7 +87,7 @@ export default function ProjectsFold() {
                     href="https://github.com/Samshh/Hackathon-Project---The-Launchpad"
                     target="_blank"
                     rel="noopener"
-                    title="ticketly-docs"
+                    title="ChainMed Repo"
                   >
                     <div className="hoverable flex items-center justify-end">
                       <h6 className="font-light">View</h6>
@@ -137,7 +137,7 @@ export default function ProjectsFold() {
                     href="https://github.com/gdsc-mmcm"
                     target="_blank"
                     rel="noopener"
-                    title="ticketly-docs"
+                    title="GitHub Organization"
                   >
                     <div className="hoverable flex items-center justify-end">
                       <h6 className="font-light">View</h6>
@@ -190,7 +190,7 @@ export default function ProjectsFold() {
                     href="https://mmcm-ocp.com/"
                     target="_blank"
                     rel="noopener"
-                    title="ticketly-docs"
+                    title="Website"
                   >
                     <div className="hoverable flex items-center justify-end">
                       <h6 className="font-light">View</h6>
@@ -238,7 +238,7 @@ export default function ProjectsFold() {
                     href="https://www.npmjs.com/package/saminate"
                     target="_blank"
                     rel="noopener"
-                    title="ticketly-docs"
+                    title="NPM docs"
                   >
                     <div className="hoverable flex items-center justify-end">
                       <h6 className="font-light">View</h6>
@@ -285,7 +285,7 @@ export default function ProjectsFold() {
                     href="https://github.com/Samshh/DiscordBot"
                     target="_blank"
                     rel="noopener"
-                    title="ticketly-docs"
+                    title="TicketLy Repo"
                   >
                     <div className="hoverable flex items-center justify-end">
                       <h6 className="font-light">View</h6>
