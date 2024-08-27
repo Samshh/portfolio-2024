@@ -100,7 +100,7 @@ export default function ProjectsFold() {
                 </div>
                 <div className="flex justify-start items-start">
                   <h6 className="font-light">
-                    ChainMed was our entry for the PBWx Davao hackathon. Using
+                    ChainMed was our entry for the PBWx Davao hackathon (2nd Place). Using
                     the React framework and web3 technologies, we built a secure
                     application for automating healthcare. It showcases our
                     ability to create user-friendly and tamper-proof solutions
