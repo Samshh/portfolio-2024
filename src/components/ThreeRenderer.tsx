@@ -108,7 +108,7 @@ export default function ThreeRenderer() {
           gltf.scene.traverse((child) => {
             if ((child as THREE.Mesh).isMesh) {
               (child as THREE.Mesh).material = new THREE.MeshStandardMaterial({
-                color: 0x333333,
+                color: 0x434343,
                 metalness: 0.5,
                 roughness: 1,
               });
