@@ -72,7 +72,7 @@ export default function ProjectsFold() {
         </h1>
       </div>
       <div className="flex flex-col w-full">
-        <Accordion type="single" collapsible className="w-full">
+        <Accordion type="single" collapsible className="w-full" defaultValue="item-1">
           <AccordionItem ref={accordionRef1} value="item-1">
             <AccordionTrigger>
               <h4 className="font-normal">
@@ -100,11 +100,11 @@ export default function ProjectsFold() {
                 </div>
                 <div className="flex justify-start items-start">
                   <h6 className="font-light">
-                    ChainMed was our entry for the PBWx Davao hackathon (2nd Place). Using
-                    the React framework and web3 technologies, we built a secure
-                    application for automating healthcare. It showcases our
-                    ability to create user-friendly and tamper-proof solutions
-                    in the medical sector.
+                    ChainMed was our entry for the PBWx Davao hackathon (2nd
+                    Place). Using the React framework and web3 technologies, we
+                    built a secure application for automating healthcare. It
+                    showcases our ability to create user-friendly and
+                    tamper-proof solutions in the medical sector.
                   </h6>
                 </div>
                 <div className="flex flex-wrap gap-[1rem] justify-start items-center">

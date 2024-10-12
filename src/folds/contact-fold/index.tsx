@@ -72,6 +72,9 @@ export default function ContactFold() {
     >
       <div className="flex flex-grow flex-col justify-center items-start gap-[1.5rem] md:w-1/2">
         <div ref={headlineRef}>
+          <em className="font-normal md:text-[1.5rem] text-[#535353] font-serif flex items-center gap-[0.25rem]">
+            <Icon icon="mdi:location" /> Davao City | Philippines
+          </em>
           <h1>
             Let's <span ref={textRef1}></span> and <span ref={textRef2}></span>{" "}
             something <span ref={textRef3}></span>
@@ -88,7 +91,9 @@ export default function ContactFold() {
             <Button ref={buttonsRef1}>
               <div className="flex justify-center items-center gap-[.5rem]">
                 <Icon className="text-[23px]" icon="mdi:github" />
-                <h6 className="font-light"><span ref={textGithub}>GITHUB</span></h6>
+                <h6 className="font-light">
+                  <span ref={textGithub}>GITHUB</span>
+                </h6>
               </div>
             </Button>
           </a>
@@ -101,15 +106,21 @@ export default function ContactFold() {
             <Button ref={buttonsRef2}>
               <div className="flex justify-center items-center gap-[.5rem]">
                 <Icon className="text-[19px]" icon="bi:linkedin" />
-                <h6 className="font-light"><span ref={textLinkedin}>LINKED IN</span></h6>
+                <h6 className="font-light">
+                  <span ref={textLinkedin}>LINKED IN</span>
+                </h6>
               </div>
             </Button>
           </a>
         </div>
       </div>
       <footer className="w-full max-w-[1280px] flex flex-col md:justify-between md:flex-row items-center">
-        <p className="font-normal text-[0.75rem] md:text-[1rem] text-[#333333] font-serif">Sam Dacara // © All Rights Reserved</p>
-        <p className="font-normal text-[0.75rem] md:text-[1rem] text-[#333333] font-serif">Powered by Vercel</p>
+        <em className="font-normal text-[1rem] text-[#535353] font-serif">
+          Sam Dacara // © All Rights Reserved
+        </em>
+        <em className="font-normal text-[1rem] text-[#535353] font-serif">
+          Powered by Vercel
+        </em>
       </footer>
     </div>
   );
