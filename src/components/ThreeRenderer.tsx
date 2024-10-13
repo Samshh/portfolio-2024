@@ -65,12 +65,12 @@ export default function ThreeRenderer() {
           }
         `,
         fragmentShader: `
-          uniform float opacity; // Use uniform opacity
+          uniform float opacity;
           void main() {
             vec2 center = gl_PointCoord - 0.5;
             float distance = length(center);
             if (distance > 0.5) discard;
-            float alpha = smoothstep(0.5, 0.4, distance) * opacity; // Apply opacity to fragment
+            float alpha = smoothstep(0.5, 0.4, distance) * opacity;
             gl_FragColor = vec4(1.0, 1.0, 1.0, alpha);
           }
         `,
