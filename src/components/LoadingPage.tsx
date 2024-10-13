@@ -128,13 +128,9 @@ export default function LoadingPage({
         </div>
       </div>
       <div ref={messageRef} className="fixed bottom-4 opacity-0">
-        {!isGlTFLoaded || !isStarFieldLoaded ? (
+        {!isGlTFLoaded || !isStarFieldLoaded && (
           <p className="font-normal font-serif text-[1rem] text-[#535353]">
             Rendering in progress, please wait...
-          </p>
-        ) : (
-          <p className="font-normal font-serif text-[1rem] text-[#535353]">
-            Everything is ready, press start
           </p>
         )}
       </div>
