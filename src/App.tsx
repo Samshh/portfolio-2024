@@ -36,7 +36,8 @@ export default function App() {
   useGSAP(() => {
     if (hasStarted) {
       gsap.to(loading.current, {
-        duration: 0.25,
+        duration: 0.75,
+        delay: 0.25,
         autoAlpha: 0,
         ease: "power2.out",
         onComplete: () => {
