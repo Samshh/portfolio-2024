@@ -114,8 +114,8 @@ export default function App() {
               <section ref={projectsRef}>
                 <ProjectsFold />
               </section>
-              <section ref={contactRef}>
-                <ContactFold />
+              <section>
+                <ContactFold footerRef={contactRef} />
               </section>
             </>
           )}

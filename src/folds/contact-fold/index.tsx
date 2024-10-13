@@ -8,7 +8,12 @@ import { Icon } from "@iconify/react";
 import useAnimateButton from "@/animations/animateButton";
 
 gsap.registerPlugin(ScrollTrigger);
-export default function ContactFold() {
+
+interface ContactFoldProps {
+  footerRef: React.RefObject<HTMLDivElement>;
+}
+
+export default function ContactFold({ footerRef }: ContactFoldProps) {
   const textRef1 = useGradientText();
   const textRef2 = useGradientText();
   const textRef3 = useGradientText();
@@ -114,7 +119,10 @@ export default function ContactFold() {
           </a>
         </div>
       </div>
-      <footer className="w-full max-w-[1280px] flex flex-col md:justify-between md:flex-row items-center">
+      <footer
+        ref={footerRef}
+        className="w-full max-w-[1280px] flex flex-col md:justify-between md:flex-row items-center"
+      >
         <em className="font-normal text-[1.25rem] text-[#535353] font-serif">
           Sam Dacara | © All Rights Reserved
         </em>
