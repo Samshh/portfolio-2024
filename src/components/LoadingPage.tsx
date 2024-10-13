@@ -97,7 +97,7 @@ export default function LoadingPage({
         className="hidden opacity-0 p-[1rem] flex-col items-center justify-center gap-[1.5rem]"
       >
         <em>
-          <h1 className="font-thin text-[1.8rem] md:text-[3.3rem] text-[#535353]">" Ad astra Abyssosque "</h1>
+          <h4 className="font-thin text-[#535353]">" Ad astra Abyssosque "</h4>
         </em>
         <Button className="px-[2rem]" onClick={onStart}>
           <h6 className="font-light">START</h6>
