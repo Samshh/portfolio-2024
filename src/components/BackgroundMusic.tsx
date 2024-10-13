@@ -3,7 +3,11 @@ import ReactAudioPlayer from "react-audio-player";
 import { Button } from "./ui/button";
 import { Icon } from "@iconify/react";
 
-export default function BackgroundMusic() {
+interface BackgroundMusicProps {
+  hasStarted: boolean;
+}
+
+export default function BackgroundMusic({ hasStarted }: BackgroundMusicProps) {
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef<ReactAudioPlayer>(null);
 
@@ -12,6 +16,18 @@ export default function BackgroundMusic() {
       setIsPlaying(!audioRef.current.audioEl.current.paused);
     }
   }, []);
+
+  useEffect(() => {
+    if (audioRef.current?.audioEl.current) {
+      if (hasStarted) {
+        audioRef.current.audioEl.current.play();
+        setIsPlaying(true);
+      } else {
+        audioRef.current.audioEl.current.pause();
+        setIsPlaying(false);
+      }
+    }
+  }, [hasStarted]);
 
   const handleTogglePlay = () => {
     setIsPlaying((prev) => !prev);
@@ -29,7 +45,11 @@ export default function BackgroundMusic() {
       <Button onClick={handleTogglePlay}>
         <Icon
           className="text-[25px]"
-          icon={isPlaying ? "solar:music-note-2-bold-duotone" : "solar:music-note-2-line-duotone"}
+          icon={
+            isPlaying
+              ? "solar:music-note-2-bold-duotone"
+              : "solar:music-note-2-line-duotone"
+          }
         />
       </Button>
       <ReactAudioPlayer

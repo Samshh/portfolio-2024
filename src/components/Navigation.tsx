@@ -14,6 +14,7 @@ interface NavigationProps {
   contactRef: React.RefObject<HTMLDivElement>;
   navRef: React.RefObject<HTMLDivElement>;
   menuOpen: boolean;
+  hasStarted: boolean;
   onMenuToggle: () => void;
 }
 
@@ -24,6 +25,7 @@ export default function Navigation({
   contactRef,
   navRef,
   menuOpen,
+  hasStarted,
   onMenuToggle,
 }: NavigationProps) {
   const [buttonDisabled, setButtonDisabled] = useState(false);
@@ -136,7 +138,7 @@ export default function Navigation({
           </h6>
         </Button>
         <div className="flex items-center justify-center gap-[1rem]">
-          <BackgroundMusic />
+          <BackgroundMusic hasStarted={hasStarted} />
           <div
             ref={navButton}
             onClick={handleMenuToggle}

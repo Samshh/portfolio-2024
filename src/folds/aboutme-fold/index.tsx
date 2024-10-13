@@ -149,10 +149,6 @@ export default function AboutMeFold() {
             <Icon className="text-[20px]" icon="simple-icons:vite" />
             <p className="text-[1rem]">Vite</p>
           </div>
-          <div className="skill-item bg-[#0c0c0c] border border-[#333333] px-[1rem] py-[0.25rem]  flex justify-center items-center gap-[0.5rem]">
-            <Icon className="text-[24px]" icon="ri:nextjs-fill" />
-            <p className="text-[1rem]">Next.js</p>
-          </div>
           <div className="skill-item  bg-[#0c0c0c] border border-[#333333] px-[1rem] py-[0.25rem]  flex justify-center items-center gap-[0.5rem]">
             <Icon className="text-[20px]" icon="cib:git" />
             <p className="text-[1rem]">Git</p>

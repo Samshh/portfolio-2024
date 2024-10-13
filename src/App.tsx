@@ -14,6 +14,7 @@ import CustomCursor from "./components/CustomCursor";
 
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [hasStarted, setHasStarted] = useState(false);
   const heroRef = useRef<HTMLDivElement>(null);
   const aboutMeRef = useRef<HTMLDivElement>(null);
   const projectsRef = useRef<HTMLDivElement>(null);
@@ -28,8 +29,12 @@ export default function App() {
     setMenuOpen((prev) => !prev);
   };
 
+  const handleStart = () => {
+    setHasStarted(true);
+  };
+
   useGSAP(() => {
-    if (isGLTFLoaded && isStarFieldLoaded && loading.current) {
+    if (hasStarted) {
       gsap.to(loading.current, {
         duration: 0.25,
         autoAlpha: 0,
@@ -46,11 +51,16 @@ export default function App() {
         },
       });
     }
-  }, [isGLTFLoaded, isStarFieldLoaded]);
+  }, [hasStarted]);
 
   useGSAP(() => {
-    const elements = [heroRef.current, aboutMeRef.current, projectsRef.current, contactRef.current];
-    if (elements.every(el => el !== null)) {
+    const elements = [
+      heroRef.current,
+      aboutMeRef.current,
+      projectsRef.current,
+      contactRef.current,
+    ];
+    if (elements.every((el) => el !== null)) {
       gsap.to(elements, {
         opacity: menuOpen ? 0 : 1,
         duration: 0.5,
@@ -58,7 +68,7 @@ export default function App() {
         ease: menuOpen ? "power2.in" : "power2.out",
       });
     }
-  
+
     if (starFieldMaterialRef.current) {
       gsap.to(starFieldMaterialRef.current.uniforms.opacity, {
         value: menuOpen ? 0 : 1,
@@ -75,7 +85,11 @@ export default function App() {
       <SVGGrainEffect />
       <ReactLenis root>
         <div ref={loading}>
-          <LoadingPage />
+          <LoadingPage
+            isGlTFLoaded={isGLTFLoaded}
+            isStarFieldLoaded={isStarFieldLoaded}
+            onStart={handleStart}
+          />
         </div>
         <div className="overflow-x-clip">
           <Navigation
@@ -86,8 +100,9 @@ export default function App() {
             navRef={navRef}
             menuOpen={menuOpen}
             onMenuToggle={handleMenuToggle}
+            hasStarted={hasStarted}
           />
-          {isGLTFLoaded && isStarFieldLoaded && (
+          {hasStarted && (
             <>
               <section ref={heroRef}>
                 <HeroFold projectsRef={projectsRef} contactRef={contactRef} />

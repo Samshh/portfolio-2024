@@ -72,7 +72,7 @@ export default function ContactFold() {
     >
       <div className="flex flex-grow flex-col justify-center items-start gap-[1.5rem] md:w-1/2">
         <div ref={headlineRef}>
-          <em className="font-normal md:text-[1.5rem] text-[#535353] font-serif flex items-center gap-[0.25rem]">
+          <em className="font-normal text-[1.25rem] md:text-[1.75rem] text-[#535353] font-serif flex items-center gap-[0.25rem]">
             <Icon icon="mdi:location" /> Davao City | Philippines
           </em>
           <h1>
@@ -115,10 +115,10 @@ export default function ContactFold() {
         </div>
       </div>
       <footer className="w-full max-w-[1280px] flex flex-col md:justify-between md:flex-row items-center">
-        <em className="font-normal text-[1rem] text-[#535353] font-serif">
-          Sam Dacara // © All Rights Reserved
+        <em className="font-normal text-[1.25rem] text-[#535353] font-serif">
+          Sam Dacara | © All Rights Reserved
         </em>
-        <em className="font-normal text-[1rem] text-[#535353] font-serif">
+        <em className="font-normal text-[1.25rem] text-[#535353] font-serif">
           Powered by Vercel
         </em>
       </footer>
