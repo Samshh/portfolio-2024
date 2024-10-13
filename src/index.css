@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Mrs+Saint+Delafield&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -40,6 +40,14 @@
   h5,
   h6 {
     font-weight: 700;
+  }
+
+  .font-special {
+    @apply text-[2.6rem] md:text-[3rem] text-[#535353];
+  }
+
+  .astra {
+    word-spacing: 0.7rem;
   }
 
   p {
@@ -88,4 +96,5 @@
   --text-h6-size: 1.25rem;
   --font-main: "Playfair Display";
   --font-sans: "Lato";
+  --font-special: "Mrs Saint Delafield";
 }

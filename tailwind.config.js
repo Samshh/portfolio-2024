@@ -30,6 +30,7 @@ module.exports = {
       fontFamily: {
         serif: "var(--font-main)",
         sans: "var(--font-sans)",
+        special: "var(--font-special)",
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",

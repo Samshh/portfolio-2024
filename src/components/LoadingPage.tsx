@@ -94,10 +94,10 @@ export default function LoadingPage({
     <div className="fixed inset-0 flex flex-col justify-center items-center bg-[#0c0c0c] z-40 gap-[0.25rem] select-none">
       <div
         ref={startButtonRef}
-        className="hidden opacity-0 p-[1rem] flex-col items-center justify-center gap-[1.5rem]"
+        className="hidden opacity-0 p-[1rem] flex-col items-center justify-center gap-[0.5rem]"
       >
         <em>
-          <h4 className="font-thin text-[1.8rem] md:text-[2rem] text-[#535353]">" Ad astra Abyssosque "</h4>
+          <h4 className="font-thin font-special text-[#535353] astra">Ad astra Abyssosque</h4>
         </em>
         <Button className="px-[2rem]" onClick={onStart}>
           <h6 className="font-light">START</h6>
