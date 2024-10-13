@@ -23,7 +23,8 @@ export default function App() {
   const loading = useRef<HTMLDivElement>(null);
 
   const threeRenderer = ThreeRenderer();
-  const { isGLTFLoaded, isStarFieldLoaded, Canvas, starFieldMaterialRef } = threeRenderer;
+  const { isGLTFLoaded, isStarFieldLoaded, Canvas, starFieldMaterialRef } =
+    threeRenderer;
 
   const handleMenuToggle = () => {
     setMenuOpen((prev) => !prev);
@@ -82,7 +83,7 @@ export default function App() {
   return (
     <main>
       {Canvas()}
-      <CustomCursor />
+      <CustomCursor hasStarted={hasStarted} />
       <SVGGrainEffect />
       <ReactLenis root>
         <div ref={loading}>
