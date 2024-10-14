@@ -25,6 +25,7 @@ export default function LoadingPage({
   const startButtonRef = useRef(null);
   const loadingContentRef = useRef(null);
   const iconTl = gsap.timeline({ repeat: -1, defaults: { ease: "linear" } });
+  const startGradient = useGradientText();
 
   useGSAP(() => {
     iconTl.to(spinIcon.current, { rotate: 360, duration: 2 });
@@ -90,6 +91,15 @@ export default function LoadingPage({
     }
   }, [isGlTFLoaded, isStarFieldLoaded]);
 
+  const handleStartClick = () => {
+    gsap.to(startButtonRef.current, {
+      opacity: 0,
+      duration: 0.5,
+      ease: "power2.inOut",
+      onComplete: onStart,
+    });
+  };
+
   return (
     <div className="fixed inset-0 flex flex-col justify-center items-center bg-[#0c0c0c] z-40 gap-[0.25rem] select-none">
       <div
@@ -100,8 +110,8 @@ export default function LoadingPage({
           <p className="text-[0.7rem]">(To the Stars and the Abyss)</p>
           <h4 className="font-thin font-special astra">Ad astra Abyssosque</h4>
         </em>
-        <Button className="px-[2rem]" onClick={onStart}>
-          <h6 className="font-light">START</h6>
+        <Button className="px-[2rem]" onClick={handleStartClick}>
+          <h6 ref={startGradient}>START</h6>
         </Button>
       </div>
       <div
@@ -115,16 +125,16 @@ export default function LoadingPage({
             </h4>
           </div>
           <div ref={textRight}>
-            <h4 className="font-light text-[#333333]">2024</h4>
+            <h4 className="font-light text-[#535353]">2024</h4>
           </div>
         </div>
         <div
           ref={bottomRef}
           className="flex justify-center items-center gap-[0.5rem]"
         >
-          <h4 className="font-normal text-[1rem]">made with</h4>
+          <h4 className="font-normal text-[1rem] text-[#535353]">made with</h4>
           <div ref={spinIcon}>
-            <Icon icon="logos:react" className="text-[20px]" />
+            <Icon icon="akar-icons:react-fill" className="text-[22px]" />
           </div>
         </div>
       </div>
