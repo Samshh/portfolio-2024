@@ -67,6 +67,11 @@ export default function LoadingPage({
           });
         },
       });
+      gsap.to(messageRef.current, {
+        opacity: 0,
+        duration: 0.5,
+        ease: "expo.inOut",
+      });
     } else {
       gsap.set(loadingContentRef.current, {
         display: "flex",
@@ -83,6 +88,12 @@ export default function LoadingPage({
         onComplete: () => {
           gsap.set(startButtonRef.current, { display: "none" });
         },
+      });
+      gsap.to(messageRef.current, {
+        opacity: 1,
+        duration: 0.5,
+        delay: 0.5,
+        ease: "expo.inOut",
       });
     }
   }, [isGlTFLoaded, isStarFieldLoaded]);
@@ -132,7 +143,7 @@ export default function LoadingPage({
         </div>
       </div>
       <div ref={messageRef} className="fixed bottom-4 opacity-0">
-        {!isGlTFLoaded || !isStarFieldLoaded && (
+        {(!isGlTFLoaded || !isStarFieldLoaded) && (
           <p className="font-normal font-serif text-[1rem] text-[#535353]">
             Rendering in progress, please wait...
           </p>
