@@ -19,6 +19,7 @@ export default function App() {
   const aboutMeRef = useRef<HTMLDivElement>(null);
   const projectsRef = useRef<HTMLDivElement>(null);
   const contactRef = useRef<HTMLDivElement>(null);
+  const footerRef = useRef<HTMLDivElement>(null);
   const navRef = useRef<HTMLDivElement>(null);
   const loading = useRef<HTMLDivElement>(null);
 
@@ -98,7 +99,7 @@ export default function App() {
             heroRef={heroRef}
             aboutMeRef={aboutMeRef}
             projectsRef={projectsRef}
-            contactRef={contactRef}
+            contactRef={footerRef}
             navRef={navRef}
             menuOpen={menuOpen}
             onMenuToggle={handleMenuToggle}
@@ -107,7 +108,7 @@ export default function App() {
           {hasStarted && (
             <>
               <section ref={heroRef}>
-                <HeroFold projectsRef={projectsRef} contactRef={contactRef} />
+                <HeroFold projectsRef={projectsRef} contactRef={footerRef} />
               </section>
               <section ref={aboutMeRef}>
                 <AboutMeFold />
@@ -115,8 +116,8 @@ export default function App() {
               <section ref={projectsRef}>
                 <ProjectsFold />
               </section>
-              <section>
-                <ContactFold footerRef={contactRef} />
+              <section ref={contactRef}>
+                <ContactFold footerRef={footerRef} />
               </section>
             </>
           )}

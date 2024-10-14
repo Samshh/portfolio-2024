@@ -96,8 +96,9 @@ export default function LoadingPage({
         ref={startButtonRef}
         className="hidden opacity-0 p-[1rem] flex-col items-center justify-center gap-[0.5rem]"
       >
-        <em>
-          <h4 className="font-thin font-special text-[#535353] astra">Ad astra Abyssosque</h4>
+        <em className="text-center text-[#535353] flex flex-col gap-[0.5rem]">
+          <p className="text-[0.7rem]">(To the Stars and the Abyss)</p>
+          <h4 className="font-thin font-special astra">Ad astra Abyssosque</h4>
         </em>
         <Button className="px-[2rem]" onClick={onStart}>
           <h6 className="font-light">START</h6>
