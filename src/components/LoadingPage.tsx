@@ -1,5 +1,4 @@
 import { useGradientText } from "../animations/useGradientText";
-import { Icon } from "@iconify/react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useRef, useEffect } from "react";
@@ -16,7 +15,6 @@ export default function LoadingPage({
   isStarFieldLoaded,
   onStart,
 }: LoadingPageProps) {
-  const spinIcon = useRef(null);
   const text = useGradientText();
   const textLeft = useRef(null);
   const textRight = useRef(null);
@@ -24,11 +22,9 @@ export default function LoadingPage({
   const messageRef = useRef(null);
   const startButtonRef = useRef(null);
   const loadingContentRef = useRef(null);
-  const iconTl = gsap.timeline({ repeat: -1, defaults: { ease: "linear" } });
   const startGradient = useGradientText();
 
   useGSAP(() => {
-    iconTl.to(spinIcon.current, { rotate: 360, duration: 2 });
     gsap.from(textLeft.current, {
       y: -30,
       opacity: 0,
@@ -50,7 +46,7 @@ export default function LoadingPage({
     gsap.to(messageRef.current, {
       opacity: 1,
       duration: 1,
-      delay: 5,
+      delay: 0.5,
       ease: "power2.inOut",
     });
   });
@@ -130,12 +126,9 @@ export default function LoadingPage({
         </div>
         <div
           ref={bottomRef}
-          className="flex justify-center items-center gap-[0.5rem]"
+          className="flex justify-center items-center"
         >
-          <h4 className="font-normal text-[1rem] text-[#535353]">made with</h4>
-          <div ref={spinIcon}>
-            <Icon icon="akar-icons:react-fill" className="text-[22px]" />
-          </div>
+          <h4 className="font-normal text-[1rem] text-[#535353]">Made with React</h4>
         </div>
       </div>
       <div ref={messageRef} className="fixed bottom-4 opacity-0">
