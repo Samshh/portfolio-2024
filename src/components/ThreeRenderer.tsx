@@ -99,7 +99,7 @@ export default function ThreeRenderer() {
     function loadGLTFModel() {
       const loader = new GLTFLoader();
       loader.load(
-        "3d/scene.gltf",
+        "/3d/scene.gltf",
         function (gltf) {
           gltf.scene.scale.set(18, 18, 18);
           gltf.scene.position.set(8, -35, 0);
@@ -122,6 +122,7 @@ export default function ThreeRenderer() {
         undefined,
         function (error) {
           console.error("Error loading GLTF:", error);
+          alert("Failed to render 3D model\n\nSome features may not work");
           setIsGLTFLoaded(true);
         }
       );
