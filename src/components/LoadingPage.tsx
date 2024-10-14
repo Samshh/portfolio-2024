@@ -135,19 +135,16 @@ export default function LoadingPage({
             <h4 className="font-light text-[#535353]">2024</h4>
           </div>
         </div>
-        <div
-          ref={bottomRef}
-          className="flex justify-center items-center"
-        >
-          <h4 className="font-normal text-[1rem] text-[#535353]">Made with React</h4>
+        <div ref={bottomRef} className="flex justify-center items-center">
+          <h4 className="font-normal text-[1rem] text-[#535353]">
+            Made with React
+          </h4>
         </div>
       </div>
       <div ref={messageRef} className="fixed bottom-4 opacity-0">
-        {(!isGlTFLoaded || !isStarFieldLoaded) && (
-          <p className="font-normal font-serif text-[1rem] text-[#535353]">
-            Rendering in progress, please wait...
-          </p>
-        )}
+        <p className="font-normal font-serif text-[1rem] text-[#535353]">
+          Rendering in progress, please wait...
+        </p>
       </div>
     </div>
   );
