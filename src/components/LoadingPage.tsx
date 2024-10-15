@@ -153,12 +153,12 @@ export default function LoadingPage({
       </div>
       <div className="fixed bottom-4 text-center px-[1rem]">
         <div ref={progressRef} className="opacity-0">
-          <p className="font-normal font-serif text-[1.25rem] text-[#535353]">
+          <p className="font-normal font-serif text-[1rem] md:text-[1.25rem] text-[#535353]">
             {progress}%
           </p>
         </div>
         <div ref={messageRef} className="opacity-0">
-          <p className="font-normal font-serif text-[0.8rem] text-[#535353]">
+          <p className="font-normal font-serif text-[0.6rem] md:text-[0.8rem] text-[#535353]">
             *Use graphics acceleration for better performance*
           </p>
         </div>
