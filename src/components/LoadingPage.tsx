@@ -7,18 +7,21 @@ import { Button } from "./ui/button";
 interface LoadingPageProps {
   isGlTFLoaded: boolean;
   isStarFieldLoaded: boolean;
+  progress: number;
   onStart: () => void;
 }
 
 export default function LoadingPage({
   isGlTFLoaded,
   isStarFieldLoaded,
+  progress,
   onStart,
 }: LoadingPageProps) {
   const text = useGradientText();
   const textLeft = useRef(null);
   const textRight = useRef(null);
   const bottomRef = useRef(null);
+  const progressRef = useRef(null);
   const messageRef = useRef(null);
   const startButtonRef = useRef(null);
   const loadingContentRef = useRef(null);
@@ -43,7 +46,7 @@ export default function LoadingPage({
       duration: 1,
       delay: 0.75,
     });
-    gsap.to(messageRef.current, {
+    gsap.to(progressRef.current, {
       opacity: 1,
       duration: 1,
       delay: 0.5,
@@ -67,7 +70,7 @@ export default function LoadingPage({
           });
         },
       });
-      gsap.to(messageRef.current, {
+      gsap.to(progressRef.current, {
         opacity: 0,
         duration: 0.5,
         ease: "expo.inOut",
@@ -89,7 +92,7 @@ export default function LoadingPage({
           gsap.set(startButtonRef.current, { display: "none" });
         },
       });
-      gsap.to(messageRef.current, {
+      gsap.to((progressRef.current, messageRef.current), {
         opacity: 1,
         duration: 0.5,
         delay: 0.5,
@@ -99,12 +102,16 @@ export default function LoadingPage({
   }, [isGlTFLoaded, isStarFieldLoaded]);
 
   const handleStartClick = () => {
-    gsap.to(startButtonRef.current, {
-      opacity: 0,
-      duration: 0.5,
-      ease: "power2.inOut",
+    const tl = gsap.timeline({
+      defaults: { duration: 0.5, ease: "power2.inOut" },
       onComplete: onStart,
     });
+
+    tl.to(startButtonRef.current, { opacity: 0 }).to(
+      messageRef.current,
+      { opacity: 0 },
+      "<"
+    );
   };
 
   return (
@@ -135,16 +142,26 @@ export default function LoadingPage({
             <h4 className="font-light text-[#535353]">2024</h4>
           </div>
         </div>
-        <div ref={bottomRef} className="flex justify-center items-center">
+        <div
+          ref={bottomRef}
+          className="flex flex-col justify-center items-center gap-[0.5rem]"
+        >
           <h4 className="font-normal text-[1rem] text-[#535353]">
             Made with React
           </h4>
         </div>
       </div>
-      <div ref={messageRef} className="fixed bottom-4 opacity-0">
-        <p className="font-normal font-serif text-[1rem] text-[#535353]">
-          Rendering in progress, please wait...
-        </p>
+      <div className="fixed bottom-4 text-center px-[1rem]">
+        <div ref={progressRef} className="opacity-0">
+          <p className="font-normal font-serif text-[1.25rem] text-[#535353]">
+            {progress}%
+          </p>
+        </div>
+        <div ref={messageRef} className="opacity-0">
+          <p className="font-normal font-serif text-[0.8rem] text-[#535353]">
+            *Use graphics acceleration for better performance*
+          </p>
+        </div>
       </div>
     </div>
   );

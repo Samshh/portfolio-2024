@@ -5,6 +5,7 @@ import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 export default function ThreeRenderer() {
   const [isGLTFLoaded, setIsGLTFLoaded] = useState(false);
   const [isStarFieldLoaded, setIsStarFieldLoaded] = useState(false);
+  const [progress, setProgress] = useState(0);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const starFieldMaterialRef = useRef<THREE.ShaderMaterial | null>(null);
 
@@ -82,6 +83,18 @@ export default function ThreeRenderer() {
 
       const stars = new THREE.Points(geometry, material);
       scene.add(stars);
+
+      const starFieldInterval = setInterval(() => {
+        setProgress((prev) => {
+          const next = prev + 5;
+          if (next >= 30) {
+            clearInterval(starFieldInterval);
+            return 30;
+          }
+          return next;
+        });
+      }, 300);
+
       setIsStarFieldLoaded(true);
       console.log("Star field loaded");
       return stars;
@@ -98,6 +111,18 @@ export default function ThreeRenderer() {
 
     function loadGLTFModel() {
       const loader = new GLTFLoader();
+      
+      const gltfModelInterval = setInterval(() => {
+        setProgress((prev) => {
+          const next = prev + 10;
+          if (next >= 100) {
+            clearInterval(gltfModelInterval); 
+            return 100;
+          }
+          return next;
+        });
+      }, 300);
+
       loader.load(
         "/3d/scene.gltf",
         function (gltf) {
@@ -196,6 +221,5 @@ export default function ThreeRenderer() {
     ></canvas>
   );
 
-  return { isGLTFLoaded, isStarFieldLoaded, Canvas, starFieldMaterialRef };
+  return { isGLTFLoaded, isStarFieldLoaded, Canvas, progress, starFieldMaterialRef };
 }
-

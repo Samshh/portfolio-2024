@@ -24,8 +24,13 @@ export default function App() {
   const loading = useRef<HTMLDivElement>(null);
 
   const threeRenderer = ThreeRenderer();
-  const { isGLTFLoaded, isStarFieldLoaded, Canvas, starFieldMaterialRef } =
-    threeRenderer;
+  const {
+    isGLTFLoaded,
+    isStarFieldLoaded,
+    Canvas,
+    progress,
+    starFieldMaterialRef,
+  } = threeRenderer;
 
   const handleMenuToggle = () => {
     setMenuOpen((prev) => !prev);
@@ -89,6 +94,7 @@ export default function App() {
       <ReactLenis root>
         <div ref={loading}>
           <LoadingPage
+            progress={progress}
             isGlTFLoaded={isGLTFLoaded}
             isStarFieldLoaded={isStarFieldLoaded}
             onStart={handleStart}
