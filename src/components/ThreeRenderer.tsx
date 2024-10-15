@@ -86,17 +86,17 @@ export default function ThreeRenderer() {
 
       const starFieldInterval = setInterval(() => {
         setProgress((prev) => {
-          const next = prev + 5;
-          if (next >= 30) {
+          const next = prev + 3;
+          if (next >= 36) {
+            setIsStarFieldLoaded(true);
             clearInterval(starFieldInterval);
-            return 30;
+            console.log("Star field loaded");
+            return 36;
           }
           return next;
         });
       }, 300);
 
-      setIsStarFieldLoaded(true);
-      console.log("Star field loaded");
       return stars;
     }
 
@@ -111,17 +111,6 @@ export default function ThreeRenderer() {
 
     function loadGLTFModel() {
       const loader = new GLTFLoader();
-      
-      const gltfModelInterval = setInterval(() => {
-        setProgress((prev) => {
-          const next = prev + 10;
-          if (next >= 100) {
-            clearInterval(gltfModelInterval); 
-            return 100;
-          }
-          return next;
-        });
-      }, 300);
 
       loader.load(
         "/3d/scene.gltf",
@@ -141,13 +130,26 @@ export default function ThreeRenderer() {
           });
 
           scene.add(gltf.scene);
-          setIsGLTFLoaded(true);
-          console.log("3D Model loaded");
+
+          const gltfModelInterval = setInterval(() => {
+            setProgress((prev) => {
+              const next = prev + 8;
+              if (next >= 100) {
+                setIsGLTFLoaded(true);
+                clearInterval(gltfModelInterval);
+                console.log("3D Model loaded");
+                return 100;
+              }
+              return next;
+            });
+          }, 200);
+          
         },
         undefined,
         function (error) {
           console.error("Error loading GLTF:", error);
           alert("Failed to render 3D model\n\nSome features may not work");
+          setProgress(100);
           setIsGLTFLoaded(true);
         }
       );
@@ -155,8 +157,6 @@ export default function ThreeRenderer() {
 
     loadGLTFModel();
 
-    let mouseX = 0;
-    let mouseY = 0;
     let targetMouseX = 0;
     let targetMouseY = 0;
     const windowHalfX = window.innerWidth / 2;
@@ -174,14 +174,8 @@ export default function ThreeRenderer() {
       const scrollFraction = window.scrollY / maxScroll / 2;
 
       camera.position.z = 30 - scrollFraction * 20;
-      camera.position.y = 0 - scrollFraction * 5;
-      camera.position.x = 0 + scrollFraction * 13;
-
-      mouseX += (targetMouseX - mouseX) * 0.05;
-      mouseY += (targetMouseY - mouseY) * 0.15;
-
-      starField.rotation.y = mouseX * 1;
-      starField.rotation.x = -mouseY * 0.5;
+      camera.position.y = -scrollFraction * 5;
+      camera.position.x = scrollFraction * 13;
 
       const starSizes = starField.geometry.attributes.size.array;
       for (let i = 0; i < starSizes.length; i++) {
@@ -192,11 +186,13 @@ export default function ThreeRenderer() {
       directionalLight.position.x = 13 * Math.sin(Date.now() * 0.0008);
       directionalLight.position.z = 5 * Math.sin(Date.now() * 0.0008);
 
+      starField.rotation.y += (targetMouseX - starField.rotation.y) * 0.1;
+      starField.rotation.x += (-targetMouseY - starField.rotation.x) * 0.1;
+
       renderer.render(scene, camera);
     }
 
     document.addEventListener("mousemove", handleMouseMove);
-
     animate();
 
     const handleResize = () => {
@@ -221,5 +217,11 @@ export default function ThreeRenderer() {
     ></canvas>
   );
 
-  return { isGLTFLoaded, isStarFieldLoaded, Canvas, progress, starFieldMaterialRef };
+  return {
+    isGLTFLoaded,
+    isStarFieldLoaded,
+    Canvas,
+    progress,
+    starFieldMaterialRef,
+  };
 }
