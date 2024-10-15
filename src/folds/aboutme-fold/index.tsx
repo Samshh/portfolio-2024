@@ -24,7 +24,7 @@ export default function AboutMeFold() {
     text2Element.innerHTML = words
       .map(
         (word) =>
-          `<span style="display: inline-block; margin-right: 5px;">${word}</span>`
+          `<span style="display: inline-block; margin-right: 6px;">${word}</span>`
       )
       .join(" ");
 
@@ -90,10 +90,9 @@ export default function AboutMeFold() {
         </div>
         <div>
           <h5 ref={text2} className="font-light flex flex-wrap">
-            A dedicated React developer with a deep appreciation for web design
-            and UI/UX, passionate about crafting seamless user experiences. An
-            enthusiastic anime aficionado who enjoys exploring different genres,
-            and a passionate musician.
+            A front-end developer from the Philippines, I create seamless 2D and
+            3D animations. I'm also a passionate musician and anime
+            enthusiast.
           </h5>
         </div>
         <div className="w-full h-[1px] bg-[#333333]"></div>
