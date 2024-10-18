@@ -75,7 +75,7 @@ export default function HeroFold({ projectsRef, contactRef }: HeroFoldProps) {
             </h4>
           </em>
           <h1 ref={headlineRef}>
-            A <span className="w-[213px]" ref={textRef1}></span> Developer
+            A <span className="w-[213px]" ref={textRef1}></span> developer
             specializing in <span className="w-[121px]" ref={textRef2}></span>
             <span className="text-[#333333]">.</span>
           </h1>

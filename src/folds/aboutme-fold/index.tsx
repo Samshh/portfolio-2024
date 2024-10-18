@@ -13,6 +13,19 @@ export default function AboutMeFold() {
   const trigger = useRef(null);
   const text2 = useRef<HTMLHeadingElement>(null);
   const text = useGradientText();
+  const today = new Date();
+  const currentYear = today.getFullYear();
+  const birthYear = 2003;
+  const birthMonth = 8;
+  const birthDay = 4;
+
+  let age = currentYear - birthYear;
+  if (
+    today.getMonth() < birthMonth ||
+    (today.getMonth() === birthMonth && today.getDate() < birthDay)
+  ) {
+    age--;
+  }
 
   useGSAP(() => {
     animateText(text, trigger, "Sur moi", "About me", 2);
@@ -87,8 +100,9 @@ export default function AboutMeFold() {
           <span ref={text}></span>.
         </h1>
         <h5 ref={text2} className="font-light flex flex-wrap">
-          A front-end developer from the Philippines, I create seamless 2D and
-          3D animations. I'm also a passionate musician and anime enthusiast.
+          A {age}-year-old front-end developer from the Philippines, I create
+          seamless 2D and 3D animations. I'm also a passionate musician and
+          anime enthusiast.
         </h5>
         <div className="w-full h-[1px] bg-[#333333]"></div>
         <div className="flex flex-wrap justify-start items-center gap-[0.5rem]">

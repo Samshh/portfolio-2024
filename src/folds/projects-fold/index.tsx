@@ -76,53 +76,63 @@ export default function ProjectsFold() {
             value="item-1"
             title="OPED MMCM"
             role="Lead Front-end Developer & Designer"
-            description="A website that helps students at Mapúa Malayan Colleges Mindanao to find the best companies for their internship."
             link="https://mmcm-ocp.com/"
             linkLabel="Website"
             techStack={[
               { icon: "akar-icons:react-fill", label: "React" },
               { icon: "cib:sass", label: "Sass" },
             ]}
-          />
+          >
+            A website that helps students at Mapúa Malayan Colleges Mindanao to
+            find the best companies for their internship.
+          </ProjectAccordion>
           <ProjectAccordion
             ref={accordionRef2}
             value="item-2"
             title="ChainMed"
             role="Front-end Developer & Designer"
-            description="ChainMed was our entry for the PBWx Davao hackathon (2nd Place). Using the React framework and web3 technologies, we built a secure application for automating healthcare."
             link="https://github.com/Samshh/Hackathon-Project---The-Launchpad"
             linkLabel="Repository"
             techStack={[
               { icon: "akar-icons:react-fill", label: "React" },
               { icon: "mdi:tailwind", label: "Tailwind" },
             ]}
-          />
+          >
+            ChainMed was our entry for the PBWx Davao hackathon (2nd Place).
+            Using React and Web3 technologies, we built a secure application for
+            automating healthcare.
+          </ProjectAccordion>
           <ProjectAccordion
             ref={accordionRef3}
             value="item-3"
             title="sAminate"
             role="Front-end Developer"
-            description="A JavaScript library that helps developers to animate their websites, this includes a website demo to showcase those animations."
             link="https://www.npmjs.com/package/saminate"
             linkLabel="Npm"
             techStack={[
               { icon: "mdi:vuejs", label: "Vue" },
               { icon: "cib:greensock", label: "GSAP" },
             ]}
-          />
+          >
+            A JavaScript library that helps developers to animate their
+            websites, this includes a website demo to showcase those animations.
+          </ProjectAccordion>
           <ProjectAccordion
             ref={accordionRef4}
             value="item-4"
             title="TicketLy"
             role="Software Developer"
-            description="TicketLy is a Discord bot that helps server owners to manage their server by creating tickets for their members, this promotes a more organized and efficient way of handling server-related issues."
             link="https://github.com/Samshh/DiscordBot"
             linkLabel="Repository"
             techStack={[
               { icon: "cib:python", label: "Python" },
               { icon: "ic:baseline-discord", label: "Discord" },
             ]}
-          />
+          >
+            TicketLy is a Discord bot that helps server owners to manage their
+            server by creating tickets for their members, this promotes a more
+            organized and efficient way of handling server-related issues.
+          </ProjectAccordion>
         </Accordion>
       </div>
     </div>
