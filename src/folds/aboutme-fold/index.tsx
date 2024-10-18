@@ -10,7 +10,7 @@ import { Icon } from "@iconify/react";
 gsap.registerPlugin(TextPlugin, ScrollTrigger);
 
 export default function AboutMeFold() {
-  const trigger = useRef<HTMLDivElement>(null);
+  const trigger = useRef(null);
   const text2 = useRef<HTMLHeadingElement>(null);
   const text = useGradientText();
 

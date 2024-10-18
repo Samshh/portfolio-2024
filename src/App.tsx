@@ -15,13 +15,13 @@ import CustomCursor from "./components/CustomCursor";
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [hasStarted, setHasStarted] = useState(false);
-  const heroRef = useRef<HTMLDivElement>(null);
-  const aboutMeRef = useRef<HTMLDivElement>(null);
-  const projectsRef = useRef<HTMLDivElement>(null);
-  const contactRef = useRef<HTMLDivElement>(null);
-  const footerRef = useRef<HTMLDivElement>(null);
-  const navRef = useRef<HTMLDivElement>(null);
-  const loading = useRef<HTMLDivElement>(null);
+  const heroRef = useRef(null);
+  const aboutMeRef = useRef(null);
+  const projectsRef = useRef(null);
+  const contactRef = useRef(null);
+  const footerRef = useRef(null);
+  const navRef = useRef(null);
+  const loading = useRef(null);
 
   const threeRenderer = ThreeRenderer();
   const {
