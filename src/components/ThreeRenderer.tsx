@@ -83,7 +83,7 @@ export default function ThreeRenderer() {
 
       const stars = new THREE.Points(geometry, material);
       scene.add(stars);
-      
+
       setIsStarFieldLoaded(true);
       console.log("Star field loaded");
       return stars;
@@ -100,14 +100,14 @@ export default function ThreeRenderer() {
 
     function loadGLTFModel() {
       const loader = new GLTFLoader();
-    
+
       loader.load(
         "/3d/scene.gltf",
         function (gltf) {
           gltf.scene.scale.set(18, 18, 18);
           gltf.scene.position.set(8, -35, 0);
           gltf.scene.rotation.set(0, (-20 * Math.PI) / 180, 0);
-    
+
           gltf.scene.traverse((child) => {
             if ((child as THREE.Mesh).isMesh) {
               (child as THREE.Mesh).material = new THREE.MeshStandardMaterial({
@@ -117,18 +117,16 @@ export default function ThreeRenderer() {
               });
             }
           });
-    
+
           scene.add(gltf.scene);
+          setIsGLTFLoaded(true);
+          console.log("3D Model loaded");
         },
 
         function (xhr) {
           if (xhr.lengthComputable) {
             const percentComplete = (xhr.loaded / xhr.total) * 100;
             setProgress(Math.round(percentComplete));
-            if (percentComplete === 100) {
-              setIsGLTFLoaded(true);
-              console.log("3D Model loaded");
-            }
           } else {
             setProgress(100);
           }
