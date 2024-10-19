@@ -83,20 +83,9 @@ export default function ThreeRenderer() {
 
       const stars = new THREE.Points(geometry, material);
       scene.add(stars);
-
-      const starFieldInterval = setInterval(() => {
-        setProgress((prev) => {
-          const next = prev + 3;
-          if (next >= 36) {
-            setIsStarFieldLoaded(true);
-            clearInterval(starFieldInterval);
-            console.log("Star field loaded");
-            return 36;
-          }
-          return next;
-        });
-      }, 300);
-
+      
+      setIsStarFieldLoaded(true);
+      console.log("Star field loaded");
       return stars;
     }
 
@@ -111,14 +100,14 @@ export default function ThreeRenderer() {
 
     function loadGLTFModel() {
       const loader = new GLTFLoader();
-
+    
       loader.load(
         "/3d/scene.gltf",
         function (gltf) {
           gltf.scene.scale.set(18, 18, 18);
           gltf.scene.position.set(8, -35, 0);
           gltf.scene.rotation.set(0, (-20 * Math.PI) / 180, 0);
-
+    
           gltf.scene.traverse((child) => {
             if ((child as THREE.Mesh).isMesh) {
               (child as THREE.Mesh).material = new THREE.MeshStandardMaterial({
@@ -128,24 +117,23 @@ export default function ThreeRenderer() {
               });
             }
           });
-
+    
           scene.add(gltf.scene);
-
-          const gltfModelInterval = setInterval(() => {
-            setProgress((prev) => {
-              const next = prev + 8;
-              if (next >= 100) {
-                setIsGLTFLoaded(true);
-                clearInterval(gltfModelInterval);
-                console.log("3D Model loaded");
-                return 100;
-              }
-              return next;
-            });
-          }, 200);
-          
         },
-        undefined,
+
+        function (xhr) {
+          if (xhr.lengthComputable) {
+            const percentComplete = (xhr.loaded / xhr.total) * 100;
+            setProgress(Math.round(percentComplete));
+            if (percentComplete === 100) {
+              setIsGLTFLoaded(true);
+              console.log("3D Model loaded");
+            }
+          } else {
+            setProgress(100);
+          }
+        },
+
         function (error) {
           console.error("Error loading GLTF:", error);
           alert("Failed to render 3D model\n\nSome features may not work");

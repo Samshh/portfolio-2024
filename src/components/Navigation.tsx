@@ -88,14 +88,13 @@ export default function Navigation({
         display: "flex",
       });
       if (menuItemsRef.current) {
-        gsap.set(menuItemsRef.current.children, { x: -50, autoAlpha: 0 });
         gsap.fromTo(
           menuItemsRef.current.children,
           { x: -100, autoAlpha: 0 },
           {
             x: 0,
             autoAlpha: 1,
-            duration: 1,
+            duration: 0.75,
             ease: "power1.out",
             stagger: 0.05,
             delay: 0.5,

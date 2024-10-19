@@ -31,54 +31,52 @@ export default function LoadingPage({
     gsap.from(textLeft.current, {
       y: -30,
       opacity: 0,
-      duration: 1,
+      duration: 0.75,
       delay: 0.25,
     });
     gsap.from(textRight.current, {
       y: -30,
       opacity: 0,
-      duration: 1,
+      duration: 0.75,
       delay: 0.5,
     });
     gsap.from(bottomRef.current, {
       y: 20,
       opacity: 0,
-      duration: 1,
+      duration: 0.75,
       delay: 0.75,
     });
     gsap.to(progressRef.current, {
       opacity: 1,
-      duration: 1,
+      duration: 0.75,
       delay: 0.5,
       ease: "power2.inOut",
     });
   });
 
   useEffect(() => {
+    const tl = gsap.timeline();
+
     if (isGlTFLoaded && isStarFieldLoaded) {
-      gsap.to(loadingContentRef.current, {
+      tl.to(loadingContentRef.current, {
         opacity: 0,
         duration: 0.5,
         ease: "expo.inOut",
-        onComplete: () => {
-          gsap.set(loadingContentRef.current, { display: "none" });
-          gsap.set(startButtonRef.current, { display: "flex" });
-          gsap.to(startButtonRef.current, {
-            opacity: 1,
-            duration: 0.5,
-            ease: "expo.inOut",
-          });
-        },
-      });
-      gsap.to(progressRef.current, {
-        opacity: 0,
-        duration: 0.5,
-        ease: "expo.inOut",
-      });
+      })
+        .set(loadingContentRef.current, { display: "none" })
+        .set(startButtonRef.current, { display: "flex" })
+        .to(startButtonRef.current, {
+          opacity: 1,
+          duration: 0.5,
+          ease: "expo.inOut",
+        })
+        .to(progressRef.current, {
+          opacity: 0,
+          duration: 0.5,
+          ease: "expo.inOut",
+        });
     } else {
-      gsap.set(loadingContentRef.current, {
-        display: "flex",
-      });
+      gsap.set(loadingContentRef.current, { display: "flex" });
       gsap.to(loadingContentRef.current, {
         opacity: 1,
         duration: 0.5,
