@@ -878,11 +878,6 @@
       "uri": "scene.bin"
     }
   ],
-  "images": [
-    {
-      "uri": "textures/angel.Miller.RC.normal.4kt_Material_u1_v1_baseColor.png"
-    }
-  ],
   "materials": [
     {
       "doubleSided": true,
