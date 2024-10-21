@@ -102,7 +102,7 @@ export default function ThreeRenderer() {
       const loader = new GLTFLoader();
 
       loader.load(
-        "/3d/model/scene.gltf",
+        "/3d/scene.gltf",
         function (gltf) {
           gltf.scene.scale.set(18, 18, 18);
           gltf.scene.position.set(8, -35, 0);
