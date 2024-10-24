@@ -5,6 +5,7 @@ import { scrollToSection } from "@/animations/scrollToSection";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import useAnimateButton from "@/animations/animateButton";
+import { Icon } from "@iconify/react";
 
 interface HeroFoldProps {
   projectsRef: React.RefObject<HTMLDivElement>;
@@ -19,12 +20,19 @@ export default function HeroFold({ projectsRef, contactRef }: HeroFoldProps) {
   const headlineRef = useRef(null);
   const buttonsRef1 = useRef(null);
   const buttonsRef2 = useRef(null);
+  const buttonsRef3 = useRef(null);
 
   const text2 = useRef<HTMLSpanElement>(null);
   const text3 = useRef<HTMLSpanElement>(null);
 
   useAnimateButton(text2, buttonsRef1, "TRAVAUX", "PROJECTS", 0.5);
   useAnimateButton(text3, buttonsRef2, "CONNECTER", "CONTACT", 0.5);
+
+  const handleResumeClick = () => {
+    const resumeUrl = "SamResume.pdf";
+    window.open(resumeUrl, "_blank");
+  };
+
   useGSAP(() => {
     const tl = gsap.timeline({ defaults: { ease: "expo.inOut" }, delay: 0.5 });
 
@@ -37,31 +45,37 @@ export default function HeroFold({ projectsRef, contactRef }: HeroFoldProps) {
         headlineRef.current,
         { y: 50, opacity: 0 },
         { y: 0, opacity: 1, duration: 0.8 },
-        "-=0.4"
+        "-=0.5"
       )
       .fromTo(
         buttonsRef1.current,
         { y: 50, opacity: 0 },
         { y: 0, opacity: 1, duration: 0.8 },
-        "-=0.4"
+        "-=0.5"
       )
       .fromTo(
         buttonsRef2.current,
         { y: 50, opacity: 0 },
         { y: 0, opacity: 1, duration: 0.8 },
-        "-=0.4"
+        "-=0.5"
+      )
+      .fromTo(
+        buttonsRef3.current,
+        { y: 50, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.8 },
+        "-=0.5"
       )
       .fromTo(
         textRef1.current,
         { text: "devant" },
         { text: "front-end", duration: 0.8 },
-        "-=0.4"
+        "-=0.5"
       )
       .fromTo(
         textRef2.current,
         { text: "Réagir" },
         { text: "React", duration: 0.8 },
-        "-=0.4"
+        "-=0.5"
       );
   });
 
@@ -80,7 +94,7 @@ export default function HeroFold({ projectsRef, contactRef }: HeroFoldProps) {
             <span className="text-[#333333]">.</span>
           </h1>
         </div>
-        <div className="flex justify-start items-center gap-[1rem]">
+        <div className="flex flex-wrap justify-start items-center gap-[1rem]">
           <Button
             ref={buttonsRef1}
             onClick={() => scrollToSection(projectsRef)}
@@ -93,6 +107,13 @@ export default function HeroFold({ projectsRef, contactRef }: HeroFoldProps) {
             <h6 className="font-light">
               <span ref={text3}>CONTACT</span>
             </h6>
+          </Button>
+          <Button
+            ref={buttonsRef3}
+            className="text-[26px]"
+            onClick={handleResumeClick}
+          >
+            <Icon icon="ph:scroll-light" />
           </Button>
         </div>
       </div>

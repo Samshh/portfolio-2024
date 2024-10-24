@@ -46,27 +46,27 @@ export default function ContactFold({ footerRef }: ContactFoldProps) {
         headlineRef.current,
         { y: 50, opacity: 0 },
         { y: 0, opacity: 1 },
-        "-=0.4"
+        "-=0.5"
       )
       .fromTo(
         buttonsRef1.current,
         { opacity: 0, y: 50 },
         { opacity: 1, y: 0 },
-        "-=0.4"
+        "-=0.5"
       )
       .fromTo(
         buttonsRef2.current,
         { opacity: 0, y: 50 },
         { opacity: 1, y: 0 },
-        "-=0.4"
+        "-=0.5"
       )
-      .fromTo(textRef1.current, { text: "lien" }, { text: "connect" }, "-=0.4")
-      .fromTo(textRef2.current, { text: "créer" }, { text: "create" }, "-=0.4")
+      .fromTo(textRef1.current, { text: "lien" }, { text: "connect" }, "-=0.5")
+      .fromTo(textRef2.current, { text: "créer" }, { text: "create" }, "-=0.5")
       .fromTo(
         textRef3.current,
         { text: "incroyable" },
         { text: "amazing" },
-        "-=0.4"
+        "-=0.5"
       );
   });
 
