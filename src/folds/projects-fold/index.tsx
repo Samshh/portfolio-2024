@@ -15,6 +15,7 @@ export default function ProjectsFold() {
   const accordionRef2 = useRef(null);
   const accordionRef3 = useRef(null);
   const accordionRef4 = useRef(null);
+  const accordionRef5 = useRef(null);
 
   useGSAP(() => {
     animateText(text, trigger, "Travaux", "Projects", 2);
@@ -35,6 +36,7 @@ export default function ProjectsFold() {
         accordionRef2.current,
         accordionRef3.current,
         accordionRef4.current,
+        accordionRef5.current,
       ],
       { opacity: 0, y: 50 },
       { opacity: 1, y: 0, stagger: 0.2, duration: 1 }
@@ -74,7 +76,21 @@ export default function ProjectsFold() {
           <ProjectAccordion
             ref={accordionRef1}
             value="item-1"
-            title="OPED MMCM"
+            title="MMCM CCIS"
+            role="Lead Front-end Developer & Designer"
+            link="https://mmcm-ccis.vercel.app/"
+            linkLabel="Website"
+            techStack={[
+              { icon: "akar-icons:react-fill", label: "React" },
+              { icon: "file-icons:tailwind" , label: "Tailwind" },
+            ]}
+          >
+            A Landing page for the College of Computer and Information Science in Mapúa Malayan Colleges Mindanao.
+          </ProjectAccordion>
+          <ProjectAccordion
+            ref={accordionRef2}
+            value="item-2"
+            title="MMCM OPED"
             role="Lead Front-end Developer & Designer"
             link="https://mmcm-ocp.com/"
             linkLabel="Website"
@@ -87,15 +103,15 @@ export default function ProjectsFold() {
             find the best companies for their internship.
           </ProjectAccordion>
           <ProjectAccordion
-            ref={accordionRef2}
-            value="item-2"
+            ref={accordionRef3}
+            value="item-3"
             title="ChainMed"
             role="Front-end Developer & Designer"
             link="https://github.com/Samshh/Hackathon-Project---The-Launchpad"
             linkLabel="Repository"
             techStack={[
               { icon: "akar-icons:react-fill", label: "React" },
-              { icon: "mdi:tailwind", label: "Tailwind" },
+              { icon: "file-icons:tailwind", label: "Tailwind" },
             ]}
           >
             ChainMed was our entry for the PBWx Davao hackathon (2nd Place).
@@ -103,8 +119,8 @@ export default function ProjectsFold() {
             automating healthcare.
           </ProjectAccordion>
           <ProjectAccordion
-            ref={accordionRef3}
-            value="item-3"
+            ref={accordionRef4}
+            value="item-4"
             title="sAminate"
             role="Front-end Developer"
             link="https://www.npmjs.com/package/saminate"
@@ -118,8 +134,8 @@ export default function ProjectsFold() {
             websites, this includes a website demo to showcase those animations.
           </ProjectAccordion>
           <ProjectAccordion
-            ref={accordionRef4}
-            value="item-4"
+            ref={accordionRef5}
+            value="item-5"
             title="TicketLy"
             role="Software Developer"
             link="https://github.com/Samshh/DiscordBot"

@@ -110,7 +110,7 @@ export default function AboutMeFold() {
             { icon: "akar-icons:react-fill", label: "React" },
             { icon: "cib:typescript", label: "TypeScript" },
             { icon: "cib:javascript", label: "JavaScript" },
-            { icon: "mdi:tailwind", label: "Tailwind" },
+            { icon: "file-icons:tailwind", label: "Tailwind" },
             { icon: "cib:greensock", label: "GSAP" },
             { icon: "tabler:brand-threejs", label: "Three.js" },
             { icon: "simple-icons:shadcnui", label: "Shadcn/UI" },
