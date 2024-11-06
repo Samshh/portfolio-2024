@@ -100,9 +100,9 @@ export default function AboutMeFold() {
           <span ref={text}></span>.
         </h1>
         <h5 ref={text2} className="font-light flex flex-wrap">
-          A {age}-year-old front-end developer from the Philippines, I create
-          seamless 2D and 3D web animations. I'm also a passionate musician and
-          anime enthusiast.
+          I'm a {age}-year-old front-end developer from the Philippines
+          specializing in seamless 2D & 3D web animations. Outside of
+          code, I'm a passionate musician and anime enthusiast.
         </h5>
         <div className="w-full h-[1px] bg-[#333333]"></div>
         <div className="flex flex-wrap justify-start items-center gap-[0.5rem]">
