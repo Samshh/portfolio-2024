@@ -51,7 +51,7 @@ export default function Navigation({
 
   useAnimateButton(text, homeButton, "MEI", "SAM", 0.5);
   useAnimateButton(text2, navButton, "VOY", "NAV", 0.5);
-  useAnimateButton(aboutMeRefH3, aboutMeRefDiv, "Sur Moi", "About Me", 0.5);
+  useAnimateButton(aboutMeRefH3, aboutMeRefDiv, "Sur Moi", "About", 0.5);
   useAnimateButton(projectsRefH3, projectsRefDiv, "Travaux", "Projects", 0.5);
   useAnimateButton(contactRefH3, contactRefDiv, "Connecter", "Contact", 0.5);
   useAnimateButton(closeRefH3, closeRefDiv, "Fermer", "Close", 0.5);
@@ -171,7 +171,7 @@ export default function Navigation({
               className="select-none text-[#333333] hoverable"
             >
               <span ref={aboutMeRefH3} className="text-[#e7e7e7]">
-                About Me
+                About
               </span>
               .
             </h3>

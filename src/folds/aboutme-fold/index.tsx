@@ -28,7 +28,7 @@ export default function AboutMeFold() {
   }
 
   useGSAP(() => {
-    animateText(text, trigger, "Sur moi", "About me", 2);
+    animateText(text, trigger, "Sur moi", "About", 2);
 
     const text2Element = text2.current;
     if (!text2Element) return;
@@ -82,7 +82,7 @@ export default function AboutMeFold() {
 
   const handleMouseLeave1 = () => {
     if (text.current) {
-      gsap.to(text.current, { text: "About me", duration: 0.5 });
+      gsap.to(text.current, { text: "About", duration: 0.5 });
     }
   };
 
