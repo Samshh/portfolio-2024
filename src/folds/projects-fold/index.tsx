@@ -26,6 +26,12 @@ export default function ProjectsFold() {
         start: "top center",
         end: "bottom center",
         toggleActions: "play none none reverse",
+        onEnter: () => {
+          document.title = "Sam Dacara | Projects";
+        },
+        onLeaveBack: () => {
+          document.title = "Sam Dacara | About";
+        },
       },
       defaults: { ease: "power2.out" },
     });

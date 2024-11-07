@@ -33,6 +33,12 @@ export default function ContactFold({ footerRef }: ContactFoldProps) {
         start: "top center",
         end: "bottom center",
         toggleActions: "play none none reverse",
+        onEnter: () => {
+          document.title = "Sam Dacara | Contact";
+        },
+        onLeaveBack: () => {
+          document.title = "Sam Dacara | Projects";
+        },
       },
       defaults: { ease: "power3.out", duration: 0.8 },
     });
@@ -77,7 +83,7 @@ export default function ContactFold({ footerRef }: ContactFoldProps) {
     >
       <div className="flex flex-grow flex-col justify-center items-start gap-[1.5rem] md:w-1/2">
         <div ref={headlineRef}>
-          <em className="font-normal text-[1.25rem] md:text-[1.75rem] text-[#535353] font-serif flex items-center gap-[0.25rem]">
+          <em className="font-normal text-[1.50rem] md:text-[1.75rem] text-[#535353] font-serif flex items-center gap-[0.25rem]">
             <Icon icon="mdi:location" /> Davao City | Philippines
           </em>
           <h1>
@@ -124,7 +130,10 @@ export default function ContactFold({ footerRef }: ContactFoldProps) {
         className="w-full max-w-[1280px] flex flex-col md:justify-between md:flex-row items-center"
       >
         <p className="font-normal text-[1rem] text-[#535353] font-serif">
-          <span className="font-special text-[1.75rem] mr-[0.5rem]">Samuel</span><em> | © All Rights Reserved</em>
+          <span className="font-special text-[1.75rem] mr-[0.5rem]">
+            Samuel
+          </span>
+          <em> | © All Rights Reserved</em>
         </p>
         <em className="font-normal text-[1rem] text-[#535353] font-serif">
           Powered by Vercel

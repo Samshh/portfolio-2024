@@ -37,7 +37,6 @@ export default function HeroFold({ projectsRef, contactRef }: HeroFoldProps) {
     link.click();
     document.body.removeChild(link);
   };
-  
 
   useGSAP(() => {
     const tl = gsap.timeline({ defaults: { ease: "expo.inOut" }, delay: 0.5 });

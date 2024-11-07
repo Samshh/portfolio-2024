@@ -55,6 +55,12 @@ export default function AboutMeFold() {
           start: "top center",
           end: "bottom center",
           toggleActions: "play none none reverse",
+          onEnter: () => {
+            document.title = "Sam Dacara | About";
+          },
+          onLeaveBack: () => {
+            document.title = "Sam Dacara";
+          },
         },
       }
     );
