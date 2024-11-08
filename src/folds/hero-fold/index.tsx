@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useGradientText } from "@/animations/useGradientText";
 import { Button } from "@/components/ui/button";
 import { scrollToSection } from "@/animations/scrollToSection";
@@ -25,8 +25,26 @@ export default function HeroFold({ projectsRef, contactRef }: HeroFoldProps) {
   const text2 = useRef<HTMLSpanElement>(null);
   const text3 = useRef<HTMLSpanElement>(null);
 
+  const [isButtonDisabled, setIsButtonDisabled] = useState(false);
+
   useAnimateButton(text2, buttonsRef1, "TRAVAUX", "PROJECTS", 0.5);
   useAnimateButton(text3, buttonsRef2, "CONNECTER", "CONTACT", 0.5);
+
+  const handleResumeClick = () => {
+    if (isButtonDisabled) return;
+  
+    setIsButtonDisabled(true);
+  
+    const resumeUrl = `/SamResume.pdf`;
+    const link = document.createElement("a");
+    link.href = resumeUrl;
+    link.download = "SamResume.pdf";
+    link.click();
+  
+    setTimeout(() => {
+      setIsButtonDisabled(false);
+    }, 2000);
+  };
 
   useGSAP(() => {
     const tl = gsap.timeline({ defaults: { ease: "expo.inOut" }, delay: 0.5 });
@@ -103,11 +121,13 @@ export default function HeroFold({ projectsRef, contactRef }: HeroFoldProps) {
               <span ref={text3}>CONTACT</span>
             </h6>
           </Button>
-          <a href="/SamResume.pdf" download title="Download Resume">
-            <Button ref={buttonsRef3}>
-              <Icon icon="ph:scroll-light" className="text-[26px]" />
-            </Button>
-          </a>
+          <Button
+            ref={buttonsRef3}
+            onClick={handleResumeClick}
+            disabled={isButtonDisabled}
+          >
+            <Icon icon="ph:scroll-light" className="text-[26px]" />
+          </Button>
         </div>
       </div>
     </div>
