@@ -6,7 +6,6 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import useAnimateButton from "@/animations/animateButton";
 import { Icon } from "@iconify/react";
-import { Link } from "react-router-dom";
 
 interface HeroFoldProps {
   projectsRef: React.RefObject<HTMLDivElement>;
@@ -104,11 +103,16 @@ export default function HeroFold({ projectsRef, contactRef }: HeroFoldProps) {
               <span ref={text3}>CONTACT</span>
             </h6>
           </Button>
-          <Link to="/resume" title="Resume">
+          <a
+            href="/resume"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Resume"
+          >
             <Button ref={buttonsRef3}>
               <Icon icon="ph:scroll-light" className="text-[26px]" />
             </Button>
-          </Link>
+          </a>
         </div>
       </div>
     </div>
