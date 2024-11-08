@@ -55,6 +55,7 @@ export default function LoadingPage({
   });
 
   useEffect(() => {
+    document.title = "Sam Dacara | Loading";
     const tl = gsap.timeline();
 
     if (isGlTFLoaded && isStarFieldLoaded) {
@@ -69,6 +70,9 @@ export default function LoadingPage({
           opacity: 1,
           duration: 0.5,
           ease: "expo.inOut",
+          onStart: () => {
+            document.title = "Sam Dacara | Start";
+          }
         })
         .to(progressRef.current, {
           opacity: 0,

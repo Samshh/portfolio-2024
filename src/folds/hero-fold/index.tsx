@@ -103,12 +103,7 @@ export default function HeroFold({ projectsRef, contactRef }: HeroFoldProps) {
               <span ref={text3}>CONTACT</span>
             </h6>
           </Button>
-          <a
-            href="/resume"
-            target="_blank"
-            rel="noopener noreferrer"
-            title="Resume"
-          >
+          <a href="/Resume.pdf" download title="Resume">
             <Button ref={buttonsRef3}>
               <Icon icon="ph:scroll-light" className="text-[26px]" />
             </Button>

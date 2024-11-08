@@ -2,10 +2,15 @@ import { useGradientText } from "@/animations/useGradientText";
 import SVGGrainEffect from "./SVGGrainEffect";
 import { Button } from "./ui/button";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 export default function PageNotFound() {
   const navigate = useNavigate();
   const textRef = useGradientText();
+
+  useEffect(() => {
+    document.title = "Sam Dacara | 404";
+  }, []);
 
   return (
     <div className="relative w-full h-screen justify-center items-center flex flex-col select-none gap-[0.5rem]">
