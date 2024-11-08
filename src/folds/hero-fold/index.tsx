@@ -28,11 +28,6 @@ export default function HeroFold({ projectsRef, contactRef }: HeroFoldProps) {
   useAnimateButton(text2, buttonsRef1, "TRAVAUX", "PROJECTS", 0.5);
   useAnimateButton(text3, buttonsRef2, "CONNECTER", "CONTACT", 0.5);
 
-  const handleResumeClick = () => {
-    const resumeUrl = `/Resume.pdf`;
-    window.open(resumeUrl, '_blank');
-  };
-
   useGSAP(() => {
     const tl = gsap.timeline({ defaults: { ease: "expo.inOut" }, delay: 0.5 });
 
@@ -108,14 +103,16 @@ export default function HeroFold({ projectsRef, contactRef }: HeroFoldProps) {
               <span ref={text3}>CONTACT</span>
             </h6>
           </Button>
-          <Button
-            ref={buttonsRef3}
-            className="text-[26px]"
-            onClick={handleResumeClick}
+          <a
+            href="/resume"
+            target="_blank"
+            rel="noopener noreferrer"
             title="Resume"
           >
-            <Icon icon="ph:scroll-light" />
-          </Button>
+            <Button ref={buttonsRef3}>
+              <Icon icon="ph:scroll-light" className="text-[26px]" />
+            </Button>
+          </a>
         </div>
       </div>
     </div>

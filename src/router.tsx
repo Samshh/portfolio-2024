@@ -1,6 +1,7 @@
-import { createBrowserRouter, Navigate } from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 import App from "./App";
 import PageNotFound from "./components/PageNotFound";
+import ResumePage from "./components/ResumePage";
 
 const Router = createBrowserRouter([
   {
@@ -8,8 +9,8 @@ const Router = createBrowserRouter([
     element: <App />,
   },
   {
-    path: "/Resume.pdf",
-    element: <Navigate to="/Resume.pdf" replace />,
+    path: "/resume",
+    element: <ResumePage />,
   },
   {
     path: "*",
