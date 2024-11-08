@@ -1,5 +1,6 @@
-import { createBrowserRouter, Navigate } from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 import App from "./App";
+import PageNotFound from "./components/PageNotFound";
 
 const Router = createBrowserRouter([
   {
@@ -8,7 +9,7 @@ const Router = createBrowserRouter([
   },
   {
     path: "*",
-    element: <Navigate to="/" replace />,
+    element: <PageNotFound />,
   },
 ]);
 

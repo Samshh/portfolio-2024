@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 
 interface CustomCursorProps {
-  hasStarted: boolean;
+  hasStarted?: boolean;
 }
 
 export default function CustomCursor({ hasStarted }: CustomCursorProps) {
