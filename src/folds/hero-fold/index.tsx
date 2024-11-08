@@ -29,13 +29,8 @@ export default function HeroFold({ projectsRef, contactRef }: HeroFoldProps) {
   useAnimateButton(text3, buttonsRef2, "CONNECTER", "CONTACT", 0.5);
 
   const handleResumeClick = () => {
-    const resumeUrl = `/SamResume.pdf`;
-    const link = document.createElement("a");
-    link.href = resumeUrl;
-    link.download = "SamResume.pdf";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+      const resumeUrl = `/Resume.pdf`;
+      window.open(resumeUrl, '_blank');
   };
 
   useGSAP(() => {
