@@ -67,7 +67,7 @@ const ProjectAccordion = forwardRef<HTMLDivElement, ProjectAccordionProps>(
                   className="bg-[#0c0c0c] border border-[#333333] px-[1rem] py-[0.25rem] flex justify-center items-center gap-[0.5rem]"
                 >
                   <Icon
-                    className={`text-[${tech.iconSize || "22px"}]`}
+                    className={`text-[${tech.iconSize || "20px"}]`}
                     icon={tech.icon}
                   />
                   <p className="text-[1rem]">{tech.label}</p>

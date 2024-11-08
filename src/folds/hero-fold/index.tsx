@@ -117,6 +117,7 @@ export default function HeroFold({ projectsRef, contactRef }: HeroFoldProps) {
             ref={buttonsRef3}
             className="text-[26px]"
             onClick={handleResumeClick}
+            title="Resume"
           >
             <Icon icon="ph:scroll-light" />
           </Button>

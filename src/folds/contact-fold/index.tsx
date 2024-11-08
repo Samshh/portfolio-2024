@@ -21,6 +21,7 @@ export default function ContactFold({ footerRef }: ContactFoldProps) {
   const textLinkedin = useRef(null);
   const buttonsRef1 = useRef(null);
   const buttonsRef2 = useRef(null);
+  const buttonsRef3 = useRef(null);
   const contactTrigger = useRef(null);
   const headlineRef = useRef(null);
 
@@ -66,6 +67,12 @@ export default function ContactFold({ footerRef }: ContactFoldProps) {
         { opacity: 1, y: 0 },
         "-=0.5"
       )
+      .fromTo(
+        buttonsRef3.current,
+        { opacity: 0, y: 50 },
+        { opacity: 1, y: 0 },
+        "-=0.5"
+      )
       .fromTo(textRef1.current, { text: "lien" }, { text: "connect" }, "-=0.5")
       .fromTo(textRef2.current, { text: "créer" }, { text: "create" }, "-=0.5")
       .fromTo(
@@ -101,10 +108,7 @@ export default function ContactFold({ footerRef }: ContactFoldProps) {
           >
             <Button ref={buttonsRef1}>
               <div className="flex justify-center items-center gap-[.5rem]">
-                <Icon className="text-[23px]" icon="mdi:github" />
-                <h6 className="font-light">
-                  <span ref={textGithub}>GITHUB</span>
-                </h6>
+                <Icon className="text-[24px]" icon="mdi:github" />
               </div>
             </Button>
           </a>
@@ -116,10 +120,20 @@ export default function ContactFold({ footerRef }: ContactFoldProps) {
           >
             <Button ref={buttonsRef2}>
               <div className="flex justify-center items-center gap-[.5rem]">
-                <Icon className="text-[19px]" icon="bi:linkedin" />
-                <h6 className="font-light">
-                  <span ref={textLinkedin}>LINKED IN</span>
-                </h6>
+                <Icon className="text-[24px]" icon="mdi:linkedin" />
+              </div>
+            </Button>
+          </a>
+          <a
+            href="mailto:hello@samshh.me"
+            target="_blank"
+            rel="noopener"
+            title="hello@samshh.me"
+          >
+            <Button ref={buttonsRef3}>
+              <div className="flex justify-center items-center gap-[.5rem]">
+                {/* <Icon className="text-[24px]" icon="bi:envelope" /> */}
+                <p className="font-light">hello@samshh.me</p>
               </div>
             </Button>
           </a>
