@@ -4,9 +4,5 @@
   ],
   "redirects": [
     { "source": "/old-path", "destination": "/new-path", "permanent": true }
-  ],
-  "static": {
-    "directory": "public",
-    "public": true
-  }
+  ]
 }
