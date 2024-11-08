@@ -104,6 +104,7 @@ export default function LoadingPage({
   }, [isGlTFLoaded, isStarFieldLoaded]);
 
   const handleStartClick = () => {
+    document.title = "Sam Dacara";
     const tl = gsap.timeline({
       defaults: { duration: 0.5, ease: "power2.inOut" },
       onComplete: onStart,
