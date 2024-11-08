@@ -5,7 +5,6 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import { useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Icon } from "@iconify/react";
-import useAnimateButton from "@/animations/animateButton";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -17,16 +16,12 @@ export default function ContactFold({ footerRef }: ContactFoldProps) {
   const textRef1 = useGradientText();
   const textRef2 = useGradientText();
   const textRef3 = useGradientText();
-  const textGithub = useRef(null);
-  const textLinkedin = useRef(null);
   const buttonsRef1 = useRef(null);
   const buttonsRef2 = useRef(null);
   const buttonsRef3 = useRef(null);
   const contactTrigger = useRef(null);
   const headlineRef = useRef(null);
 
-  useAnimateButton(textGithub, buttonsRef1, "/SAMSHH", "GITHUB", 0.5);
-  useAnimateButton(textLinkedin, buttonsRef2, "/SAMSHH", "LINKED IN", 0.5);
   useGSAP(() => {
     const tl = gsap.timeline({
       scrollTrigger: {
