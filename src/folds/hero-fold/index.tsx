@@ -32,22 +32,22 @@ export default function HeroFold({ projectsRef, contactRef }: HeroFoldProps) {
 
   const handleResumeClick = () => {
     if (isButtonDisabled) return;
-  
+
     setIsButtonDisabled(true);
-  
+
     const resumeUrl = `/SamResume.pdf`;
     const link = document.createElement("a");
     link.href = resumeUrl;
     link.download = "SamResume.pdf";
     link.click();
-  
+
     setTimeout(() => {
       setIsButtonDisabled(false);
     }, 2000);
   };
 
   useGSAP(() => {
-    const tl = gsap.timeline({ defaults: { ease: "expo.inOut" }, delay: 0.5 });
+    const tl = gsap.timeline({ defaults: { ease: "power3.out" }, delay: 0.5 });
 
     tl.fromTo(
       introTextRef.current,
@@ -62,21 +62,21 @@ export default function HeroFold({ projectsRef, contactRef }: HeroFoldProps) {
       )
       .fromTo(
         buttonsRef1.current,
-        { y: 50, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.8 },
-        "-=0.5"
+        { y: 50, x: -50, opacity: 0 },
+        { y: 0, x: 0, opacity: 1, duration: 0.8 },
+        "-=0.7"
       )
       .fromTo(
         buttonsRef2.current,
-        { y: 50, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.8 },
-        "-=0.5"
+        { y: 50, x: -50, opacity: 0 },
+        { y: 0, x: 0, opacity: 1, duration: 0.8 },
+        "-=0.7"
       )
       .fromTo(
         buttonsRef3.current,
-        { y: 50, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.8 },
-        "-=0.5"
+        { y: 50, x: -50, opacity: 0 },
+        { y: 0, x: 0, opacity: 1, duration: 0.8 },
+        "-=0.7"
       )
       .fromTo(
         textRef1.current,

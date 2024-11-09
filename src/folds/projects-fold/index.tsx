@@ -44,8 +44,8 @@ export default function ProjectsFold() {
         accordionRef4.current,
         accordionRef5.current,
       ],
-      { opacity: 0, y: 50 },
-      { opacity: 1, y: 0, stagger: 0.2, duration: 1 }
+      { opacity: 0, y: 50, x: -50 },
+      { opacity: 1, y: 0, x: 0, stagger: 0.15, duration: 1, ease: "power3.out" }
     );
   });
 

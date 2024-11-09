@@ -52,21 +52,21 @@ export default function ContactFold({ footerRef }: ContactFoldProps) {
       )
       .fromTo(
         buttonsRef1.current,
-        { opacity: 0, y: 50 },
-        { opacity: 1, y: 0 },
-        "-=0.5"
+        { y: 50, x: -50, opacity: 0 },
+        { y: 0, x: 0, opacity: 1, duration: 0.8 },
+        "-=0.65"
       )
       .fromTo(
         buttonsRef2.current,
-        { opacity: 0, y: 50 },
-        { opacity: 1, y: 0 },
-        "-=0.5"
+        { y: 50, x: -50, opacity: 0 },
+        { y: 0, x: 0, opacity: 1, duration: 0.8 },
+        "-=0.65"
       )
       .fromTo(
         buttonsRef3.current,
-        { opacity: 0, y: 50 },
-        { opacity: 1, y: 0 },
-        "-=0.5"
+        { y: 50, x: -50, opacity: 0 },
+        { y: 0, x: 0, opacity: 1, duration: 0.8 },
+        "-=0.65"
       )
       .fromTo(textRef1.current, { text: "lien" }, { text: "connect" }, "-=0.5")
       .fromTo(textRef2.current, { text: "créer" }, { text: "create" }, "-=0.5")

@@ -67,7 +67,8 @@ export default function AboutMeFold() {
 
     gsap.from(".skill-item", {
       opacity: 0,
-      y: 25,
+      y: 30,
+      x: -50,
       duration: 1,
       stagger: 0.05,
       ease: "power2.out",
