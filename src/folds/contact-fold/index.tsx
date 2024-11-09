@@ -52,19 +52,19 @@ export default function ContactFold({ footerRef }: ContactFoldProps) {
       )
       .fromTo(
         buttonsRef1.current,
-        { y: 50, x: -50, opacity: 0 },
+        { y: 25, x: -25, opacity: 0 },
         { y: 0, x: 0, opacity: 1, duration: 0.8 },
         "-=0.65"
       )
       .fromTo(
         buttonsRef2.current,
-        { y: 50, x: -50, opacity: 0 },
+        { y: 25, x: -25, opacity: 0 },
         { y: 0, x: 0, opacity: 1, duration: 0.8 },
         "-=0.65"
       )
       .fromTo(
         buttonsRef3.current,
-        { y: 50, x: -50, opacity: 0 },
+        { y: 25, x: -25, opacity: 0 },
         { y: 0, x: 0, opacity: 1, duration: 0.8 },
         "-=0.65"
       )
