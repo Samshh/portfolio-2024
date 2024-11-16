@@ -30,7 +30,7 @@ export default function ProjectsFold() {
           document.title = "Sam Dacara | Projects";
         },
         onLeaveBack: () => {
-          document.title = "Sam Dacara | About";
+          document.title = "Sam Dacara | Experience";
         },
       },
       defaults: { ease: "power2.out" },
