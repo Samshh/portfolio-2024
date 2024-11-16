@@ -11,12 +11,14 @@ import Navigation from "@/components/Navigation";
 import SVGGrainEffect from "@/components/SVGGrainEffect";
 import ThreeRenderer from "@/components/ThreeRenderer";
 import CustomCursor from "./components/CustomCursor";
+import ExperienceFold from "./folds/experience-fold";
 
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [hasStarted, setHasStarted] = useState(false);
   const heroRef = useRef(null);
   const aboutMeRef = useRef(null);
+  const experienceRef = useRef(null);
   const projectsRef = useRef(null);
   const contactRef = useRef(null);
   const footerRef = useRef(null);
@@ -65,6 +67,7 @@ export default function App() {
     const elements = [
       heroRef.current,
       aboutMeRef.current,
+      experienceRef.current,
       projectsRef.current,
       contactRef.current,
     ];
@@ -104,6 +107,7 @@ export default function App() {
           <Navigation
             heroRef={heroRef}
             aboutMeRef={aboutMeRef}
+            experienceRef={experienceRef}
             projectsRef={projectsRef}
             contactRef={footerRef}
             navRef={navRef}
@@ -118,6 +122,9 @@ export default function App() {
               </section>
               <section ref={aboutMeRef}>
                 <AboutMeFold />
+              </section>
+              <section ref={experienceRef}>
+                <ExperienceFold />
               </section>
               <section ref={projectsRef}>
                 <ProjectsFold />

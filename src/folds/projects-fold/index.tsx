@@ -30,7 +30,7 @@ export default function ProjectsFold() {
           document.title = "Sam Dacara | Projects";
         },
         onLeaveBack: () => {
-          document.title = "Sam Dacara | About";
+          document.title = "Sam Dacara | Experience";
         },
       },
       defaults: { ease: "power2.out" },
@@ -82,20 +82,6 @@ export default function ProjectsFold() {
           <ProjectAccordion
             ref={accordionRef1}
             value="item-1"
-            title="MMCM CCIS"
-            role="Lead Front-end Developer & Designer"
-            link="https://mmcm-ccis.vercel.app/"
-            linkLabel="Website"
-            techStack={[
-              { icon: "akar-icons:react-fill", label: "React" },
-              { icon: "file-icons:tailwind" , label: "Tailwind" },
-            ]}
-          >
-            A Landing page for the College of Computer and Information Science in Mapúa Malayan Colleges Mindanao.
-          </ProjectAccordion>
-          <ProjectAccordion
-            ref={accordionRef2}
-            value="item-2"
             title="MMCM OPED"
             role="Lead Front-end Developer & Designer"
             link="https://mmcm-ocp.com/"
@@ -107,6 +93,21 @@ export default function ProjectsFold() {
           >
             A website that helps students at Mapúa Malayan Colleges Mindanao to
             find the best companies for their internship.
+          </ProjectAccordion>
+          <ProjectAccordion
+            ref={accordionRef2}
+            value="item-2"
+            title="MMCM CCIS"
+            role="Lead Front-end Developer & Designer"
+            link="https://mmcm-ccis.vercel.app/"
+            linkLabel="Website"
+            techStack={[
+              { icon: "akar-icons:react-fill", label: "React" },
+              { icon: "file-icons:tailwind", label: "Tailwind" },
+            ]}
+          >
+            A Landing page for the College of Computer and Information Science
+            in Mapúa Malayan Colleges Mindanao.
           </ProjectAccordion>
           <ProjectAccordion
             ref={accordionRef3}

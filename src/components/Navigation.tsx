@@ -10,6 +10,7 @@ import { useGSAP } from "@gsap/react";
 interface NavigationProps {
   heroRef: React.RefObject<HTMLDivElement>;
   aboutMeRef: React.RefObject<HTMLDivElement>;
+  experienceRef: React.RefObject<HTMLDivElement>;
   projectsRef: React.RefObject<HTMLDivElement>;
   contactRef: React.RefObject<HTMLDivElement>;
   navRef: React.RefObject<HTMLDivElement>;
@@ -21,6 +22,7 @@ interface NavigationProps {
 export default function Navigation({
   heroRef,
   aboutMeRef,
+  experienceRef,
   projectsRef,
   contactRef,
   navRef,
@@ -40,11 +42,13 @@ export default function Navigation({
   const debounceTimeout = useRef<NodeJS.Timeout | null>(null);
 
   const aboutMeRefH3 = useRef<HTMLHeadingElement>(null);
+  const experienceRefH3 = useRef<HTMLHeadingElement>(null);
   const projectsRefH3 = useRef<HTMLHeadingElement>(null);
   const contactRefH3 = useRef<HTMLHeadingElement>(null);
   const closeRefH3 = useRef<HTMLHeadingElement>(null);
 
   const aboutMeRefDiv = useRef<HTMLDivElement>(null);
+  const experienceRefDiv = useRef<HTMLDivElement>(null);
   const projectsRefDiv = useRef<HTMLDivElement>(null);
   const contactRefDiv = useRef<HTMLDivElement>(null);
   const closeRefDiv = useRef<HTMLDivElement>(null);
@@ -52,6 +56,7 @@ export default function Navigation({
   useAnimateButton(text, homeButton, "MEI", "SAM", 0.5);
   useAnimateButton(text2, navButton, "VOY", "NAV", 0.5);
   useAnimateButton(aboutMeRefH3, aboutMeRefDiv, "Sur Moi", "About", 0.5);
+  useAnimateButton(experienceRefH3, experienceRefDiv, "Parcours", "Experience", 0.5);
   useAnimateButton(projectsRefH3, projectsRefDiv, "Travaux", "Projects", 0.5);
   useAnimateButton(contactRefH3, contactRefDiv, "Connecter", "Contact", 0.5);
   useAnimateButton(closeRefH3, closeRefDiv, "Fermer", "Close", 0.5);
@@ -174,6 +179,17 @@ export default function Navigation({
                 About
               </span>
               .
+            </h3>
+          </div>
+          <div ref={experienceRefDiv} className="w-[240px]">
+            <h3
+              onClick={() => {
+                scrollToSection(experienceRef);
+                handleMenuToggle();
+              }}
+              className="select-none text-[#333333] hoverable"
+            >
+              <span ref={experienceRefH3} className="text-[#e7e7e7]">Experience</span>.
             </h3>
           </div>
           <div ref={projectsRefDiv} className="w-[188px]">
