@@ -10,6 +10,7 @@ import { useGSAP } from "@gsap/react";
 interface NavigationProps {
   heroRef: React.RefObject<HTMLDivElement>;
   aboutMeRef: React.RefObject<HTMLDivElement>;
+  experienceRef: React.RefObject<HTMLDivElement>;
   projectsRef: React.RefObject<HTMLDivElement>;
   contactRef: React.RefObject<HTMLDivElement>;
   navRef: React.RefObject<HTMLDivElement>;
@@ -21,6 +22,7 @@ interface NavigationProps {
 export default function Navigation({
   heroRef,
   aboutMeRef,
+  experienceRef,
   projectsRef,
   contactRef,
   navRef,
@@ -174,6 +176,17 @@ export default function Navigation({
                 About
               </span>
               .
+            </h3>
+          </div>
+          <div ref={experienceRefDiv} className="w-[2]">
+            <h3
+              onClick={() => {
+                scrollToSection(experienceRef);
+                handleMenuToggle();
+              }}
+              className="select-none text-[#333333] hoverable"
+            >
+              <span className="text-[#e7e7e7]">Experience</span>.
             </h3>
           </div>
           <div ref={projectsRefDiv} className="w-[188px]">

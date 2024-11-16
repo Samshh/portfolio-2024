@@ -18,6 +18,7 @@ export default function App() {
   const [hasStarted, setHasStarted] = useState(false);
   const heroRef = useRef(null);
   const aboutMeRef = useRef(null);
+  const experienceRef = useRef(null);
   const projectsRef = useRef(null);
   const contactRef = useRef(null);
   const footerRef = useRef(null);
@@ -66,6 +67,7 @@ export default function App() {
     const elements = [
       heroRef.current,
       aboutMeRef.current,
+      experienceRef.current,
       projectsRef.current,
       contactRef.current,
     ];
@@ -120,7 +122,7 @@ export default function App() {
               <section ref={aboutMeRef}>
                 <AboutMeFold />
               </section>
-              <section>
+              <section ref={experienceRef}>
                 <ExperienceFold />
               </section>
               <section ref={projectsRef}>
