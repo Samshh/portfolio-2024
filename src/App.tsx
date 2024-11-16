@@ -107,6 +107,7 @@ export default function App() {
           <Navigation
             heroRef={heroRef}
             aboutMeRef={aboutMeRef}
+            experienceRef={experienceRef}
             projectsRef={projectsRef}
             contactRef={footerRef}
             navRef={navRef}

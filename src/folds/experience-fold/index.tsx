@@ -52,7 +52,7 @@ export default function ExperienceFold() {
       className="h-full px-4 py-4 flex flex-col items-start justify-center min-h-screen max-w-[1280px] mx-auto select-none gap-[1rem]"
     >
       <div className="w-full h-auto flex flex-col">
-        <h1 className="w-[280px]" onMouseEnter={handleMouseEnter1} onMouseLeave={handleMouseLeave1}>
+        <h1 className="w-[290px]" onMouseEnter={handleMouseEnter1} onMouseLeave={handleMouseLeave1}>
           <span ref={text}></span>
           <span className="text-[#333333]">.</span>
         </h1>
