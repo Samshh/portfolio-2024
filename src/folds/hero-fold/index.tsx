@@ -4,8 +4,8 @@ import { Button } from "@/components/ui/button";
 import { scrollToSection } from "@/animations/scrollToSection";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import useAnimateButton from "@/animations/animateButton";
 import { Icon } from "@iconify/react";
+import useAnimateButton from "@/animations/animateButton";
 
 interface HeroFoldProps {
   projectsRef: React.RefObject<HTMLDivElement>;
@@ -16,19 +16,17 @@ export default function HeroFold({ projectsRef, contactRef }: HeroFoldProps) {
   const textRef1 = useGradientText();
   const textRef2 = useGradientText();
 
+  const spanRef1 = useRef(null);
+  const spanRef2 = useRef(null);
+  const spanRef3 = useRef(null);
+
   const introTextRef = useRef(null);
   const headlineRef = useRef(null);
   const buttonsRef1 = useRef(null);
   const buttonsRef2 = useRef(null);
   const buttonsRef3 = useRef(null);
 
-  const text2 = useRef<HTMLSpanElement>(null);
-  const text3 = useRef<HTMLSpanElement>(null);
-
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
-
-  useAnimateButton(text2, buttonsRef1, "TRAVAUX", "PROJECTS", 0.5);
-  useAnimateButton(text3, buttonsRef2, "CONNECTER", "CONTACT", 0.5);
 
   const handleResumeClick = () => {
     if (isButtonDisabled) return;
@@ -47,7 +45,10 @@ export default function HeroFold({ projectsRef, contactRef }: HeroFoldProps) {
   };
 
   useGSAP(() => {
-    const tl = gsap.timeline({ defaults: { ease: "power3.out" }, delay: 0.5 });
+    const tl = gsap.timeline({
+      defaults: { ease: "power3.out" },
+      delay: 0.5,
+    });
 
     tl.fromTo(
       introTextRef.current,
@@ -92,8 +93,12 @@ export default function HeroFold({ projectsRef, contactRef }: HeroFoldProps) {
       );
   });
 
+  useAnimateButton(spanRef1, buttonsRef1);
+  useAnimateButton(spanRef2, buttonsRef2);
+  useAnimateButton(spanRef3, buttonsRef3);
+
   return (
-    <div className="h-screen px-4 py-4 flex items-center min-h-[720px] max-w-[1280px] mx-auto select-none">
+    <div className="h-full min-h-screen px-4 py-4 flex items-center max-w-[1280px] mx-auto select-none">
       <div className="flex flex-col justify-center h-full md:w-1/2 gap-[1.5rem]">
         <div className="flex flex-col justify-center items-start">
           <em>
@@ -111,22 +116,21 @@ export default function HeroFold({ projectsRef, contactRef }: HeroFoldProps) {
           <Button
             ref={buttonsRef1}
             onClick={() => scrollToSection(projectsRef)}
+            variant={"default"}
           >
-            <h6 className="font-light">
-              <span ref={text2}>PROJECTS</span>
-            </h6>
+            <span ref={spanRef1}>PROJECTS</span>
           </Button>
           <Button ref={buttonsRef2} onClick={() => scrollToSection(contactRef)}>
-            <h6 className="font-light">
-              <span ref={text3}>CONTACT</span>
-            </h6>
+            <span ref={spanRef2}>CONTACT</span>
           </Button>
           <Button
             ref={buttonsRef3}
             onClick={handleResumeClick}
             disabled={isButtonDisabled}
           >
-            <Icon icon="ph:scroll-light" className="text-[26px]" />
+            <span ref={spanRef3}>
+              <Icon icon="ph:scroll-light" className="text-[26px]" />
+            </span>
           </Button>
         </div>
       </div>

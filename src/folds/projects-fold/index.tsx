@@ -49,24 +49,14 @@ export default function ProjectsFold() {
     );
   });
 
-  const handleMouseEnter1 = () => {
-    gsap.to(text.current, { text: "Travaux", duration: 0.5 });
-  };
-
-  const handleMouseLeave1 = () => {
-    gsap.to(text.current, { text: "Projects", duration: 0.5 });
-  };
-
   return (
     <div
       ref={trigger}
-      className="h-auto min-h-[720px] flex flex-col items-start justify-center px-4 py-4 max-w-[1280px] mx-auto gap-[1rem] select-none"
+      className="h-full min-h-screen flex flex-col items-start justify-center px-4 py-4 max-w-[1280px] mx-auto gap-[1rem] select-none"
     >
       <div className="w-full h-auto flex flex-col gap-[1rem]">
         <h1>
           <span
-            onMouseEnter={handleMouseEnter1}
-            onMouseLeave={handleMouseLeave1}
             ref={text}
           ></span>
           <span className="text-[#333333]">.</span>

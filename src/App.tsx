@@ -47,13 +47,13 @@ export default function App() {
       gsap.to(loading.current, {
         duration: 0.75,
         delay: 0.25,
-        autoAlpha: 0,
+        opacity: 0,
         ease: "power2.out",
         onComplete: () => {
           if (navRef.current) {
             gsap.to(navRef.current, {
               duration: 1,
-              autoAlpha: 1,
+              opacity: 1,
               y: 0,
               ease: "power2.out",
             });
@@ -75,7 +75,7 @@ export default function App() {
       gsap.to(elements, {
         opacity: menuOpen ? 0 : 1,
         duration: 0.5,
-        delay: menuOpen ? 0 : 0.5,
+        delay: menuOpen ? 0 : 0.75,
         ease: menuOpen ? "power2.in" : "power2.out",
       });
     }

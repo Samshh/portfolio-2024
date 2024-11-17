@@ -2,10 +2,10 @@ import React, { useRef, useState } from "react";
 import { scrollToSection } from "@/animations/scrollToSection";
 import { useGradientText } from "@/animations/useGradientText";
 import { Button } from "@/components/ui/button";
-import useAnimateButton from "@/animations/animateButton";
 import BackgroundMusic from "@/components/BackgroundMusic";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
+import useAnimateButton from "@/animations/animateButton";
 
 interface NavigationProps {
   heroRef: React.RefObject<HTMLDivElement>;
@@ -35,31 +35,17 @@ export default function Navigation({
   const text = useGradientText();
   const text2 = useRef<HTMLSpanElement>(null);
   const homeButton = useRef<HTMLButtonElement>(null);
-  const navButton = useRef<HTMLDivElement>(null);
+  const navButton = useRef<HTMLButtonElement>(null);
   const menuRef = useRef<HTMLDivElement>(null);
   const menuItemsRef = useRef<HTMLDivElement>(null);
   const hideOnToggle = useRef<HTMLDivElement>(null);
   const debounceTimeout = useRef<NodeJS.Timeout | null>(null);
-
-  const aboutMeRefH3 = useRef<HTMLHeadingElement>(null);
-  const experienceRefH3 = useRef<HTMLHeadingElement>(null);
-  const projectsRefH3 = useRef<HTMLHeadingElement>(null);
-  const contactRefH3 = useRef<HTMLHeadingElement>(null);
-  const closeRefH3 = useRef<HTMLHeadingElement>(null);
 
   const aboutMeRefDiv = useRef<HTMLDivElement>(null);
   const experienceRefDiv = useRef<HTMLDivElement>(null);
   const projectsRefDiv = useRef<HTMLDivElement>(null);
   const contactRefDiv = useRef<HTMLDivElement>(null);
   const closeRefDiv = useRef<HTMLDivElement>(null);
-
-  useAnimateButton(text, homeButton, "MEI", "SAM", 0.5);
-  useAnimateButton(text2, navButton, "VOY", "NAV", 0.5);
-  useAnimateButton(aboutMeRefH3, aboutMeRefDiv, "Sur Moi", "About", 0.5);
-  useAnimateButton(experienceRefH3, experienceRefDiv, "Parcours", "Experience", 0.5);
-  useAnimateButton(projectsRefH3, projectsRefDiv, "Travaux", "Projects", 0.5);
-  useAnimateButton(contactRefH3, contactRefDiv, "Connecter", "Contact", 0.5);
-  useAnimateButton(closeRefH3, closeRefDiv, "Fermer", "Close", 0.5);
 
   const handleMenuToggle = () => {
     if (isAnimating) return;
@@ -95,33 +81,48 @@ export default function Navigation({
       if (menuItemsRef.current) {
         gsap.fromTo(
           menuItemsRef.current.children,
-          { x: -100, autoAlpha: 0 },
+          { x: -50, y: 25, opacity: 0 },
           {
             x: 0,
-            autoAlpha: 1,
-            duration: 0.75,
-            ease: "power1.out",
+            y: 0,
+            opacity: 1,
+            duration: 1,
+            ease: "power3.out",
             stagger: 0.05,
             delay: 0.5,
           }
         );
       }
     } else {
-      gsap.to(hideOnToggle.current, {
-        duration: 0.5,
-        opacity: 1,
-        y: 0,
-        delay: 0.5,
-        ease: "power1.out",
-      });
+      if (menuItemsRef.current) {
+        gsap.to(menuItemsRef.current.children, {
+          x: -75,
+          y: 25,
+          opacity: 0,
+          duration: 1,
+          ease: "power3.out",
+          stagger: 0.05,
+        });
+      }
+
       gsap.to(menuRef.current, {
         duration: 0.5,
         opacity: 0,
         ease: "power1.in",
         display: "none",
       });
+
+      gsap.to(hideOnToggle.current, {
+        duration: 0.5,
+        opacity: 1,
+        y: 0,
+        delay: 1,
+        ease: "power1.out",
+      });
     }
   }, [menuOpen]);
+
+  useAnimateButton(text2, navButton);
 
   return (
     <nav
@@ -130,105 +131,92 @@ export default function Navigation({
     >
       <div
         ref={hideOnToggle}
-        className="flex justify-between items-center px-4 py-4 max-w-[1280px] min-w-[320px] mx-auto"
+        className="flex justify-between items-center px-4 pt-4 max-w-[1280px] min-w-[320px] mx-auto"
       >
         <Button
           ref={homeButton}
           onClick={() => scrollToSection(heroRef)}
           disabled={buttonDisabled}
+          variant={"special"}
         >
-          <h6 className="text-[#333333]">
-            <span ref={text}>SAM</span>.
-          </h6>
+          <span ref={text}>SAM</span>
         </Button>
         <div className="flex items-center justify-center gap-[1rem]">
           <BackgroundMusic hasStarted={hasStarted} />
-          <div
+
+          <Button
             ref={navButton}
             onClick={handleMenuToggle}
-            className={`hoverable h-10 px-4 py-2 border text-[#333333] border-[#333333] bg-[#0c0c0c] font-serif flex items-center justify-center cursor-pointer ${
-              buttonDisabled ? "cursor-not-allowed" : ""
-            }`}
+            disabled={buttonDisabled}
+            variant={"special"}
           >
-            <h6>
-              <span ref={text2} className="text-[#e7e7e7]">
-                NAV
-              </span>
-              .
-            </h6>
-          </div>
+            <span ref={text2}>NAV</span>
+          </Button>
         </div>
       </div>
       <div
         ref={menuRef}
-        className="fixed inset-0 z-30 items-center justify-center h-screen w-screen opacity-0 p-[1rem]"
+        className="fixed inset-0 z-30 items-center justify-center h-full min-h-screen w-full opacity-0 p-[1rem]               "
       >
         <div
           ref={menuItemsRef}
           className="flex flex-col items-start justify-center gap-[1rem] max-w-[1280px] mx-auto w-full"
         >
-          <div ref={aboutMeRefDiv} className="w-[203px]">
+          <div ref={aboutMeRefDiv}>
             <h3
               onClick={() => {
                 scrollToSection(aboutMeRef);
                 handleMenuToggle();
               }}
-              className="select-none text-[#333333] hoverable"
+              className="select-none text-[#e7e7e7] hoverable hover:text-opacity-50 transition-all"
             >
-              <span ref={aboutMeRefH3} className="text-[#e7e7e7]">
-                About
-              </span>
-              .
+              About
+              <span className="text-[#333333]">.</span>
             </h3>
           </div>
-          <div ref={experienceRefDiv} className="w-[240px]">
+          <div ref={experienceRefDiv}>
             <h3
               onClick={() => {
                 scrollToSection(experienceRef);
                 handleMenuToggle();
               }}
-              className="select-none text-[#333333] hoverable"
+              className="select-none text-[#e7e7e7] hoverable hover:text-opacity-50 transition-all"
             >
-              <span ref={experienceRefH3} className="text-[#e7e7e7]">Experience</span>.
+              Experience
+              <span className="text-[#333333]">.</span>
             </h3>
           </div>
-          <div ref={projectsRefDiv} className="w-[188px]">
+          <div ref={projectsRefDiv}>
             <h3
               onClick={() => {
                 scrollToSection(projectsRef);
                 handleMenuToggle();
               }}
-              className="select-none text-[#333333] hoverable"
+              className="select-none text-[#e7e7e7] hoverable hover:text-opacity-50 transition-all"
             >
-              <span ref={projectsRefH3} className="text-[#e7e7e7]">
-                Projects
-              </span>
-              .
+              Projects
+              <span className="text-[#333333]">.</span>
             </h3>
           </div>
-          <div ref={contactRefDiv} className="w-[188px]">
+          <div ref={contactRefDiv}>
             <h3
               onClick={() => {
                 scrollToSection(contactRef);
                 handleMenuToggle();
               }}
-              className="select-none text-[#333333] hoverable"
+              className="select-none text-[#e7e7e7] hoverable hover:text-opacity-50 transition-all"
             >
-              <span ref={contactRefH3} className="text-[#e7e7e7]">
-                Contact
-              </span>
-              .
+              Contact
+              <span className="text-[#333333]">.</span>
             </h3>
           </div>
-          <div ref={closeRefDiv} className="w-[188px]">
+          <div ref={closeRefDiv}>
             <h3
               onClick={handleMenuToggle}
-              className="select-none text-[#E50914] hoverable"
+              className="select-none text-[#e7e7e7] hoverable hover:text-opacity-50 transition-all"
             >
-              <span ref={closeRefH3} className="text-[#e7e7e7]">
-                Close
-              </span>
-              .
+              Close
+              <span className="text-[#E50914]">.</span>
             </h3>
           </div>
         </div>

@@ -81,28 +81,14 @@ export default function AboutMeFold() {
     });
   });
 
-  const handleMouseEnter1 = () => {
-    if (text.current) {
-      gsap.to(text.current, { text: "Sur moi", duration: 0.5 });
-    }
-  };
-
-  const handleMouseLeave1 = () => {
-    if (text.current) {
-      gsap.to(text.current, { text: "About", duration: 0.5 });
-    }
-  };
-
   return (
     <div
       ref={trigger}
-      className="h-auto flex flex-col md:grid md:grid-cols-2 md:h-screen items-center justify-center px-4 py-4 max-w-[1280px] min-h-[720px] mx-auto select-none"
+      className="h-full min-h-screen flex flex-col md:grid md:grid-cols-2 items-center justify-center px-4 py-4 max-w-[1280px] mx-auto select-none"
     >
       <div className="flex flex-col justify-center gap-[1rem]">
         <h1
-          className="text-[#333333] w-[265px]"
-          onMouseEnter={handleMouseEnter1}
-          onMouseLeave={handleMouseLeave1}
+          className="text-[#333333]"
         >
           <span ref={text}></span>.
         </h1>

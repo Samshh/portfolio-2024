@@ -118,7 +118,7 @@ export default function LoadingPage({
   };
 
   return (
-    <div className="fixed inset-0 flex flex-col justify-center items-center bg-[#0c0c0c] z-40 gap-[0.25rem] select-none">
+    <div className="h-full min-h-screen fixed inset-0 flex flex-col justify-center items-center bg-[#0c0c0c] z-40 gap-[0.25rem] select-none">
       <div
         ref={startButtonRef}
         className="hidden opacity-0 p-[1rem] flex-col items-center justify-center gap-[0.5rem]"

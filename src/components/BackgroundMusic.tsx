@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import ReactAudioPlayer from "react-audio-player";
 import { Button } from "./ui/button";
 import { Icon } from "@iconify/react";
+import useAnimateButton from "@/animations/animateButton";
 
 interface BackgroundMusicProps {
   hasStarted: boolean;
@@ -10,6 +11,10 @@ interface BackgroundMusicProps {
 export default function BackgroundMusic({ hasStarted }: BackgroundMusicProps) {
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef<ReactAudioPlayer>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
+  const iconRef = useRef<HTMLSpanElement>(null);
+
+  useAnimateButton(iconRef, buttonRef);
 
   useEffect(() => {
     if (audioRef.current?.audioEl.current) {
@@ -42,15 +47,17 @@ export default function BackgroundMusic({ hasStarted }: BackgroundMusicProps) {
 
   return (
     <div>
-      <Button onClick={handleTogglePlay}>
-        <Icon
-          className="text-[25px]"
-          icon={
-            isPlaying
-              ? "solar:music-note-2-bold-duotone"
-              : "solar:music-note-2-line-duotone"
-          }
-        />
+      <Button ref={buttonRef} onClick={handleTogglePlay}>
+        <span ref={iconRef}>
+          <Icon
+            className="text-[25px]"
+            icon={
+              isPlaying
+                ? "solar:music-note-2-bold-duotone"
+                : "solar:music-note-2-line-duotone"
+            }
+          />
+        </span>
       </Button>
       <ReactAudioPlayer
         ref={audioRef}

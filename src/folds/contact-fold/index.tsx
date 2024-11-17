@@ -5,6 +5,7 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import { useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Icon } from "@iconify/react";
+import useAnimateButton from "@/animations/animateButton";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -19,6 +20,9 @@ export default function ContactFold({ footerRef }: ContactFoldProps) {
   const buttonsRef1 = useRef(null);
   const buttonsRef2 = useRef(null);
   const buttonsRef3 = useRef(null);
+  const spanRef1 = useRef(null);
+  const spanRef2 = useRef(null);
+  const spanRef3 = useRef(null);
   const contactTrigger = useRef(null);
   const headlineRef = useRef(null);
 
@@ -78,10 +82,14 @@ export default function ContactFold({ footerRef }: ContactFoldProps) {
       );
   });
 
+  useAnimateButton(spanRef1, buttonsRef1);
+  useAnimateButton(spanRef2, buttonsRef2);
+  useAnimateButton(spanRef3, buttonsRef3);
+
   return (
     <div
       ref={contactTrigger}
-      className="h-screen px-4 py-4 max-w-[1280px] min-h-[400px] mx-auto flex flex-col justify-center items-start select-none relative"
+      className="h-full min-h-screen px-4 py-4 max-w-[1280px] mx-auto flex flex-col justify-center items-start select-none relative"
     >
       <div className="flex flex-grow flex-col justify-center items-start gap-[1.5rem] md:w-1/2">
         <div ref={headlineRef}>
@@ -96,15 +104,25 @@ export default function ContactFold({ footerRef }: ContactFoldProps) {
         </div>
         <div className="flex justify-start flex-wrap items-start gap-[1rem]">
           <a
+            href="mailto:hello@samshh.me"
+            target="_blank"
+            rel="noopener"
+            title="hello@samshh.me"
+          >
+            <Button ref={buttonsRef1}>
+              <span ref={spanRef1}>hello@samshh.me</span>
+            </Button>
+          </a>
+          <a
             href="https://github.com/Samshh/"
             target="_blank"
             rel="noopener"
             title="GitHub"
           >
-            <Button ref={buttonsRef1}>
-              <div className="flex justify-center items-center gap-[.5rem]">
+            <Button ref={buttonsRef2}>
+              <span ref={spanRef2}>
                 <Icon className="text-[24px]" icon="mdi:github" />
-              </div>
+              </span>
             </Button>
           </a>
           <a
@@ -113,23 +131,10 @@ export default function ContactFold({ footerRef }: ContactFoldProps) {
             rel="noopener"
             title="LinkedIn"
           >
-            <Button ref={buttonsRef2}>
-              <div className="flex justify-center items-center gap-[.5rem]">
-                <Icon className="text-[24px]" icon="mdi:linkedin" />
-              </div>
-            </Button>
-          </a>
-          <a
-            href="mailto:hello@samshh.me"
-            target="_blank"
-            rel="noopener"
-            title="hello@samshh.me"
-          >
             <Button ref={buttonsRef3}>
-              <div className="flex justify-center items-center gap-[.5rem]">
-                {/* <Icon className="text-[24px]" icon="bi:envelope" /> */}
-                <p className="font-light">hello@samshh.me</p>
-              </div>
+              <span ref={spanRef3}>
+                <Icon className="text-[24px]" icon="mdi:linkedin" />
+              </span>
             </Button>
           </a>
         </div>

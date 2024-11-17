@@ -1,15 +1,9 @@
 import { useEffect } from "react";
 import { gsap } from "gsap";
-import { TextPlugin } from "gsap/TextPlugin";
-
-gsap.registerPlugin(TextPlugin);
 
 export default function useAnimateButton(
   textRef: React.RefObject<HTMLElement>,
-  triggerRef: React.RefObject<HTMLElement>,
-  textOnEnter: string,
-  textOnLeave: string,
-  duration: number
+  triggerRef: React.RefObject<HTMLElement>
 ) {
   useEffect(() => {
     const triggerElement = triggerRef.current;
@@ -20,17 +14,15 @@ export default function useAnimateButton(
 
     const onMouseEnter = () => {
       gsap.to(textElement, {
-        duration: duration,
-        text: textOnEnter,
-        ease: "expo.inOut",
+        opacity: 0.5,
+        duration: 0.25,
       });
     };
 
     const onMouseLeave = () => {
       gsap.to(textElement, {
-        duration: duration,
-        text: textOnLeave,
-        ease: "expo.inOut",
+        opacity: 1,
+        duration: 0.25,
       });
     };
 
@@ -41,5 +33,5 @@ export default function useAnimateButton(
       triggerElement.removeEventListener("mouseenter", onMouseEnter);
       triggerElement.removeEventListener("mouseleave", onMouseLeave);
     };
-  }, [textRef, triggerRef, textOnEnter, textOnLeave, duration]);
+  }, [textRef, triggerRef]);
 }
