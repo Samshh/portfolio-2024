@@ -7,11 +7,17 @@ export default function SVGGrainEffect() {
       <filter id="noise">
         <feTurbulence
           type="turbulence"
-          baseFrequency="0.30"
-          numOctaves="3"
+          baseFrequency="0.3"
+          numOctaves="1"
           stitchTiles="stitch"
         ></feTurbulence>
-        <feColorMatrix type="saturate" values="0" />
+        <feColorMatrix
+          type="matrix"
+          values="1 0 0 0 1
+                  0 1 0 0 1
+                  0 0 1 0 1
+                  0 0 0 1 0"
+        />
       </filter>
       <rect width="100%" height="100%" filter="url(#noise)" opacity="0.05" />
     </svg>
