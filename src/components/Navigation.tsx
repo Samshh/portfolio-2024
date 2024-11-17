@@ -81,7 +81,7 @@ export default function Navigation({
       if (menuItemsRef.current) {
         gsap.fromTo(
           menuItemsRef.current.children,
-          { x: -50, y: 25, opacity: 0 },
+          { x: -75, y: 25, opacity: 0 },
           {
             x: 0,
             y: 0,
@@ -100,7 +100,7 @@ export default function Navigation({
           y: 25,
           opacity: 0,
           duration: 1,
-          ease: "power3.out",
+          ease: "power3.inOut",
           stagger: 0.05,
         });
       }
