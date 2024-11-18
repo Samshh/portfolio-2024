@@ -98,7 +98,7 @@ export default function AboutMeFold() {
           code, I'm a passionate musician and anime enthusiast.
         </h5>
         <div className="w-full h-[1px] bg-[#333333]"></div>
-        <div className="flex flex-wrap justify-start items-center gap-[0.5rem]">
+        <div className="flex flex-wrap justify-start items-center gap-[0.5rem] mt-[0.5rem]">
           {[
             { icon: "akar-icons:react-fill", label: "React" },
             { icon: "cib:typescript", label: "TypeScript" },

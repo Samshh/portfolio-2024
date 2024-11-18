@@ -60,7 +60,7 @@ const ProjectAccordion = forwardRef<HTMLDivElement, ProjectAccordionProps>(
             <div className="flex justify-start items-start">
               <h6 className="font-light md:w-1/2">{children}</h6>
             </div>
-            <div className="flex flex-wrap gap-[1rem] justify-start items-center">
+            <div className="flex flex-wrap gap-[0.5rem] justify-start items-center">
               {techStack.map((tech) => (
                 <div
                   key={tech.label}

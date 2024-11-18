@@ -16,6 +16,7 @@ export default function ProjectsFold() {
   const accordionRef3 = useRef(null);
   const accordionRef4 = useRef(null);
   const accordionRef5 = useRef(null);
+  const accordionRef6 = useRef(null);
 
   useGSAP(() => {
     animateText(text, trigger, "Travaux", "Projects", 2);
@@ -43,6 +44,7 @@ export default function ProjectsFold() {
         accordionRef3.current,
         accordionRef4.current,
         accordionRef5.current,
+        accordionRef6.current,
       ],
       { opacity: 0, y: 50, x: -50 },
       { opacity: 1, y: 0, x: 0, stagger: 0.15, duration: 1, ease: "power3.out" }
@@ -56,9 +58,7 @@ export default function ProjectsFold() {
     >
       <div className="w-full h-auto flex flex-col gap-[1rem]">
         <h1>
-          <span
-            ref={text}
-          ></span>
+          <span ref={text}></span>
           <span className="text-[#333333]">.</span>
         </h1>
       </div>
@@ -72,6 +72,22 @@ export default function ProjectsFold() {
           <ProjectAccordion
             ref={accordionRef1}
             value="item-1"
+            title="CHEDˣ2.0"
+            role="Lead Front-end Developer"
+            link="https://chedx2024.usep.edu.ph/"
+            linkLabel="Website"
+            techStack={[
+              { icon: "akar-icons:react-fill", label: "React" },
+              { icon: "file-icons:tailwind", label: "Tailwind" },
+              { icon: "cib:greensock", label: "GSAP" },
+            ]}
+          >
+            The CHEDˣ2.0 Summit is an innovative 2-day event happening from
+            December 4-5, 2024, at the SMX Convention Center, Davao City.
+          </ProjectAccordion>
+          <ProjectAccordion
+            ref={accordionRef2}
+            value="item-2"
             title="MMCM OPED"
             role="Lead Front-end Developer & Designer"
             link="https://mmcm-ocp.com/"
@@ -85,8 +101,8 @@ export default function ProjectsFold() {
             find the best companies for their internship.
           </ProjectAccordion>
           <ProjectAccordion
-            ref={accordionRef2}
-            value="item-2"
+            ref={accordionRef3}
+            value="item-3"
             title="MMCM CCIS"
             role="Lead Front-end Developer & Designer"
             link="https://mmcm-ccis.vercel.app/"
@@ -94,14 +110,15 @@ export default function ProjectsFold() {
             techStack={[
               { icon: "akar-icons:react-fill", label: "React" },
               { icon: "file-icons:tailwind", label: "Tailwind" },
+              { icon: "cib:greensock", label: "GSAP" },
             ]}
           >
-            A Landing page for the College of Computer and Information Science
+            A landing site for the College of Computer and Information Science
             in Mapúa Malayan Colleges Mindanao.
           </ProjectAccordion>
           <ProjectAccordion
-            ref={accordionRef3}
-            value="item-3"
+            ref={accordionRef4}
+            value="item-4"
             title="ChainMed"
             role="Front-end Developer & Designer"
             link="https://github.com/Samshh/Hackathon-Project---The-Launchpad"
@@ -116,8 +133,8 @@ export default function ProjectsFold() {
             automating healthcare.
           </ProjectAccordion>
           <ProjectAccordion
-            ref={accordionRef4}
-            value="item-4"
+            ref={accordionRef5}
+            value="item-5"
             title="sAminate"
             role="Front-end Developer"
             link="https://www.npmjs.com/package/saminate"
@@ -131,8 +148,8 @@ export default function ProjectsFold() {
             websites, this includes a website demo to showcase those animations.
           </ProjectAccordion>
           <ProjectAccordion
-            ref={accordionRef5}
-            value="item-5"
+            ref={accordionRef6}
+            value="item-6"
             title="TicketLy"
             role="Software Developer"
             link="https://github.com/Samshh/DiscordBot"

@@ -17,6 +17,7 @@ export default function ExperienceStruct({title, role, subtitle}: ExperienceStru
       <h6 className="font-light">
         {subtitle}
       </h6>
+      <div className="w-full h-[1px] bg-[#333333]"></div>
     </div>
   );
 }
