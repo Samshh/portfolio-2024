@@ -2,6 +2,8 @@
 <html lang="en" translate="no">
   <head>
     <meta charset="UTF-8" />
+    <title>Sam Dacara</title>
+
     <link rel="icon" type="image/svg" href="/favicon.svg" />
     <link rel="canonical" href="https://samshh.me/" />
     <link rel="icon" href="/favicon.ico" />
@@ -11,19 +13,19 @@
       sizes="180x180"
     />
     <link rel="mask-icon" href="/mask-icon.svg" color="#333333" />
-    <meta name="theme-color" content="#333333" />
     <link
       rel="stylesheet"
       href="https://unpkg.com/lenis@1.1.9/dist/lenis.css"
     />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Sam Dacara</title>
+    <meta name="theme-color" content="#333333" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
       content="Welcome to the portfolio of Sam Dacara, a front-end developer specializing in React"
     />
 
+    <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Sam Dacara" />
     <meta
       property="og:description"
@@ -33,6 +35,7 @@
     <meta property="og:url" content="https://www.samshh.me/" />
     <meta property="og:type" content="website" />
 
+    <!-- Twitter Meta Tags -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Sam Dacara" />
     <meta
@@ -41,20 +44,37 @@
     />
     <meta name="twitter:image" content="/me.jpeg" />
 
+    <!-- Google Search Console Verification -->
     <meta
       name="google-site-verification"
       content="PlyYu3f2TzO_CqFyTOntTcjwlNsREQMUZPfxRYQ6rzU"
     />
 
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Mrs+Saint+Delafield&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
       rel="stylesheet"
     />
+
+    <style>
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>
+    <h1 class="sr-only">Sam Dacara | Portfolio</h1>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
