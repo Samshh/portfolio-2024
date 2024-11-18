@@ -86,7 +86,7 @@ export default function AboutMeFold() {
       ref={trigger}
       className="h-full min-h-screen flex flex-col md:grid md:grid-cols-2 items-center justify-center px-4 py-4 max-w-[1280px] mx-auto select-none"
     >
-      <div className="flex flex-col justify-center gap-[1rem]">
+      <div className="flex flex-col justify-center gap-[0.75rem]">
         <h1
           className="text-[#333333]"
         >

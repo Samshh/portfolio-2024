@@ -50,6 +50,7 @@ export default function App() {
         opacity: 0,
         ease: "power2.out",
         onComplete: () => {
+          gsap.to(loading.current, { display: "none" });
           if (navRef.current) {
             gsap.to(navRef.current, {
               duration: 1,
