@@ -43,7 +43,7 @@ const ProjectAccordion = forwardRef<HTMLDivElement, ProjectAccordionProps>(
           <div className="flex flex-col gap-[1rem]">
             <em>
               <div className="flex flex-col items-start md:items-center md:justify-between md:flex-row gap-4">
-                <h6 className="font-light">Role: {role}</h6>
+                <h6 className="font-normal text-[#737373]">Role: {role}</h6>
                 <a
                   href={link}
                   target={isExternalLink ? "_blank" : "_self"}
