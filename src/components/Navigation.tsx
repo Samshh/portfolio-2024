@@ -38,7 +38,6 @@ export default function Navigation({
   const navButton = useRef<HTMLButtonElement>(null);
   const menuRef = useRef<HTMLDivElement>(null);
   const menuItemsRef = useRef<HTMLDivElement>(null);
-  const hideOnToggle = useRef<HTMLDivElement>(null);
   const debounceTimeout = useRef<NodeJS.Timeout | null>(null);
 
   const aboutMeRefDiv = useRef<HTMLDivElement>(null);
@@ -66,18 +65,20 @@ export default function Navigation({
 
   useGSAP(() => {
     if (menuOpen) {
-      gsap.to(hideOnToggle.current, {
+      gsap.to(navRef.current, {
         duration: 0.5,
         opacity: 0,
         y: -50,
         ease: "power1.in",
       });
+
       gsap.to(menuRef.current, {
         duration: 0.5,
         opacity: 1,
         ease: "power1.out",
         display: "flex",
       });
+
       if (menuItemsRef.current) {
         gsap.fromTo(
           menuItemsRef.current.children,
@@ -112,7 +113,7 @@ export default function Navigation({
         display: "none",
       });
 
-      gsap.to(hideOnToggle.current, {
+      gsap.to(navRef.current, {
         duration: 0.5,
         opacity: 1,
         y: 0,
@@ -125,36 +126,35 @@ export default function Navigation({
   useAnimateButton(text2, navButton);
 
   return (
-    <nav
-      ref={navRef}
-      className="z-30 sticky top-0 select-none opacity-0 transform -translate-y-12"
-    >
-      <div
-        ref={hideOnToggle}
-        className="flex justify-between items-center px-4 pt-4 max-w-[1280px] min-w-[320px] mx-auto"
+    <>
+      <nav
+        ref={navRef}
+        className="z-30 sticky top-0 select-none opacity-0 transform -translate-y-12 border-[#333333] border-b bg-[#0c0c0c] bg-opacity-75"
       >
-        <Button
-          ref={homeButton}
-          onClick={() => scrollToSection(heroRef)}
-          disabled={buttonDisabled}
-          variant={"special"}
-        >
-          <span ref={text}>SAM</span>
-        </Button>
-        <div className="flex items-center justify-center gap-[1rem]">
-          <BackgroundMusic hasStarted={hasStarted} />
-
+        <div className="flex justify-between items-center px-4 py-4 max-w-[1280px] min-w-[320px] mx-auto">
           <Button
-            ref={navButton}
-            onClick={handleMenuToggle}
+            ref={homeButton}
+            onClick={() => scrollToSection(heroRef)}
             disabled={buttonDisabled}
             variant={"special"}
           >
-            <span ref={text2}>NAV</span>
+            <span ref={text}>SAM</span>
           </Button>
+          <div className="flex items-center justify-center gap-[1rem]">
+            <BackgroundMusic hasStarted={hasStarted} />
+
+            <Button
+              ref={navButton}
+              onClick={handleMenuToggle}
+              disabled={buttonDisabled}
+              variant={"special"}
+            >
+              <span ref={text2}>NAV</span>
+            </Button>
+          </div>
         </div>
-      </div>
-      <div
+      </nav>
+      <nav
         ref={menuRef}
         className="fixed inset-0 z-30 items-center justify-center h-full min-h-screen w-full opacity-0 p-[1rem]               "
       >
@@ -220,7 +220,7 @@ export default function Navigation({
             </h3>
           </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+    </>
   );
 }
