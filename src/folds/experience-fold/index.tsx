@@ -42,7 +42,7 @@ export default function ExperienceFold() {
   return (
     <div
       ref={trigger}
-      className="h-full px-4 py-4 flex flex-col items-start justify-center min-h-screen max-w-[1280px] mx-auto select-none gap-[1rem]"
+      className="h-full px-4 py-4 flex flex-col items-start justify-center min-h-[80vh] max-w-[1280px] mx-auto select-none gap-[1rem]"
     >
       <div className="w-full h-auto flex flex-col">
         <h1>

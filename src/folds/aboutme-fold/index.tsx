@@ -12,6 +12,7 @@ gsap.registerPlugin(TextPlugin, ScrollTrigger);
 export default function AboutMeFold() {
   const trigger = useRef(null);
   const text2 = useRef<HTMLHeadingElement>(null);
+  const text3 = useRef(null);
   const text = useGradientText();
   const today = new Date();
   const currentYear = today.getFullYear();
@@ -32,6 +33,20 @@ export default function AboutMeFold() {
 
     const text2Element = text2.current;
     if (!text2Element) return;
+
+    gsap.from(text3.current, {
+      opacity: 0,
+      duration: 0.5,
+      delay: 0.25,
+      y: 25,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: trigger.current,
+        start: "top center",
+        end: "bottom center",
+        toggleActions: "play none none reverse",
+      }
+    });
 
     const words = text2Element.textContent?.split(" ") || [];
     text2Element.innerHTML = words
@@ -84,21 +99,22 @@ export default function AboutMeFold() {
   return (
     <div
       ref={trigger}
-      className="h-full min-h-screen flex flex-col md:grid md:grid-cols-2 items-center justify-center px-4 py-4 max-w-[1280px] mx-auto select-none"
+      className="h-full min-h-[80vh] flex flex-col md:grid md:grid-cols-2 items-center justify-center px-4 py-4 max-w-[1280px] mx-auto select-none"
     >
       <div className="flex flex-col justify-center gap-[0.75rem]">
-        <h1
-          className="text-[#333333]"
-        >
+        <h1 className="text-[#333333]">
           <span ref={text}></span>.
         </h1>
         <h5 ref={text2} className="font-light flex flex-wrap">
-          I'm a {age}-year-old front-end developer from the Philippines
-          specializing in seamless 2D & 3D web animations. Outside of
-          code, I'm a passionate musician and anime enthusiast.
+          I'm a {age}-year-old front-end developer from the Philippines, and I
+          create seamless 2D & 3D web animations. Outside of code, I'm a
+          passionate musician and anime enthusiast.
         </h5>
         <div className="w-full h-[1px] bg-[#333333]"></div>
-        <div className="flex flex-wrap justify-start items-center gap-[0.5rem] mt-[0.5rem]">
+        <em>
+          <h6 ref={text3} className="font-normal text-[#737373] leading-6">tech / tools:</h6>
+        </em>
+        <div className="flex flex-wrap justify-start items-center gap-[0.5rem]">
           {[
             { icon: "akar-icons:react-fill", label: "React" },
             { icon: "cib:typescript", label: "TypeScript" },
