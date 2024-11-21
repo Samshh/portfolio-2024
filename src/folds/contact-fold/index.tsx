@@ -143,11 +143,11 @@ export default function ContactFold({ footerRef }: ContactFoldProps) {
         ref={footerRef}
         className="w-full max-w-[1280px] flex flex-col md:justify-between md:flex-row items-center"
       >
-        <p className="font-normal text-[1rem] text-[#535353] font-serif">
+        <p className="font-normal text-center text-[1rem] text-[#535353] font-serif">
           <span className="font-special text-[1.75rem] mr-[0.5rem]">
             Samuel
           </span>
-          <em> | ©<span className="text-[1.27rem] font-thin">2024</span> | All Rights Reserved</em>
+          <em> | © All Rights Reserved</em>
         </p>
         <em className="font-normal text-[1rem] text-[#535353] font-serif">
           Powered by Vercel
