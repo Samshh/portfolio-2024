@@ -36,7 +36,7 @@ export default function AboutMeFold() {
 
     gsap.from(text3.current, {
       opacity: 0,
-      duration: 0.5,
+      duration: 1,
       delay: 0.25,
       y: 25,
       ease: "power2.out",
@@ -45,7 +45,7 @@ export default function AboutMeFold() {
         start: "top center",
         end: "bottom center",
         toggleActions: "play none none reverse",
-      }
+      },
     });
 
     const words = text2Element.textContent?.split(" ") || [];
@@ -112,7 +112,9 @@ export default function AboutMeFold() {
         </h5>
         <div className="w-full h-[1px] bg-[#333333]"></div>
         <em>
-          <h6 ref={text3} className="font-normal text-[#737373] leading-6">tech / tools:</h6>
+          <h6 ref={text3} className="font-normal text-[#737373] leading-6">
+            tech / tools:
+          </h6>
         </em>
         <div className="flex flex-wrap justify-start items-center gap-[0.5rem]">
           {[
