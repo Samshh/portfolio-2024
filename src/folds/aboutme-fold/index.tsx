@@ -99,7 +99,7 @@ export default function AboutMeFold() {
   return (
     <div
       ref={trigger}
-      className="h-full min-h-[80vh] flex flex-col md:grid md:grid-cols-2 items-center justify-center px-4 py-4 max-w-[1280px] mx-auto select-none"
+      className="h-full min-h-[80vh] gap-[1rem] grid grid-cols-1 md:grid-cols-2 items-center justify-center px-4 py-4 max-w-[1280px] mx-auto select-none"
     >
       <div className="flex flex-col justify-center gap-[0.75rem]">
         <h1 className="text-[#333333]">
@@ -136,6 +136,13 @@ export default function AboutMeFold() {
           ))}
         </div>
       </div>
+      {/* <div className="lg:px-[4rem] flex justify-center items-center">
+        <img
+          className="rounded-full border-2 border-[#333333] max-w-[25rem]"
+          src="/me.jpg"
+          alt="Sam Dacara"
+        />
+      </div> */}
     </div>
   );
 }

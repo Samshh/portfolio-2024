@@ -147,7 +147,7 @@ export default function ContactFold({ footerRef }: ContactFoldProps) {
           <span className="font-special text-[1.75rem] mr-[0.5rem]">
             Samuel
           </span>
-          <em> | © All Rights Reserved</em>
+          <em> | ©<span className="text-[1.27rem] font-thin">2024</span> | All Rights Reserved</em>
         </p>
         <em className="font-normal text-[1rem] text-[#535353] font-serif">
           Powered by Vercel
