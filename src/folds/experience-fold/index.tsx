@@ -38,36 +38,37 @@ export default function ExperienceFold() {
     );
   });
 
-
   return (
     <div
       ref={trigger}
-      className="h-full px-4 py-4 flex flex-col items-start justify-center min-h-[80vh] max-w-[1280px] mx-auto select-none gap-[1rem]"
+      className="h-full min-h-[80vh] grid grid-cols-1 md:grid-cols-2 items-center justify-center px-4 py-4 max-w-[1280px] mx-auto select-none"
     >
-      <div className="w-full h-auto flex flex-col">
-        <h1>
-          <span ref={text}></span>
-          <span className="text-[#333333]">.</span>
-        </h1>
-      </div>
-      <div className="flex flex-col">
-        <div ref={experienceRef1}>
-          <ExperienceStruct
-            title="Freelance Work"
-            role="Front-end Developer & Web Designer (2022-Present)"
-          />
+      <div className="flex flex-col items-start justify-center gap-[0.75rem]">
+        <div className="w-full h-auto flex flex-col">
+          <h1>
+            <span ref={text}></span>
+            <span className="text-[#333333]">.</span>
+          </h1>
         </div>
-        <div ref={experienceRef2}>
-          <ExperienceStruct
-            title="Mapúa Malayan Colleges Mindanao"
-            role="OCP Lead Front-end Developer (2024-Present)"
-          />
-        </div>
-        <div ref={experienceRef3}>
-          <ExperienceStruct
-            title="Google Developer Groups Davao"
-            role="Technical Staff (2024-Present)"
-          />
+        <div className="flex flex-col w-full">
+          <div ref={experienceRef1}>
+            <ExperienceStruct
+              title="Freelance Work"
+              role="Front-end Developer & Web Designer (2022-Present)"
+            />
+          </div>
+          <div ref={experienceRef2}>
+            <ExperienceStruct
+              title="Mapúa Malayan Colleges Mindanao"
+              role="OCP Lead Front-end Developer (2024-Present)"
+            />
+          </div>
+          <div ref={experienceRef3}>
+            <ExperienceStruct
+              title="Google Developer Groups Davao"
+              role="Technical Staff (2024-Present)"
+            />
+          </div>
         </div>
       </div>
     </div>
