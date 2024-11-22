@@ -43,7 +43,7 @@ export default function ExperienceFold() {
       ref={trigger}
       className="h-full min-h-[80vh] grid grid-cols-1 md:grid-cols-2 items-center justify-center px-4 py-4 max-w-[1280px] mx-auto select-none"
     >
-      <div className="flex flex-col items-start justify-center gap-[0.75rem]">
+      <div className="flex flex-col items-start justify-center gap-[1rem]">
         <div className="w-full h-auto flex flex-col">
           <h1>
             <span ref={text}></span>
