@@ -11,6 +11,7 @@ export default function ExperienceFold() {
   const experienceRef1 = useRef(null);
   const experienceRef2 = useRef(null);
   const experienceRef3 = useRef(null);
+  const experienceRef4 = useRef(null);
 
   useGSAP(() => {
     animateText(text, trigger, "Parcours", "Experience", 2);
@@ -32,7 +33,7 @@ export default function ExperienceFold() {
     });
 
     tl.fromTo(
-      [experienceRef1.current, experienceRef2.current, experienceRef3.current],
+      [experienceRef1.current, experienceRef2.current, experienceRef3.current, experienceRef4.current],
       { opacity: 0, y: 50, x: -50 },
       { opacity: 1, y: 0, x: 0, stagger: 0.15, duration: 1, ease: "power3.out" }
     );
@@ -54,19 +55,25 @@ export default function ExperienceFold() {
           <div ref={experienceRef1}>
             <ExperienceStruct
               title="Freelance Work"
-              role="Front-end Developer & Web Designer (2022-Present)"
+              role="Front-end Developer & Web Designer (Jul. 2022-Present)"
             />
           </div>
           <div ref={experienceRef2}>
             <ExperienceStruct
-              title="Mapúa Malayan Colleges Mindanao"
-              role="OCP Lead Front-end Developer (2024-Present)"
+              title="Tactiv Studios"
+              role="Front-end Developer (Dec. 2024-Present)"
             />
           </div>
           <div ref={experienceRef3}>
             <ExperienceStruct
+              title="Mapúa Malayan Colleges Mindanao"
+              role="OCP Lead Front-end Developer (Sept. 2024-Present)"
+            />
+          </div>
+          <div ref={experienceRef4}>
+            <ExperienceStruct
               title="Google Developer Groups Davao"
-              role="Technical Staff (2024-Present)"
+              role="Technical Staff (Mar. 2024-Present)"
             />
           </div>
         </div>
