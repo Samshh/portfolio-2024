@@ -101,10 +101,7 @@ export default function HeroFold({ projectsRef, contactRef }: HeroFoldProps) {
     <div className="h-full min-h-screen px-4 py-4 flex items-center max-w-[1280px] mx-auto select-none">
       <div className="flex flex-col justify-center h-full md:w-1/2 gap-[1.5rem]">
         <div className="flex flex-col justify-center items-start">
-          <h4
-            className="font-thin text-[#535353]"
-            ref={introTextRef}
-          >
+          <h4 className="font-thin text-[#535353]" ref={introTextRef}>
             Sam Dacara
           </h4>
 

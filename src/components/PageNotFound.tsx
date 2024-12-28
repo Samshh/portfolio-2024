@@ -28,7 +28,10 @@ export default function PageNotFound() {
   return (
     <>
       <SVGGrainEffect />
-      <div ref={pageRef} className="relative w-full h-screen justify-center items-center flex flex-col select-none gap-[0.5rem]">
+      <div
+        ref={pageRef}
+        className="relative w-full h-screen justify-center items-center flex flex-col select-none gap-[0.5rem]"
+      >
         <em className="text-center text-[#535353] flex flex-col gap-[0.5rem]">
           <p className="text-[0.7rem]">(A lost star of the night)</p>
           <h4 className="font-thin font-special astra">Astra perdita noctis</h4>

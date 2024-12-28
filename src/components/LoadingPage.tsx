@@ -72,7 +72,7 @@ export default function LoadingPage({
           ease: "expo.inOut",
           onStart: () => {
             document.title = "Sam Dacara | Start";
-          }
+          },
         })
         .to(progressRef.current, {
           opacity: 0,

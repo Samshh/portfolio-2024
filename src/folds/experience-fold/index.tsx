@@ -33,7 +33,12 @@ export default function ExperienceFold() {
     });
 
     tl.fromTo(
-      [experienceRef1.current, experienceRef2.current, experienceRef3.current, experienceRef4.current],
+      [
+        experienceRef1.current,
+        experienceRef2.current,
+        experienceRef3.current,
+        experienceRef4.current,
+      ],
       { opacity: 0, y: 50, x: -50 },
       { opacity: 1, y: 0, x: 0, stagger: 0.15, duration: 1, ease: "power3.out" }
     );

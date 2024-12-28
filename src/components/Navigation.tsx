@@ -156,7 +156,7 @@ export default function Navigation({
       </nav>
       <nav
         ref={menuRef}
-        className="fixed inset-0 z-30 items-center justify-center h-full min-h-screen w-full opacity-0 p-[1rem]               "
+        className="fixed inset-0 z-30 items-center justify-center h-full min-h-screen w-full opacity-0 p-[1rem]"
       >
         <div
           ref={menuItemsRef}
@@ -168,7 +168,7 @@ export default function Navigation({
                 scrollToSection(aboutMeRef);
                 handleMenuToggle();
               }}
-              className="select-none text-[#e7e7e7] hoverable hover:text-opacity-50 transition-all"
+              className="select-none cursor-pointer text-[#e7e7e7] hoverable hover:text-opacity-50 transition-all"
             >
               About
               <span className="text-[#333333]">.</span>
@@ -180,7 +180,7 @@ export default function Navigation({
                 scrollToSection(experienceRef);
                 handleMenuToggle();
               }}
-              className="select-none text-[#e7e7e7] hoverable hover:text-opacity-50 transition-all"
+              className="select-none cursor-pointer text-[#e7e7e7] hoverable hover:text-opacity-50 transition-all"
             >
               Experience
               <span className="text-[#333333]">.</span>
@@ -192,7 +192,7 @@ export default function Navigation({
                 scrollToSection(projectsRef);
                 handleMenuToggle();
               }}
-              className="select-none text-[#e7e7e7] hoverable hover:text-opacity-50 transition-all"
+              className="select-none cursor-pointer text-[#e7e7e7] hoverable hover:text-opacity-50 transition-all"
             >
               Projects
               <span className="text-[#333333]">.</span>
@@ -204,7 +204,7 @@ export default function Navigation({
                 scrollToSection(contactRef);
                 handleMenuToggle();
               }}
-              className="select-none text-[#e7e7e7] hoverable hover:text-opacity-50 transition-all"
+              className="select-none cursor-pointer text-[#e7e7e7] hoverable hover:text-opacity-50 transition-all"
             >
               Contact
               <span className="text-[#333333]">.</span>
@@ -213,7 +213,7 @@ export default function Navigation({
           <div ref={closeRefDiv}>
             <h3
               onClick={handleMenuToggle}
-              className="select-none text-[#e7e7e7] hoverable hover:text-opacity-50 transition-all"
+              className="select-none cursor-pointer text-[#e7e7e7] hoverable hover:text-opacity-50 transition-all"
             >
               Close
               <span className="text-[#E50914]">.</span>
